@@ -119,7 +119,7 @@
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
-    text-shadow:0 0 24px rgba(255,255,255,.04);
+    text-shadow:0 0 40px rgba(255,255,255,.05);
   }
 
   .hero p{
@@ -133,7 +133,7 @@
   .cards{
     display:grid;
     grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:22px;
+    gap:26px;
     align-items:stretch;
   }
 
@@ -147,7 +147,7 @@
     text-decoration:none;
     color:var(--text);
     background:
-      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.038));
+      linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.055));
     border:1px solid var(--border);
     border-radius:var(--radius);
     box-shadow:var(--shadow);
@@ -249,7 +249,7 @@
     display:grid;
     place-items:center;
     border-radius:999px;
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.09);
     border:1px solid rgba(255,255,255,.08);
     font-size:1rem;
     transition:
@@ -283,6 +283,10 @@
   .agency .accent{ background:#8d70ff; }
   .misc .accent{ background:#ff7ec4; }
   .glossary .accent{ background:#d8d8d8; }
+
+.card:hover .accent {
+  box-shadow: 0 0 12px currentColor;
+}
 
   /* glows */
   .knowledge::before{
