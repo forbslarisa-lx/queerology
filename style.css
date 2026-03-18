@@ -382,7 +382,9 @@
 .card.long::before{
   filter: blur(58px);
 }
-
+.card.long:hover .accent {
+  box-shadow: 0 0 12px currentColor;
+}
 /* keep normativity special even when long */
 .card.normativity.long{
   background:
