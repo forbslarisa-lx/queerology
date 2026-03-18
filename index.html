@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Queerology Knowledge Base</title>
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg-2:#111;
+      --panel:rgba(255,255,255,.055);
+      --panel-2:rgba(255,255,255,.07);
+      --border:rgba(255,255,255,.08);
+      --text:#f5f5f5;
+      --muted:#b8b8b8;
+      --shadow:0 16px 40px rgba(0,0,0,.35);
+      --radius:24px;
+      --max:1240px;
+      --transition:280ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.035) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,.03) 100%),
+        radial-gradient(circle at 12% 20%, rgba(255,255,255,.05) 0%, transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(255,255,255,.04) 0%, transparent 24%),
+        linear-gradient(180deg, #050505 0%, #0a0a0a 38%, #0c0c0c 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    /* geometric / grayscale texture */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      opacity:.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(255,255,255,.025) 0 2px, transparent 2px 28px);
+      background-size: 42px 42px, 42px 42px, 180px 180px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.45));
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.45));
+    }
+
+    /* soft rainbow hints */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:-10%;
+      pointer-events:none;
+      z-index:0;
+      opacity:.24;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(255, 0, 120, .12), transparent 24%),
+        radial-gradient(circle at 82% 12%, rgba(0, 170, 255, .10), transparent 22%),
+        radial-gradient(circle at 76% 64%, rgba(0, 255, 140, .09), transparent 22%),
+        radial-gradient(circle at 22% 82%, rgba(255, 210, 0, .09), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(160, 90, 255, .08), transparent 28%);
+      filter: blur(48px) saturate(110%);
+      animation: hueFloat 18s ease-in-out infinite alternate;
+      transform: translateZ(0);
+    }
+
+    @keyframes hueFloat{
+      0%{
+        transform: translate3d(0,0,0) scale(1);
+        opacity:.18;
+      }
+      50%{
+        transform: translate3d(0,-1.5%,0) scale(1.03);
+        opacity:.28;
+      }
+      100%{
+        transform: translate3d(0,2%,0) scale(1.05);
+        opacity:.24;
+      }
+    }
+
+    .page{
+      position:relative;
+      z-index:1;
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+      padding:72px 0 88px;
+    }
+
+    .hero{
+      margin-bottom:44px;
+      padding:28px 0 10px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin:0 0 14px;
+      padding:8px 14px;
+      font-size:.78rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#d7d7d7;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:999px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2.3rem, 5vw, 4.6rem);
+      line-height:.96;
+      letter-spacing:-0.04em;
+      max-width:10ch;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1.06rem;
+      line-height:1.7;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:220px;
+      padding:24px 24px 22px;
+      text-decoration:none;
+      color:var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.035));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      isolation:isolate;
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-30%;
+      z-index:-2;
+      opacity:0;
+      filter:blur(34px);
+      transition:opacity var(--transition), transform var(--transition);
+      transform:scale(.9);
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.04), transparent 35%, rgba(255,255,255,.02));
+      opacity:1;
+    }
+
+    .card:hover{
+      transform:translateY(-6px) scale(1.018);
+      border-color:rgba(255,255,255,.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.072), rgba(255,255,255,.045));
+    }
+
+    .card:hover::before{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .card h2{
+      margin:0;
+      font-size:clamp(1.25rem, 2.2vw, 1.7rem);
+      line-height:1.14;
+      letter-spacing:-0.03em;
+      max-width:18ch;
+    }
+
+    .card-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .open{
+      font-size:.92rem;
+      color:#dadada;
+      opacity:.9;
+      letter-spacing:.01em;
+    }
+
+    .arrow{
+      flex:0 0 auto;
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:1rem;
+      transition:transform var(--transition), background var(--transition);
+    }
+
+    .card:hover .arrow{
+      transform:translateX(2px) translateY(-1px);
+      background:rgba(255,255,255,.11);
+    }
+
+    .long{
+      grid-column:1 / -1;
+      min-height:200px;
+    }
+
+    /* Rainbow glows */
+    .glow-knowledge::before{
+      background:
+        radial-gradient(circle, rgba(156, 92, 255, .32) 0%, rgba(156, 92, 255, 0) 62%);
+    }
+    .glow-identity::before{
+      background:
+        radial-gradient(circle, rgba(255, 80, 164, .3) 0%, rgba(255, 80, 164, 0) 62%);
+    }
+    .glow-gender::before{
+      background:
+        radial-gradient(circle, rgba(255, 106, 106, .3) 0%, rgba(255, 106, 106, 0) 62%);
+    }
+    .glow-women::before{
+      background:
+        radial-gradient(circle, rgba(255, 140, 90, .3) 0%, rgba(255, 140, 90, 0) 62%);
+    }
+    .glow-race::before{
+      background:
+        radial-gradient(circle, rgba(255, 196, 67, .3) 0%, rgba(255, 196, 67, 0) 62%);
+    }
+    .glow-colonialism::before{
+      background:
+        radial-gradient(circle, rgba(201, 166, 90, .28) 0%, rgba(201, 166, 90, 0) 62%);
+    }
+    .glow-immigration::before{
+      background:
+        radial-gradient(circle, rgba(124, 211, 118, .28) 0%, rgba(124, 211, 118, 0) 62%);
+    }
+    .glow-power::before{
+      background:
+        radial-gradient(circle, rgba(87, 221, 175, .28) 0%, rgba(87, 221, 175, 0) 62%);
+    }
+    .glow-language::before{
+      background:
+        radial-gradient(circle, rgba(70, 190, 255, .28) 0%, rgba(70, 190, 255, 0) 62%);
+    }
+    .glow-nature::before{
+      background:
+        radial-gradient(circle, rgba(84, 223, 205, .28) 0%, rgba(84, 223, 205, 0) 62%);
+    }
+    .glow-agency::before{
+      background:
+        radial-gradient(circle, rgba(146, 112, 255, .32) 0%, rgba(146, 112, 255, 0) 62%);
+    }
+    .glow-misc::before{
+      background:
+        radial-gradient(circle, rgba(255, 126, 196, .26) 0%, rgba(255, 126, 196, 0) 62%);
+    }
+    .glow-glossary::before{
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, .18) 0%, rgba(255, 255, 255, 0) 62%);
+    }
+
+    /* Normativity card */
+    .normativity{
+      background:
+        linear-gradient(180deg, rgba(185,185,185,.14), rgba(110,110,110,.11));
+      border-color:rgba(255,255,255,.12);
+    }
+
+    .normativity::before{
+      background:
+        radial-gradient(circle, rgba(255,255,255,.20) 0%, rgba(255,255,255,0) 62%);
+    }
+
+    .normativity h2,
+    .normativity .open{
+      color:#f1f1f1;
+    }
+
+    .normativity:hover{
+      background:
+        linear-gradient(180deg, rgba(24,24,24,.95), rgba(12,12,12,.98));
+      border-color:rgba(255,255,255,.18);
+      box-shadow:
+        0 18px 50px rgba(0,0,0,.5),
+        0 0 34px rgba(255,255,255,.09);
+    }
+
+    .normativity:hover .arrow{
+      background:rgba(255,255,255,.12);
+    }
+
+    @media (max-width: 900px){
+      .page{
+        width:min(100% - 28px, var(--max));
+        padding-top:48px;
+      }
+
+      .cards{
+        gap:18px;
+      }
+
+      .card{
+        min-height:200px;
+        padding:22px 20px 20px;
+      }
+    }
+
+    @media (max-width: 700px){
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .long{
+        grid-column:auto;
+      }
+
+      .hero h1{
+        max-width:unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Queerology · knowledge base</div>
+      <h1>Mapping power, identity, language, and the social world</h1>
+      <p>
+        This project brings together critical frameworks for understanding identity,
+        gender, normativity, power, language, media, colonialism, and the politics of knowledge.
+        It is designed as an open, navigable system rather than a linear course.
+      </p>
+    </section>
+
+    <section class="cards">
+      <a class="card glow-knowledge" href="knowledge.html">
+        <h2>Knowledge. How we know.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-identity" href="identity.html">
+        <h2>Identity. How selves are formed, named, and negotiated.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card normativity long" href="normativity.html">
+        <h2>Normativity. Who defines the normal, and what happens to everyone else.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-gender" href="gender.html">
+        <h2>Gender. Biology vs identity, sexuality, performativity, and social construction.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-women" href="women.html">
+        <h2>Women. The first “Other”, feminism, patriarchy, and historical struggle.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-race long" href="race.html">
+        <h2>Race. Intersectionality, systems of oppression, othering, and dehumanization.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-colonialism" href="colonialism.html">
+        <h2>Colonialism. Empire, classification, domination, and the afterlives of power.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-immigration" href="immigration.html">
+        <h2>Immigration. Ethnicity, belonging, borders, exclusion, and identity in motion.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-power long" href="power.html">
+        <h2>Power &amp; Social Structures. Institutions, biopolitics, necropolitics, and the governance of life.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-language" href="language.html">
+        <h2>Language. How meaning becomes power through discourse, academia, media, and propaganda.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-nature" href="nature.html">
+        <h2>Nature. How the nonhuman becomes “Other” through ecofeminism, anthropocentrism, and petropolitics.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-agency long" href="agency.html">
+        <h2>Agency. How people resist, adapt, negotiate, and act inside systems of power.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-misc" href="miscellaneous.html">
+        <h2>Miscellaneous. Fragments, linked ideas, essays, side paths, and unfinished questions.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="card glow-glossary" href="glossary.html">
+        <h2>Glossary. Terms, thinkers, references, sources, and further reading.</h2>
+        <div class="card-footer">
+          <span class="open">Click to open</span>
+          <span class="arrow">↗</span>
+        </div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
