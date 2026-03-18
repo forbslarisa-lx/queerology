@@ -333,6 +333,80 @@
     filter:grayscale(60%);
   }
 
+/* long cards = conceptual anchors */
+.card.long{
+  min-height: 214px;
+  padding: 28px 28px 24px 32px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.072), rgba(255,255,255,.044));
+}
+
+.card.long h2{
+  max-width: 28ch;
+  font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.card.long .card-footer{
+  margin-top: 30px;
+}
+
+.card.long .accent{
+  width: 6px;
+  top: 16px;
+  bottom: 16px;
+  box-shadow:
+    0 0 16px rgba(255,255,255,.10),
+    0 0 30px rgba(255,255,255,.04);
+}
+
+.card.long::after{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 38%, rgba(255,255,255,.022));
+}
+
+.card.long:hover{
+  transform: translateY(-7px) scale(1.02);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.052));
+  box-shadow:
+    0 24px 58px rgba(0,0,0,.5),
+    0 12px 24px rgba(0,0,0,.16);
+}
+
+/* extra glow nuance for long cards */
+.card.long::before{
+  filter: blur(58px);
+}
+
+/* keep normativity special even when long */
+.card.normativity.long{
+  background:
+    linear-gradient(180deg, rgba(175,175,175,.16), rgba(88,88,88,.12));
+}
+
+.card.normativity.long:hover{
+  background:
+    linear-gradient(180deg, rgba(22,22,22,.97), rgba(8,8,8,.995));
+}
+
+/* mobile tune */
+@media (max-width: 980px){
+  .card.long{
+    min-height: 204px;
+    padding: 24px 22px 22px 26px;
+  }
+
+  .card.long h2{
+    font-size: clamp(1.28rem, 2.4vw, 1.7rem);
+    max-width: 24ch;
+  }
+
+  .card.long .accent{
+    width: 5px;
+  }
+}
+
   .normativity .accent{
     background:#a9a9a9;
     box-shadow:0 0 14px rgba(255,255,255,.08);
@@ -360,6 +434,96 @@
   .normativity:hover .arrow{
     background:rgba(255,255,255,.12);
   }
+
+.hero{
+  min-height: 88vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  margin-bottom:56px;
+}
+
+.hero h1{
+  max-width:18ch;
+  font-size:clamp(2.6rem, 6vw, 5.4rem);
+  line-height:.95;
+  letter-spacing:-0.05em;
+  margin-bottom:18px;
+}
+
+.hero p{
+  max-width:720px;
+  margin:0 auto;
+  font-size:1.08rem;
+}
+
+
+/* ===== CARD TYPOGRAPHY ===== */
+
+.card h2{
+  font-size:clamp(1.4rem, 2.3vw, 1.9rem);
+  line-height:1.1;
+  margin-bottom:10px;
+}
+
+/* описание под заголовком */
+.card .desc{
+  font-size:.95rem;
+  color:rgba(255,255,255,.65);
+  line-height:1.5;
+  max-width:34ch;
+  transition:0.25s;
+}
+
+.card:hover .desc{
+  color:rgba(255,255,255,.85);
+}
+
+
+/* ===== LONG CARDS (якоря) ===== */
+
+.card.long h2{
+  font-size:clamp(1.6rem, 2.5vw, 2.2rem);
+  max-width:26ch;
+}
+
+.card.long .desc{
+  font-size:1rem;
+  max-width:42ch;
+  color:rgba(255,255,255,.7);
+}
+
+
+/* ===== FOOTER TWEAK ===== */
+
+.card-footer{
+  margin-top:26px;
+}
+
+.open{
+  font-size:.85rem;
+  opacity:.6;
+}
+
+.card:hover .open{
+  opacity:1;
+}
+
+
+/* ===== MOBILE HERO ===== */
+
+@media (max-width:700px){
+  .hero{
+    min-height:70vh;
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:clamp(2rem, 8vw, 3rem);
+  }
+}
 
   @media (max-width: 980px){
     .page{
