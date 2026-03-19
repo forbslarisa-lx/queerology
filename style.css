@@ -149,49 +149,63 @@ body::after{
 /* ===== ABOUT BLOCK ===== */
 
 .about{
-  margin: 20px 0 70px;
+  margin: 28px 0 72px;
   display:flex;
   justify-content:center;
 }
 
 .about-inner{
-  max-width:720px;
-  text-align:center;
-  padding:28px 32px;
-  border-radius:20px;
+  width:100%;
+  max-width:860px;
+  padding:0;
+  text-align:left;
+  background:none;
+  border:none;
+  border-radius:0;
+  backdrop-filter:none;
+  position:relative;
+}
 
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
-
-  border:1px solid rgba(255,255,255,.08);
-
-  backdrop-filter: blur(12px);
+.about-inner::before{
+  content:"";
+  position:absolute;
+  left:-28px;
+  top:4px;
+  bottom:4px;
+  width:2px;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.22),
+    rgba(255,255,255,.08)
+  );
+  border-radius:999px;
 }
 
 .about-label{
   font-size:.75rem;
-  letter-spacing:.14em;
+  letter-spacing:.18em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.6);
-  margin-bottom:14px;
+  color:rgba(255,255,255,.48);
+  margin-bottom:16px;
 }
 
 .about p{
-  font-size:1.02rem;
-  line-height:1.7;
-  color:rgba(255,255,255,.78);
-  margin:0 0 18px;
+  margin:0 0 16px;
+  font-size:1.22rem;
+  line-height:1.72;
+  color:rgba(255,255,255,.84);
+  max-width:42ch;
 }
 
 .about-link{
-  font-size:.9rem;
-  color:rgba(255,255,255,.75);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.95rem;
+  color:rgba(255,255,255,.68);
   text-decoration:none;
   transition:.25s;
-}
-
-.about-link span{
-  margin-left:6px;
 }
 
 .about-link:hover{
@@ -726,25 +740,34 @@ body::after{
 
 /* back layer: wide soft “book spines” */
 .layer-back{
-  opacity:.22;
+  opacity:.24;
   background:
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.028) 0px,
-      rgba(255,255,255,.028) 2px,
-      transparent 2px,
-      transparent 24px
+      rgba(255,255,255,.025) 0px,
+      rgba(255,255,255,.025) 3px,
+      transparent 3px,
+      transparent 22px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0px,
+      transparent 52px,
+      rgba(255,255,255,.03) 52px,
+      rgba(255,255,255,.03) 58px,
       transparent 58px,
-      rgba(255,255,255,.035) 58px,
-      rgba(255,255,255,.035) 61px,
-      transparent 61px,
-      transparent 114px
+      transparent 104px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 130px,
+      rgba(255,255,255,.02) 130px,
+      rgba(255,255,255,.02) 141px,
+      transparent 141px,
+      transparent 218px
     );
-  filter: blur(.2px);
+  filter: blur(.25px);
 }
 
 .layer-mid{
@@ -752,45 +775,62 @@ body::after{
   background:
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.02) 0px,
-      rgba(255,255,255,.02) 1px,
+      rgba(255,255,255,.016) 0px,
+      rgba(255,255,255,.016) 1px,
       transparent 1px,
-      transparent 14px
+      transparent 15px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0px,
-      transparent 36px,
-      rgba(255,255,255,.026) 36px,
-      rgba(255,255,255,.026) 38px,
-      transparent 38px,
-      transparent 74px
+      transparent 75px,
+      rgba(255,255,255,.022) 75px,
+      rgba(255,255,255,.022) 79px,
+      transparent 79px,
+      transparent 150px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 180px,
+      rgba(255,255,255,.018) 180px,
+      rgba(255,255,255,.018) 181px,
+      transparent 181px,
+      transparent 340px
     );
 }
 
 .layer-front{
-  opacity:.11;
+  opacity:.12;
   background:
     repeating-linear-gradient(
       90deg,
       transparent 0px,
-      transparent 96px,
-      rgba(255,255,255,.04) 96px,
-      rgba(255,255,255,.04) 100px,
-      transparent 100px,
-      transparent 180px
+      transparent 108px,
+      rgba(255,255,255,.045) 108px,
+      rgba(255,255,255,.045) 115px,
+      transparent 115px,
+      transparent 205px
     ),
     repeating-linear-gradient(
       90deg,
       transparent 0px,
-      transparent 210px,
-      rgba(255,255,255,.03) 210px,
-      rgba(255,255,255,.03) 214px,
-      transparent 214px,
-      transparent 330px
+      transparent 255px,
+      rgba(255,255,255,.03) 255px,
+      rgba(255,255,255,.03) 262px,
+      transparent 262px,
+      transparent 390px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 120px,
+      rgba(255,255,255,.015) 120px,
+      rgba(255,255,255,.015) 122px,
+      transparent 122px,
+      transparent 260px
     );
 }
-
 
 /* optional soft fade so the pattern feels buried */
 .library-bg::after{
