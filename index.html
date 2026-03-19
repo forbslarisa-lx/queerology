@@ -39,6 +39,29 @@
     </a>
   </div>
 </section>
+
+<p id="typewriter-text"></p>
+ 
+const textToType = "Hello, world! This is a typewriter effect."; // The text to display
+const typingSpeed = 50; // Speed in milliseconds
+let characterIndex = 0; // Start at the first character
+const targetElement = document.getElementById("typewriter-text");
+
+function typeWriter() {
+  // Check if all characters have been typed
+  if (characterIndex < textToType.length) {
+    // Add the current character to the element's content
+    targetElement.innerHTML += textToType.charAt(characterIndex);
+    characterIndex++; // Move to the next character
+
+    // Schedule the next function call after a delay
+    setTimeout(typeWriter, typingSpeed);
+  }
+}
+
+// Start the typewriter effect
+typeWriter();
+    
   <section class="cards">
 
   <a class="card knowledge" href="knowledge.html">
