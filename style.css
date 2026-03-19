@@ -713,137 +713,54 @@ body::after{
   }
 }
 
-/* ===== ABSTRACT LIBRARY BACKGROUND ===== */
+/* ===== LIBRARY IMAGE BACKGROUND ===== */
 
 .library-bg{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-/* keep main content above background */
 .page,
 .footer{
-  position:relative;
-  z-index:1;
+  position: relative;
+  z-index: 1;
 }
 
-.library-layer{
+.library-bg::before{
+  content:"";
   position:absolute;
-  inset:-4%;
-  will-change:transform, opacity;
-  transform:translate3d(0,0,0);
-}
+  inset:0;
 
-/* back layer: wide soft “book spines” */
-.layer-back{
-  opacity:.24;
   background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 0px,
-      rgba(255,255,255,.025) 3px,
-      transparent 3px,
-      transparent 22px
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.88)
     ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 52px,
-      rgba(255,255,255,.03) 52px,
-      rgba(255,255,255,.03) 58px,
-      transparent 58px,
-      transparent 104px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 130px,
-      rgba(255,255,255,.02) 130px,
-      rgba(255,255,255,.02) 141px,
-      transparent 141px,
-      transparent 218px
-    );
-  filter: blur(.25px);
+    url("./assets/library.jpg") center center / cover no-repeat;
+
+  filter:
+    grayscale(92%)
+    brightness(20%)
+    contrast(108%)
+    blur(5px);
+
+  transform: scale(1.15);
+  opacity: .22;
 }
 
-.layer-mid{
-  opacity:.16;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.016) 0px,
-      rgba(255,255,255,.016) 1px,
-      transparent 1px,
-      transparent 15px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 75px,
-      rgba(255,255,255,.022) 75px,
-      rgba(255,255,255,.022) 79px,
-      transparent 79px,
-      transparent 150px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 180px,
-      rgba(255,255,255,.018) 180px,
-      rgba(255,255,255,.018) 181px,
-      transparent 181px,
-      transparent 340px
-    );
-}
-
-.layer-front{
-  opacity:.12;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 108px,
-      rgba(255,255,255,.045) 108px,
-      rgba(255,255,255,.045) 115px,
-      transparent 115px,
-      transparent 205px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 255px,
-      rgba(255,255,255,.03) 255px,
-      rgba(255,255,255,.03) 262px,
-      transparent 262px,
-      transparent 390px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 120px,
-      rgba(255,255,255,.015) 120px,
-      rgba(255,255,255,.015) 122px,
-      transparent 122px,
-      transparent 260px
-    );
-}
-
-/* optional soft fade so the pattern feels buried */
 .library-bg::after{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 50% 45%, transparent 0%, rgba(0,0,0,.08) 56%, rgba(0,0,0,.18) 100%);
+    radial-gradient(
+      circle at 50% 40%,
+      transparent 0%,
+      rgba(0,0,0,.35) 50%,
+      rgba(0,0,0,.6) 100%
+    );
 }
-
-/* mobile: dial it down */
-@media (max-width: 700px){
-  .layer-back{ opacity:.07; }
-  .layer-mid{ opacity:.05; }
-  .layer-front{ opacity:.04; }
-}
-
