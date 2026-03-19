@@ -114,7 +114,7 @@
     font-size:clamp(2.3rem, 5vw, 4.7rem);
     line-height:.96;
     letter-spacing:-0.05em;
-    max-width:10ch;
+    max-width:1400px;
     background:linear-gradient(180deg, #ffffff 0%, #d7d7d7 88%);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -124,7 +124,7 @@
 
   .hero p{
     margin:0;
-    max-width:1300px;
+    max-width:1400px;
     color:var(--muted);
     font-size:1.08rem;
     line-height:1.7;
