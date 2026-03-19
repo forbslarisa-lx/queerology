@@ -718,7 +718,7 @@ body::after{
 .library-bg{
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -740,7 +740,7 @@ body::after{
       rgba(0,0,0,.82),
       rgba(0,0,0,.88)
     ),
-    url("assets/library.png") center center / cover no-repeat;
+    url("./assets/library.png") center center / cover no-repeat;
 
   filter:
     grayscale(92%)
