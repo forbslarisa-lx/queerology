@@ -144,6 +144,42 @@
     </section>
  
   </main>
+
+<script>
+  (function () {
+    const back = document.querySelector('.layer-back');
+    const mid = document.querySelector('.layer-mid');
+    const front = document.querySelector('.layer-front');
+
+    if (!back || !mid || !front) return;
+
+    let latestY = 0;
+    let ticking = false;
+
+    function updateLayers() {
+      const y = latestY;
+
+      /* very subtle parallax */
+      back.style.transform = `translate3d(0, ${y * 0.04}px, 0)`;
+      mid.style.transform = `translate3d(0, ${y * 0.08}px, 0)`;
+      front.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+
+      ticking = false;
+    }
+
+    function onScroll() {
+      latestY = window.scrollY || window.pageYOffset;
+      if (!ticking) {
+        window.requestAnimationFrame(updateLayers);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+  
 </body>
 
 <footer class="footer">
