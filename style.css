@@ -764,3 +764,8 @@ body::after{
       rgba(0,0,0,.6) 100%
     );
 }
+@media (max-width: 700px){
+  .layer-back{ opacity:.07; }
+  .layer-mid{ opacity:.05; }
+  .layer-front{ opacity:.04; }
+}
