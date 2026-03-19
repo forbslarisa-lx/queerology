@@ -132,13 +132,13 @@
 /* ===== ABOUT BLOCK ===== */
 
 .about{
-  margin: 10px 0 60px;
+  margin: 20px 0 70px;
   display:flex;
   justify-content:center;
 }
 
 .about-inner{
-  max-width:760px;
+  max-width:720px;
   text-align:center;
   padding:28px 32px;
   border-radius:20px;
