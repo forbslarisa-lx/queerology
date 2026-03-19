@@ -85,7 +85,7 @@ body::after{
   background-repeat: repeat;
   background-size: 900px auto;
 
-  filter: grayscale(45%) brightness(55%) contrast(105%) blur(1.5px);
+  filter: grayscale(45%) brightness(75%) contrast(105%) blur(5px);
   opacity: 0.32;
   transform: scale(1.02);
 }
