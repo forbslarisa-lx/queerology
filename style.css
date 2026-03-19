@@ -743,6 +743,13 @@ body::after{
     ),
     url("/queerology/assets/library.png") center center / cover no-repeat;
 
+  
+ filter:
+    grayscale(92%)
+    brightness(20%)
+    contrast(108%)
+    blur(5px);
+
  
   transform: scale(1.15);
   opacity: .22;
