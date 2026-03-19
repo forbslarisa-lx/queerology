@@ -97,11 +97,7 @@
   padding-top:28px;
   text-align:center;
 }
-.hero-inner{
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-}
+
   .eyebrow{
     display:inline-block;
     margin:0 0 14px;
@@ -132,7 +128,6 @@
 
   .hero p{
     margin:0 auto;
-    width: 100%
     max-width: 720px;
     color:var(--muted);
     font-size:1.08rem;
