@@ -82,8 +82,8 @@ body::after{
   inset: 0;
 
   background-image: url("/queerology/assets/library.png");
-  background-position: center top;
-  background-repeat: repeat;
+  background-position: center center;
+  background-repeat: no repeat;
   background-size: 900px auto;
 
   filter: grayscale(35%) brightness(95%) contrast(105%) blur(1.5px);
@@ -96,36 +96,14 @@ body::after{
   position:absolute;
   inset:0;
   background:
-    /* мягкий свет сверху */
     radial-gradient(
-      ellipse at 50% 0%,
-      rgba(255,255,255,.08) 0%,
-      rgba(255,255,255,.02) 25%,
-      transparent 55%
-    ),
-
-    /* лёгкий свет из центра */
-    radial-gradient(
-      ellipse at 50% 40%,
-      rgba(255,255,255,.05) 0%,
-      transparent 60%
-    ),
-
-    /* затемнение низа */
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.35),
-      rgba(0,0,0,.65)
-    ),
-
-    /* виньетка */
-    radial-gradient(
-      circle at 50% 50%,
+      circle at 50% 40%,
       transparent 0%,
-      rgba(0,0,0,.25) 65%,
-      rgba(0,0,0,.55) 100%
+      rgba(0,0,0,.35) 50%,
+      rgba(0,0,0,.6) 100%
     );
 }
+
 
 .page,
 .footer{
