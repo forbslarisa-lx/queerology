@@ -686,3 +686,113 @@
     gap:16px;
   }
 }
+
+/* ===== ABSTRACT LIBRARY BACKGROUND ===== */
+
+.library-bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+/* keep main content above background */
+.page,
+.footer{
+  position:relative;
+  z-index:1;
+}
+
+.library-layer{
+  position:absolute;
+  inset:-4%;
+  will-change:transform, opacity;
+  transform:translate3d(0,0,0);
+}
+
+/* back layer: wide soft “book spines” */
+.layer-back{
+  opacity:.10;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.018) 0px,
+      rgba(255,255,255,.018) 2px,
+      transparent 2px,
+      transparent 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 58px,
+      rgba(255,255,255,.022) 58px,
+      rgba(255,255,255,.022) 61px,
+      transparent 61px,
+      transparent 114px
+    );
+  filter: blur(.2px);
+}
+
+/* mid layer: denser archive texture */
+.layer-mid{
+  opacity:.08;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.014) 0px,
+      rgba(255,255,255,.014) 1px,
+      transparent 1px,
+      transparent 14px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(255,255,255,.018) 36px,
+      rgba(255,255,255,.018) 38px,
+      transparent 38px,
+      transparent 74px
+    );
+}
+
+/* front layer: a few stronger “special volumes” */
+.layer-front{
+  opacity:.06;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 96px,
+      rgba(255,255,255,.03) 96px,
+      rgba(255,255,255,.03) 100px,
+      transparent 100px,
+      transparent 180px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 210px,
+      rgba(255,255,255,.022) 210px,
+      rgba(255,255,255,.022) 214px,
+      transparent 214px,
+      transparent 330px
+    );
+}
+
+/* optional soft fade so the pattern feels buried */
+.library-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 45%, transparent 0%, rgba(0,0,0,.08) 56%, rgba(0,0,0,.18) 100%);
+}
+
+/* mobile: dial it down */
+@media (max-width: 700px){
+  .layer-back{ opacity:.07; }
+  .layer-mid{ opacity:.05; }
+  .layer-front{ opacity:.04; }
+}
+
