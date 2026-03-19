@@ -51,20 +51,21 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  inset:-8%;
+  inset:-10%;
   pointer-events:none;
   z-index:0;
-  opacity:.34;
+  opacity:.18;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 60, 120, .22), transparent 26%),
-    radial-gradient(circle at 82% 14%, rgba(60, 170, 255, .18), transparent 24%),
-    radial-gradient(circle at 78% 66%, rgba(0, 255, 160, .12), transparent 22%),
-    radial-gradient(circle at 24% 82%, rgba(255, 205, 80, .12), transparent 24%),
-    radial-gradient(circle at 50% 52%, rgba(155, 90, 255, .10), transparent 26%);
-  filter:blur(60px) saturate(120%);
+    radial-gradient(circle at 10% 15%, rgba(255, 0, 120, .12), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(0, 170, 255, .10), transparent 22%),
+    radial-gradient(circle at 76% 64%, rgba(0, 255, 140, .08), transparent 22%),
+    radial-gradient(circle at 22% 82%, rgba(255, 210, 0, .08), transparent 24%),
+    radial-gradient(circle at 50% 50%, rgba(160, 90, 255, .07), transparent 28%);
+  filter:blur(54px) saturate(112%);
   animation:hueFloat 18s ease-in-out infinite alternate;
   transform:translateZ(0);
 }
+
 
 /* library image background */
 .library-bg{
@@ -91,12 +92,39 @@ body::after{
 }
 
 .library-bg::after{
-  content: "";
-  position: absolute;
-  inset: 0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.42), rgba(0,0,0,.62)),
-    radial-gradient(circle at 50% 38%, rgba(0,0,0,.04) 0%, rgba(0,0,0,.22) 58%, rgba(0,0,0,.42) 100%);
+    /* мягкий свет сверху */
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255,255,255,.08) 0%,
+      rgba(255,255,255,.02) 25%,
+      transparent 55%
+    ),
+
+    /* лёгкий свет из центра */
+    radial-gradient(
+      ellipse at 50% 40%,
+      rgba(255,255,255,.05) 0%,
+      transparent 60%
+    ),
+
+    /* затемнение низа */
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.35),
+      rgba(0,0,0,.65)
+    ),
+
+    /* виньетка */
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 0%,
+      rgba(0,0,0,.25) 65%,
+      rgba(0,0,0,.55) 100%
+    );
 }
 
 .page,
