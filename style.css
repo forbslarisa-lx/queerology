@@ -726,12 +726,12 @@ body::after{
 
 /* back layer: wide soft “book spines” */
 .layer-back{
-  opacity:.10;
+  opacity:.22;
   background:
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.018) 0px,
-      rgba(255,255,255,.018) 2px,
+      rgba(255,255,255,.028) 0px,
+      rgba(255,255,255,.028) 2px,
       transparent 2px,
       transparent 24px
     ),
@@ -739,22 +739,21 @@ body::after{
       90deg,
       transparent 0px,
       transparent 58px,
-      rgba(255,255,255,.022) 58px,
-      rgba(255,255,255,.022) 61px,
+      rgba(255,255,255,.035) 58px,
+      rgba(255,255,255,.035) 61px,
       transparent 61px,
       transparent 114px
     );
   filter: blur(.2px);
 }
 
-/* mid layer: denser archive texture */
 .layer-mid{
-  opacity:.08;
+  opacity:.16;
   background:
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.014) 0px,
-      rgba(255,255,255,.014) 1px,
+      rgba(255,255,255,.02) 0px,
+      rgba(255,255,255,.02) 1px,
       transparent 1px,
       transparent 14px
     ),
@@ -762,23 +761,22 @@ body::after{
       90deg,
       transparent 0px,
       transparent 36px,
-      rgba(255,255,255,.018) 36px,
-      rgba(255,255,255,.018) 38px,
+      rgba(255,255,255,.026) 36px,
+      rgba(255,255,255,.026) 38px,
       transparent 38px,
       transparent 74px
     );
 }
 
-/* front layer: a few stronger “special volumes” */
 .layer-front{
-  opacity:.06;
+  opacity:.11;
   background:
     repeating-linear-gradient(
       90deg,
       transparent 0px,
       transparent 96px,
-      rgba(255,255,255,.03) 96px,
-      rgba(255,255,255,.03) 100px,
+      rgba(255,255,255,.04) 96px,
+      rgba(255,255,255,.04) 100px,
       transparent 100px,
       transparent 180px
     ),
@@ -786,12 +784,13 @@ body::after{
       90deg,
       transparent 0px,
       transparent 210px,
-      rgba(255,255,255,.022) 210px,
-      rgba(255,255,255,.022) 214px,
+      rgba(255,255,255,.03) 210px,
+      rgba(255,255,255,.03) 214px,
       transparent 214px,
       transparent 330px
     );
 }
+
 
 /* optional soft fade so the pattern feels buried */
 .library-bg::after{
