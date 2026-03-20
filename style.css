@@ -47,21 +47,21 @@ body::before{
   -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.45));
 }
 
-/* ambient color glow */
+/* ambient color glow (softer) */
 body::after{
   content:"";
   position:fixed;
   inset:-10%;
   pointer-events:none;
   z-index:0;
-  opacity:.18;
+  opacity:.10;
   background:
-    radial-gradient(circle at 10% 15%, rgba(255, 0, 120, .12), transparent 24%),
-    radial-gradient(circle at 82% 12%, rgba(0, 170, 255, .10), transparent 22%),
-    radial-gradient(circle at 76% 64%, rgba(0, 255, 140, .08), transparent 22%),
-    radial-gradient(circle at 22% 82%, rgba(255, 210, 0, .08), transparent 24%),
-    radial-gradient(circle at 50% 50%, rgba(160, 90, 255, .07), transparent 28%);
-  filter:blur(54px) saturate(112%);
+    radial-gradient(circle at 10% 15%, rgba(255, 0, 120, .08), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(0, 170, 255, .07), transparent 22%),
+    radial-gradient(circle at 76% 64%, rgba(0, 255, 140, .06), transparent 22%),
+    radial-gradient(circle at 22% 82%, rgba(255, 210, 0, .06), transparent 24%),
+    radial-gradient(circle at 50% 50%, rgba(160, 90, 255, .05), transparent 28%);
+  filter:blur(48px) saturate(100%); /* уменьшили интенсивность */
   animation:hueFloat 18s ease-in-out infinite alternate;
   transform:translateZ(0);
 }
@@ -96,11 +96,15 @@ body::after{
   position:absolute;
   inset:0;
   background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.4),
+      rgba(0,0,0,.7)
+    ),
     radial-gradient(
-      circle at 50% 40%,
-      transparent 0%,
-      rgba(0,0,0,.35) 50%,
-      rgba(0,0,0,.6) 100%
+      circle at 50% 30%,
+      rgba(255,255,255,.04),
+      transparent 60%
     );
 }
 
