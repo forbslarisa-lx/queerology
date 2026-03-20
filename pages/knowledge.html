@@ -4,108 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knowledge - Queerology</title>
-    <link rel="stylesheet" href="queerology/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <!-- Library Background -->
-    <div class="library-bg">
-        <img src="assets/library.png" alt="Library Background">
-    </div>
 
-     <main class="page">
-  
-        <!-- Navigation (Top Bar) -->
+    <!-- Library Background (no <img> needed, CSS handles it) -->
+    <div class="library-bg" aria-hidden="true"></div>
+
+    <main class="page">
+
+        <!-- Navigation -->
         <nav class="nav">
-            <button class="nav-btn">Home</button>
-            <button class="nav-btn">About</button>
-            <button class="nav-btn">Contact</button>
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="../about.html" class="nav-btn">About</a>
         </nav>
 
-        <!-- About Section -->
-        <section class="section about">
-            <h2>About This Page</h2>
+        <!-- Page intro — NOT using class "about" to avoid conflict -->
+        <section class="section page-intro">
+            <h2>Knowledge</h2>
             <p>This page explores key concepts in knowledge, including Epistemology, Situated Knowledge, Cognitive Biases, and Queer as a Method of Learning. These concepts are connected by their focus on how we learn, process information, and how our perspectives shape knowledge.</p>
         </section>
 
-        <!-- Epistemology Block -->
+        <!-- Epistemology -->
         <section class="section epistemology">
             <h2>Epistemology</h2>
             <div class="concept">
                 <p>Epistemology is the study of knowledge, including its nature, origin, and limits. It investigates questions such as "What is knowledge?" and "How is knowledge different from belief or opinion?"</p>
                 <div class="author-section">
-                    <img src="assets/author1.jpg" alt="Author 1" class="author-photo">
+                    <img src="../assets/author1.jpg" alt="Immanuel Kant" class="author-photo">
                     <p class="author-name">Immanuel Kant</p>
-                    <blockquote>
-                        "Science is organized knowledge. Wisdom is organized life."
-                    </blockquote>
                 </div>
-                <a href="resources.html" class="resources-btn">View Resources</a>
+                <blockquote>"Science is organized knowledge. Wisdom is organized life."</blockquote>
+                <a href="../resources.html" class="resources-btn">View Resources</a>
             </div>
         </section>
 
-        <!-- Divider: Staircase Image -->
         <div class="staircase-divider">
-            <img src="assets/staircase.png" alt="Staircase Divider">
+            <img src="../assets/staircase.png" alt="Divider">
         </div>
 
-        <!-- Situated Knowledge Block -->
+        <!-- Situated Knowledge -->
         <section class="section situated">
             <h2>Situated Knowledge</h2>
             <div class="concept">
                 <p>Situated knowledge emphasizes that all knowledge is influenced by our position in society and the contexts in which we are situated. It challenges the idea of neutral or objective knowledge.</p>
                 <div class="author-section">
-                    <img src="assets/author2.jpg" alt="Author 2" class="author-photo">
+                    <img src="../assets/author2.jpg" alt="Donna Haraway" class="author-photo">
                     <p class="author-name">Donna Haraway</p>
-                    <blockquote>
-                        "Knowledge is always situated, influenced by our experiences, our identities, and our perspectives."
-                    </blockquote>
                 </div>
-                <a href="resources.html" class="resources-btn">View Resources</a>
+                <blockquote>"Knowledge is always situated, influenced by our experiences, our identities, and our perspectives."</blockquote>
+                <a href="../resources.html" class="resources-btn">View Resources</a>
             </div>
         </section>
 
-        <!-- Divider: Staircase Image -->
         <div class="staircase-divider">
-            <img src="assets/staircase.png" alt="Staircase Divider">
+            <img src="../assets/staircase.png" alt="Divider">
         </div>
 
-        <!-- Cognitive Biases Block -->
+        <!-- Cognitive Biases -->
         <section class="section cognitive">
             <h2>Cognitive Biases</h2>
             <div class="concept">
                 <p>Cognitive biases are systematic patterns of deviation from norm or rationality in judgment. These biases affect how we perceive and make decisions.</p>
                 <div class="author-section">
-                    <img src="assets/author3.jpg" alt="Author 3" class="author-photo">
+                    <img src="../assets/author3.jpg" alt="Daniel Kahneman" class="author-photo">
                     <p class="author-name">Daniel Kahneman</p>
-                    <blockquote>
-                        "We are all subject to biases, but recognizing them allows us to make better decisions."
-                    </blockquote>
                 </div>
-                <a href="resources.html" class="resources-btn">View Resources</a>
+                <blockquote>"We are all subject to biases, but recognizing them allows us to make better decisions."</blockquote>
+                <a href="../resources.html" class="resources-btn">View Resources</a>
             </div>
         </section>
 
-        <!-- Divider: Staircase Image -->
         <div class="staircase-divider">
-            <img src="assets/staircase.png" alt="Staircase Divider">
+            <img src="../assets/staircase.png" alt="Divider">
         </div>
 
-        <!-- Queer as a Method of Learning Block -->
+        <!-- Queer as a Method of Learning -->
         <section class="section queer">
             <h2>QUEER as a Method of Learning</h2>
             <div class="concept">
                 <p>Queer theory challenges conventional understandings of gender, sexuality, and identity. It offers a unique method of learning that disrupts traditional approaches and encourages critical thinking.</p>
                 <div class="author-section">
-                    <img src="assets/author4.jpg" alt="Author 4" class="author-photo">
+                    <img src="../assets/author4.jpg" alt="Judith Butler" class="author-photo">
                     <p class="author-name">Judith Butler</p>
-                    <blockquote>
-                        "Gender is not something we are, but something we do."
-                    </blockquote>
                 </div>
-                <a href="resources.html" class="resources-btn">View Resources</a>
+                <blockquote>"Gender is not something we are, but something we do."</blockquote>
+                <a href="../resources.html" class="resources-btn">View Resources</a>
             </div>
         </section>
 
     </main>
+
+    <footer class="footer">
+        <div class="footer-wrap">
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <div class="footer-title">Queerology</div>
+                    <div class="footer-sub">A critical knowledge system about identity, power, and the social world.</div>
+                </div>
+                <div class="footer-links">
+                    <a href="../about.html">About</a>
+                    <a href="../pages/glossary.html">Glossary</a>
+                    <a href="../credits.html">Credits</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Concept, research, writing, and design by Larisa Forbs.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
