@@ -7,54 +7,36 @@
   <link rel="stylesheet" href="../style.css" />
 
   <style>
-    /* ===== PAGE-SPECIFIC LAYOUT ===== */
-
     .subpage{
       width:min(var(--max), calc(100% - 48px));
       margin:0 auto;
-      padding:64px 60px 96px;
+      padding:20px 60px 88px;
       position:relative;
       z-index:1;
     }
 
-    .subnav{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:28px;
-      color:rgba(255,255,255,.56);
-      font-size:.84rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .subnav a{
-      color:rgba(255,255,255,.56);
+    .back-link{
+      display:inline-block;
+      margin-bottom:18px;
+      font-size:.82rem;
+      color:rgba(255,255,255,.68);
       text-decoration:none;
       transition:.25s;
     }
 
-    .subnav a:hover{
+    .back-link:hover{
       color:#fff;
-    }
-
-    .subnav-sep{
-      opacity:.35;
-    }
-
-    .section-header{
-      margin-bottom:34px;
     }
 
     .section-kicker{
       display:inline-block;
-      margin-bottom:14px;
+      margin:0 0 10px;
       padding:8px 14px;
-      font-size:.75rem;
-      letter-spacing:.16em;
+      font-size:.72rem;
+      letter-spacing:.14em;
       text-transform:uppercase;
       color:#d7d7d7;
-      background:rgba(255,255,255,.045);
+      background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
       border-radius:999px;
       backdrop-filter:blur(8px);
@@ -62,272 +44,149 @@
     }
 
     .section-title{
-      margin:0;
-      max-width:10ch;
-      font-size:clamp(2.3rem, 5vw, 4.4rem);
+      margin:0 0 12px;
+      font-size:clamp(2.8rem, 6vw, 5rem);
       line-height:.94;
       letter-spacing:-0.05em;
       background:linear-gradient(180deg, #ffffff 0%, #d7d7d7 88%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
-      text-shadow:0 0 40px rgba(255,255,255,.05);
+      max-width:10ch;
     }
 
-    /* intro plaque */
-    .section-plaque{
-      position:relative;
-      margin:34px 0 54px;
-      max-width:900px;
-      padding:26px 30px 24px 32px;
-      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      box-shadow:0 16px 40px rgba(0,0,0,.22);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
+    .section-intro{
+      max-width:860px;
+      margin:0 0 34px;
+      color:rgba(255,255,255,.78);
+      font-size:1.05rem;
+      line-height:1.7;
     }
 
-    .section-plaque::before{
-      content:"";
-      position:absolute;
-      left:18px;
-      top:18px;
-      bottom:18px;
-      width:2px;
-      border-radius:999px;
-      background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.22),
-        rgba(255,255,255,.08)
-      );
-    }
-
-    .plaque-label{
-      margin:0 0 12px 0;
-      font-size:.72rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.44);
-    }
-
-    .section-plaque p{
-      margin:0;
-      padding-left:14px;
-      max-width:74ch;
-      font-family:"Georgia", "Iowan Old Style", serif;
-      font-size:1.13rem;
-      line-height:1.82;
-      color:rgba(248,244,236,.88);
-    }
-
-    /* shelves */
-    .shelf{
-      position:relative;
-      display:flex;
-      align-items:flex-end;
+    .concept-wall{
+      display:grid;
+      grid-template-columns:1.2fr .9fr;
       gap:24px;
-      margin:0 0 74px;
+      align-items:start;
     }
 
-    .shelf::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:-10px;
-      height:1px;
-      background:linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.18),
-        rgba(255,255,255,.08),
-        transparent
-      );
-    }
-
-    .shelf.short::after{
-      left:8%;
-      right:8%;
-    }
-
-    .shelf.offset::after{
-      left:16%;
-      right:0;
-    }
-
-    .shelf > .concept-panel{
-      align-self:flex-end;
-    }
-
-    /* concept blocks */
-    .concept-panel{
+    .concept-card{
       position:relative;
       display:flex;
       flex-direction:column;
-      min-height:260px;
-      padding:24px 24px 22px 28px;
-      border-radius:26px;
+      min-height:320px;
+      padding:22px 22px 18px;
+      border-radius:22px;
       border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.038));
-      box-shadow:0 16px 40px rgba(0,0,0,.30);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+      box-shadow:0 16px 40px rgba(0,0,0,.25);
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
       overflow:hidden;
-      isolation:isolate;
     }
 
-    .concept-panel::before{
+    .concept-card::before{
       content:"";
       position:absolute;
       inset:0;
-      z-index:-1;
-      background:linear-gradient(135deg, rgba(255,255,255,.05), transparent 38%, rgba(255,255,255,.018));
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.05), transparent 34%, rgba(255,255,255,.015));
+      pointer-events:none;
     }
 
-    .panel-large{
-      flex:1.35;
-      min-height:310px;
-    }
-
-    .panel-medium{
-      flex:1;
-    }
-
-    .panel-wide{
-      flex:1.2;
-      min-height:288px;
-    }
-
-    .panel-narrow{
-      flex:.82;
-      min-height:238px;
-    }
-
-    .panel-accent{
-      position:absolute;
-      left:0;
-      top:18px;
-      bottom:18px;
-      width:6px;
-      border-radius:999px;
-      opacity:.95;
-      box-shadow:0 0 12px rgba(255,255,255,.08);
-    }
-
-    .nature-green .panel-accent{ background:#6fd19c; }
-    .nature-amber .panel-accent{ background:#d5b56b; }
-    .nature-blue .panel-accent{ background:#79bce8; }
-    .nature-rose .panel-accent{ background:#d69bb0; }
-
-    .panel-label{
+    .concept-label{
+      position:relative;
+      z-index:1;
       margin:0 0 10px;
-      padding-left:4px;
       font-size:.72rem;
       letter-spacing:.16em;
       text-transform:uppercase;
       color:rgba(255,255,255,.44);
     }
 
-    .concept-panel h2{
+    .concept-card h2{
+      position:relative;
+      z-index:1;
       margin:0 0 12px;
-      max-width:16ch;
-      font-size:clamp(1.45rem, 2.5vw, 2rem);
+      font-size:clamp(1.8rem, 3vw, 2.3rem);
       line-height:1.04;
       letter-spacing:-0.03em;
       color:#fff;
+      max-width:14ch;
     }
 
-    .concept-explainer{
-      margin:0;
+    .concept-text{
+      position:relative;
+      z-index:1;
+      color:rgba(255,255,255,.78);
+      font-size:1rem;
+      line-height:1.72;
       max-width:48ch;
-      color:rgba(255,255,255,.72);
-      font-size:.98rem;
-      line-height:1.68;
+      margin:0 0 20px;
     }
 
-    /* author catalog card */
-    .author-card{
-      margin-top:20px;
-      display:grid;
-      grid-template-columns:52px 1fr;
-      gap:12px;
+    .author-block{
+      position:relative;
+      z-index:1;
+      display:flex;
       align-items:center;
-      padding:12px 14px 12px 12px;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      background:rgba(255,255,255,.035);
-      max-width:360px;
+      gap:12px;
+      margin:0 0 16px;
+      padding:10px 0 12px;
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
 
-    .author-card img{
+    .author-block img{
       width:52px;
       height:52px;
       object-fit:cover;
-      border-radius:14px;
+      border-radius:999px;
       border:1px solid rgba(255,255,255,.08);
-      filter:grayscale(18%);
-    }
-
-    .author-meta-label{
-      margin:0 0 3px;
-      font-size:.62rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.38);
+      filter:grayscale(100%);
+      flex:0 0 auto;
     }
 
     .author-name{
       margin:0;
-      font-size:.96rem;
+      font-size:.98rem;
       font-weight:600;
-      color:#f3f3f3;
+      color:#f4f4f4;
     }
 
     .author-role{
       margin:2px 0 0;
-      font-size:.85rem;
-      line-height:1.4;
+      font-size:.86rem;
       color:rgba(255,255,255,.58);
+      line-height:1.4;
     }
 
-    /* quote as margin note */
-    .quote-note{
-      margin-top:18px;
-      max-width:34ch;
+    .quote{
+      position:relative;
+      z-index:1;
+      margin:0 0 18px;
       padding-left:14px;
-      border-left:2px solid rgba(255,255,255,.12);
+      border-left:2px solid rgba(255,255,255,.10);
       font-family:"Georgia", "Iowan Old Style", serif;
-      font-style:italic;
       font-size:1rem;
-      line-height:1.72;
+      line-height:1.7;
+      font-style:italic;
       color:rgba(242,237,228,.82);
+      max-width:34ch;
     }
 
-    .quote-note cite{
-      display:block;
-      margin-top:8px;
-      font-style:normal;
-      font-size:.78rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.40);
-    }
-
-    /* reading shelf */
     .resources{
+      position:relative;
+      z-index:1;
       margin-top:auto;
-      padding-top:18px;
     }
 
     .resources-label{
       margin:0 0 10px;
-      font-size:.70rem;
-      letter-spacing:.18em;
+      font-size:.7rem;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.40);
+      color:rgba(255,255,255,.42);
     }
 
     .resources-list{
@@ -338,8 +197,8 @@
 
     .resources-list li{
       position:relative;
-      padding-left:16px;
-      margin-bottom:9px;
+      margin:0 0 8px;
+      padding-left:14px;
     }
 
     .resources-list li::before{
@@ -347,91 +206,68 @@
       position:absolute;
       left:0;
       top:4px;
-      width:4px;
-      height:70%;
+      width:3px;
+      height:14px;
       border-radius:2px;
       background:rgba(255,255,255,.55);
-      opacity:.7;
-      transition:.22s;
     }
 
     .resources-list a{
+      color:rgba(255,255,255,.72);
       text-decoration:none;
-      color:rgba(255,255,255,.68);
-      font-size:.92rem;
-      line-height:1.45;
-      transition:.22s;
-    }
-
-    .resources-list li:hover::before{
-      opacity:1;
-      transform:scaleY(1.08);
+      transition:.2s;
     }
 
     .resources-list a:hover{
       color:#fff;
     }
 
-    /* optional varied widths within shelf */
-    .stack{
-      display:flex;
-      flex-direction:column;
+    .span-wide{
+      grid-column:1 / 2;
+    }
+
+    .span-tall{
+      min-height:360px;
+    }
+
+    .bottom-row{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
       gap:24px;
-      flex:1;
+      margin-top:24px;
     }
 
     @media (max-width: 980px){
       .subpage{
         width:min(100% - 28px, var(--max));
-        padding:54px 26px 82px;
+        padding:20px 26px 76px;
       }
 
-      .shelf{
-        gap:18px;
+      .concept-wall{
+        grid-template-columns:1fr;
       }
 
-      .concept-panel{
-        padding:22px 20px 20px 24px;
+      .bottom-row{
+        grid-template-columns:1fr;
+      }
+
+      .span-wide{
+        grid-column:auto;
       }
     }
 
-    @media (max-width: 780px){
-      .shelf{
-        flex-direction:column;
-        align-items:stretch;
-        margin-bottom:56px;
-      }
-
-      .shelf > .concept-panel,
-      .stack,
-      .panel-large,
-      .panel-medium,
-      .panel-wide,
-      .panel-narrow{
-        width:100%;
-        flex:unset;
-      }
-
-      .shelf::after{
-        left:0;
-        right:0;
+    @media (max-width: 700px){
+      .subpage{
+        padding-left:18px;
+        padding-right:18px;
       }
 
       .section-title{
         max-width:unset;
       }
 
-      .section-plaque{
-        padding:22px 20px 20px 22px;
-      }
-
-      .section-plaque p{
-        padding-left:10px;
-        font-size:1.04rem;
-      }
-
-      .author-card{
-        max-width:none;
+      .concept-card{
+        min-height:auto;
       }
     }
   </style>
@@ -440,78 +276,61 @@
   <div class="library-bg" aria-hidden="true"></div>
 
   <main class="subpage">
-    <div class="subnav">
-      <a href="../index.html">Queerology</a>
-      <span class="subnav-sep">/</span>
-      <span>Nature</span>
-    </div>
+    <a class="back-link" href="../index.html">← Back to map</a>
 
-    <header class="section-header">
-      <div class="section-kicker">Section · Nature</div>
-      <h1 class="section-title">Nature, power, and what counts as “natural”</h1>
+    <div class="section-kicker">Queerology · Nature</div>
+    <h1 class="section-title">Nature</h1>
+    <p class="section-intro">
+      A curated wall of concepts exploring how “nature” is imagined, governed, exploited, and defended through power, extraction, gender, and culture.
+    </p>
 
-      <div class="section-plaque">
-        <div class="plaque-label">Section note</div>
-        <p>
-          This section brings together concepts that challenge the idea of nature as neutral, innocent, or self-explanatory. Anthropocentrism centers the human as measure of all value. Ecofeminism connects the domination of nature with the domination of women and other marginalized groups. Petroculture shows how fossil-fuel modernity shapes everyday life, imagination, and political power. Together, these ideas help us see that “nature” is never just out there. It is narrated, organized, exploited, and defended through culture, economics, gender, and ideology.
-        </p>
-      </div>
-    </header>
-
-    <!-- SHELF 1 -->
-    <section class="shelf full">
-      <article class="concept-panel panel-large nature-green">
-        <span class="panel-accent" aria-hidden="true"></span>
-        <div class="panel-label">Core concept</div>
+    <section class="concept-wall">
+      <article class="concept-card span-wide span-tall">
+        <div class="concept-label">Core concept</div>
         <h2>Anthropocentrism</h2>
-        <p class="concept-explainer">
-          Anthropocentrism is the view that humans are the center of meaning, value, and moral concern. It treats the non-human world as background, property, or resource. In critical theory, this concept matters because it reveals how ideas of superiority and entitlement shape both environmental damage and social hierarchy.
+        <p class="concept-text">
+          Anthropocentrism places the human at the center of value, meaning, and moral concern. It treats the non-human world as background, property, or raw material. This concept helps explain why environmental destruction is so often normalized: nature is framed as something to manage, consume, or master rather than something humans are inseparable from.
         </p>
 
-        <div class="author-card">
-          <img src="../assets/author1.jpg" alt="Val Plumwood" />
+        <div class="author-block">
+          <img src="../assets/plumwood.jpg" alt="Val Plumwood">
           <div>
-            <div class="author-meta-label">Author card</div>
             <p class="author-name">Val Plumwood</p>
-            <p class="author-role">Ecofeminist philosopher who critiqued human-centered reason and dualistic thinking.</p>
+            <p class="author-role">Ecofeminist philosopher and critic of human-centered reason</p>
           </div>
         </div>
 
-        <blockquote class="quote-note">
-          The problem is not simply that humans use nature, but that dominant culture imagines humans as outside and above it.
-          <cite>Paraphrased from Plumwood</cite>
+        <blockquote class="quote">
+          “The problem is not simply that humans use nature, but that dominant culture imagines humans as outside and above it.”
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
             <li><a href="#">Feminism and the Mastery of Nature</a></li>
-            <li><a href="#">Intro to anthropocentrism</a></li>
+            <li><a href="#">Anthropocentrism overview</a></li>
             <li><a href="#">Human exceptionalism and ecology</a></li>
           </ul>
         </div>
       </article>
 
-      <article class="concept-panel panel-medium nature-amber">
-        <span class="panel-accent" aria-hidden="true"></span>
-        <div class="panel-label">Connected lens</div>
+      <article class="concept-card">
+        <div class="concept-label">Connected lens</div>
         <h2>Ecofeminism</h2>
-        <p class="concept-explainer">
-          Ecofeminism links environmental exploitation with patriarchy, colonialism, and other systems of domination. It argues that the same logic that treats nature as disposable often treats women, Indigenous people, queer people, and racialized communities as expendable too.
+        <p class="concept-text">
+          Ecofeminism connects the exploitation of nature with the exploitation of women and other marginalized groups. It shows how domination often works through the same logic: what is feminized, racialized, colonized, or naturalized becomes easier to control, extract from, or dismiss.
         </p>
 
-        <div class="author-card">
-          <img src="../assets/author2.jpg" alt="Vandana Shiva" />
+        <div class="author-block">
+          <img src="../assets/shiva.jpg" alt="Vandana Shiva">
           <div>
-            <div class="author-meta-label">Author card</div>
             <p class="author-name">Vandana Shiva</p>
-            <p class="author-role">Scholar and activist connecting ecology, colonialism, and gendered power.</p>
+            <p class="author-role">Scholar and activist linking ecology, colonialism, and gendered power</p>
           </div>
         </div>
 
-        <blockquote class="quote-note">
-          What is presented as development often depends on the destruction of lives, lands, and knowledges.
-          <cite>Inspired by ecofeminist critique</cite>
+        <blockquote class="quote">
+          “What is presented as development often depends on the destruction of lands, lives, and knowledges.”
         </blockquote>
 
         <div class="resources">
@@ -525,24 +344,25 @@
       </article>
     </section>
 
-    <!-- SHELF 2 -->
-    <section class="shelf short">
-      <article class="concept-panel panel-narrow nature-blue">
-        <span class="panel-accent" aria-hidden="true"></span>
-        <div class="panel-label">System</div>
+    <section class="bottom-row">
+      <article class="concept-card">
+        <div class="concept-label">System</div>
         <h2>Petroculture</h2>
-        <p class="concept-explainer">
-          Petroculture names the way fossil fuels shape habits, infrastructure, aesthetics, fantasies of freedom, and political life. Oil is not only an energy source. It becomes a way of organizing movement, comfort, consumption, and national power.
+        <p class="concept-text">
+          Petroculture names the way fossil fuels shape not just industry, but imagination, movement, comfort, aesthetics, and everyday life. Oil becomes culture. It organizes infrastructure, desire, and political power so deeply that extractive systems begin to feel ordinary, inevitable, even invisible.
         </p>
 
-        <div class="author-card">
-          <img src="../assets/author3.jpg" alt="Imre Szeman" />
+        <div class="author-block">
+          <img src="../assets/szeman.jpg" alt="Imre Szeman">
           <div>
-            <div class="author-meta-label">Author card</div>
             <p class="author-name">Imre Szeman</p>
-            <p class="author-role">Cultural theorist known for work on energy humanities and petroculture.</p>
+            <p class="author-role">Cultural theorist known for work on energy humanities and petroculture</p>
           </div>
         </div>
+
+        <blockquote class="quote">
+          “Oil is not only an energy source. It is a way of organizing modern life.”
+        </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
@@ -553,24 +373,30 @@
         </div>
       </article>
 
-      <article class="concept-panel panel-wide nature-rose">
-        <span class="panel-accent" aria-hidden="true"></span>
-        <div class="panel-label">Why it matters</div>
+      <article class="concept-card">
+        <div class="concept-label">Why it matters</div>
         <h2>Nature is political, not neutral</h2>
-        <p class="concept-explainer">
-          These concepts belong together because they expose a pattern: what gets called natural is often what power wants to make unquestionable. Human supremacy, extractive economics, and gendered domination are not separate stories. They overlap, reinforce one another, and shape both policy and everyday life. Reading them together helps us move from isolated facts to structural critique.
+        <p class="concept-text">
+          These ideas belong together because they reveal a shared pattern: what gets called natural is often what power wants to make unquestionable. Human supremacy, extractive economics, gendered domination, and environmental collapse are not separate stories. They overlap, reinforce one another, and shape both policy and everyday life.
         </p>
 
-        <blockquote class="quote-note">
-          “Natural” is often the name given to a social order that has learned how to disguise itself.
-          <cite>Queerology note</cite>
+        <div class="author-block">
+          <img src="../assets/haraway.jpg" alt="Donna Haraway">
+          <div>
+            <p class="author-name">Donna Haraway</p>
+            <p class="author-role">Scholar of science, nature, and situated knowledge</p>
+          </div>
+        </div>
+
+        <blockquote class="quote">
+          “Nature is not a place of innocence. It is a field of stories, power, struggle, and relation.”
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">Environmental justice basics</a></li>
             <li><a href="#">Queer ecologies introduction</a></li>
+            <li><a href="#">Situated knowledges</a></li>
             <li><a href="#">Further reading on nature and normativity</a></li>
           </ul>
         </div>
