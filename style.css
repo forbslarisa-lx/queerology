@@ -1305,6 +1305,26 @@ body::after{
 .resources-list a:hover{
   color: #fff;
 }
+/* ===== PAGE THEMES ===== */
 
+.theme-gender{
+  --accent-color: rgba(255, 120, 160, 1);
+}
+
+.theme-nature{
+  --accent-color: rgba(120, 200, 140, 1);
+}
+
+.theme-power{
+  --accent-color: rgba(160, 120, 255, 1);
+}
+
+.theme-language{
+  --accent-color: rgba(100, 180, 255, 1);
+}
+
+.theme-identity{
+  --accent-color: rgba(255, 180, 90, 1);
+}
 
 
