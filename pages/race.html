@@ -7,25 +7,25 @@
   <link rel="stylesheet" href="../style.css"/>
 
   <style>
-    /* ===== RACE: CENTRAL LAYOUT / FIXED ===== */
+    /* ===== RACE: CENTRAL LAYOUT / CLEAN ===== */
 
     .layout-center{
       position:relative;
-      min-height:1320px;
-      margin-top:26px;
+      min-height:1200px;
+      margin-top:34px;
     }
 
     .layout-center .concept-block{
       position:absolute;
     }
 
-    /* central block */
+    /* center */
     .block-core{
       left:50%;
-      top:47%;
+      top:44%;
       transform:translate(-50%, -50%);
-      width:min(34vw, 420px);
-      min-height:340px;
+      width:min(32vw, 390px);
+      min-height:350px;
       z-index:3;
       box-shadow:
         0 28px 72px rgba(0,0,0,.42),
@@ -36,164 +36,94 @@
       max-width:12ch;
     }
 
-    .block-core .concept-text{
-      max-width:42ch;
-    }
-
-    /* outer blocks */
+    /* top row */
     .block-top-left{
       left:1%;
-      top:10%;
-      width:min(24vw, 290px);
-      min-height:300px;
+      top:8%;
+      width:min(19vw, 230px);
+      min-height:320px;
       z-index:2;
     }
 
     .block-top-right{
       right:2%;
-      top:11%;
-      width:min(22vw, 270px);
-      min-height:280px;
-      z-index:2;
-    }
-
-    .block-bottom-left{
-      left:2%;
-      bottom:7%;
-      width:min(24vw, 290px);
+      top:9%;
+      width:min(18vw, 220px);
       min-height:300px;
       z-index:2;
     }
 
-    .block-bottom-right{
-      right:2%;
-      bottom:5%;
-      width:min(25vw, 300px);
-      min-height:320px;
+    /* bottom row */
+    .block-bottom-left{
+      left:4%;
+      bottom:7%;
+      width:min(19vw, 235px);
+      min-height:260px;
       z-index:2;
     }
 
-    /* subtle tails toward the center */
-    .tail-to-core{
-      overflow:visible;
-    }
-
-    .tail-to-core::after{
-      content:"";
-      position:absolute;
-      background:inherit;
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:inherit;
-      z-index:-1;
-    }
-
-    .block-top-left.tail-to-core::after{
-      width:58px;
-      height:52px;
-      right:18px;
-      bottom:-34px;
-      border-top:none;
-      border-left:none;
-      border-radius:0 0 18px 0;
-      clip-path:polygon(0 0, 100% 0, 100% 100%, 56% 100%, 56% 42%, 0 42%);
-    }
-
-    .block-top-right.tail-to-core::after{
-      width:54px;
-      height:50px;
-      left:18px;
-      bottom:-32px;
-      border-top:none;
-      border-right:none;
-      border-radius:0 0 0 18px;
-      clip-path:polygon(0 0, 100% 0, 100% 42%, 44% 42%, 44% 100%, 0 100%);
-    }
-
-    .block-bottom-left.tail-to-core::after{
-      width:54px;
-      height:52px;
-      right:18px;
-      top:-34px;
-      border-bottom:none;
-      border-left:none;
-      border-radius:0 18px 0 0;
-      clip-path:polygon(0 58%, 56% 58%, 56% 0, 100% 0, 100% 100%, 0 100%);
-    }
-
-    .block-bottom-right.tail-to-core::after{
-      width:60px;
-      height:56px;
-      left:18px;
-      top:-36px;
-      border-bottom:none;
-      border-right:none;
-      border-radius:18px 0 0 0;
-      clip-path:polygon(0 0, 44% 0, 44% 58%, 100% 58%, 100% 100%, 0 100%);
-    }
-
-    /* remove rotations for clarity */
-    .block-top-left,
-    .block-top-right,
-    .block-bottom-left,
     .block-bottom-right{
-      transform:none;
+      right:3%;
+      bottom:8%;
+      width:min(30vw, 360px);
+      min-height:250px;
+      z-index:2;
     }
 
-    /* responsive tune */
     @media (max-width: 1180px){
       .layout-center{
-        min-height:1260px;
+        min-height:1120px;
       }
 
       .block-core{
-        width:min(36vw, 400px);
+        width:min(36vw, 380px);
       }
 
       .block-top-left{
-        width:min(25vw, 280px);
+        width:min(22vw, 230px);
       }
 
       .block-top-right{
-        width:min(23vw, 260px);
+        width:min(21vw, 220px);
       }
 
       .block-bottom-left{
-        width:min(25vw, 280px);
+        width:min(22vw, 230px);
       }
 
       .block-bottom-right{
-        width:min(26vw, 290px);
+        width:min(33vw, 350px);
       }
     }
 
     @media (max-width: 980px){
       .layout-center{
-        min-height:1180px;
+        min-height:1040px;
       }
 
       .block-core{
-        width:min(40vw, 390px);
-        top:46%;
+        width:min(42vw, 360px);
+        top:43%;
       }
 
       .block-top-left{
         left:0;
-        width:min(28vw, 270px);
+        width:min(24vw, 220px);
       }
 
       .block-top-right{
         right:0;
-        width:min(26vw, 250px);
+        width:min(23vw, 210px);
       }
 
       .block-bottom-left{
         left:1%;
-        width:min(28vw, 270px);
+        width:min(24vw, 220px);
       }
 
       .block-bottom-right{
         right:1%;
-        width:min(29vw, 280px);
+        width:min(35vw, 330px);
       }
     }
 
@@ -214,10 +144,6 @@
         width:100%;
         min-height:auto;
         transform:none !important;
-      }
-
-      .tail-to-core::after{
-        display:none;
       }
 
       .block-top-left{ order:1; }
@@ -252,15 +178,14 @@
 
     <section class="topic-board layout-center">
 
-      <article class="concept-block block-top-left paper-warm tail-to-core">
+      <article class="concept-block block-top-left paper-warm">
         <div class="concept-label">Mechanism</div>
         <h2 class="concept-title">Othering</h2>
 
         <p class="concept-text">
           Othering is the process through which a group is marked as different,
           inferior, dangerous, or outside the norm. In racial systems, othering
-          turns difference into hierarchy. It makes exclusion feel natural and
-          helps justify segregation, surveillance, fear, and unequal belonging.
+          turns difference into hierarchy and makes exclusion feel natural.
         </p>
 
         <div class="concept-meta">
@@ -287,15 +212,13 @@
         </div>
       </article>
 
-      <article class="concept-block block-top-right paper-cool tail-to-core">
+      <article class="concept-block block-top-right paper-cool">
         <div class="concept-label">Norm</div>
         <h2 class="concept-title">Whiteness</h2>
 
         <p class="concept-text">
-          Whiteness is not just an identity category. It also functions as an
-          invisible norm against which others are measured. It shapes who is seen
-          as universal, neutral, rational, and fully belonging, often without
-          naming itself as a position of power.
+          Whiteness functions not only as an identity category but as an invisible
+          norm, shaping who is seen as universal, neutral, and fully belonging.
         </p>
 
         <div class="concept-meta">
@@ -330,8 +253,8 @@
           Race is not a fixed biological truth. It is a social and political
           system for sorting people, attaching meaning to bodily difference, and
           organizing hierarchy. This does not make race unreal. It makes it
-          historically produced. Race becomes real through law, science,
-          institutions, violence, representation, and everyday life.
+          historically produced through law, science, institutions, violence,
+          and everyday life.
         </p>
 
         <div class="concept-meta">
@@ -358,15 +281,13 @@
         </div>
       </article>
 
-      <article class="concept-block block-bottom-left paper-plain tail-to-core">
+      <article class="concept-block block-bottom-left paper-plain">
         <div class="concept-label">History</div>
         <h2 class="concept-title">Scientific Racism</h2>
 
         <p class="concept-text">
-          Scientific racism used the language of objectivity, biology, and
-          measurement to legitimize racial hierarchy. Classification, skull
-          measurement, eugenics, and pseudo-scientific ranking turned prejudice
-          into “evidence” and helped institutions present domination as reason.
+          Scientific racism used measurement, biology, and classification to give
+          prejudice the appearance of objectivity and reason.
         </p>
 
         <div class="concept-meta split-meta">
@@ -393,7 +314,7 @@
         </div>
       </article>
 
-      <article class="concept-block block-bottom-right paper-warm tail-to-core">
+      <article class="concept-block block-bottom-right paper-warm">
         <div class="concept-label">Why it matters</div>
         <h2 class="concept-title">Race, Power, and Modernity</h2>
 
@@ -401,8 +322,7 @@
           Race persists not because biology proves it, but because modern societies
           continue to reproduce it through policing, migration regimes, media,
           education, wealth, housing, and memory. Even when race is declared
-          socially invented, its material effects remain structured into everyday
-          life. That is why race must be studied as both fiction and force.
+          socially invented, its material effects remain structured into everyday life.
         </p>
 
         <div class="concept-meta">
