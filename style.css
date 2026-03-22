@@ -1195,6 +1195,67 @@ body::after{
 .resources-list li:hover {
   transform: translateX(2px);
 }
+.shelf {
+  position: relative;
+  margin: 80px 0;
+  display: flex;
+  gap: 26px;
+  align-items: flex-end; /* ВАЖНО */
+}
+
+.shelf::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.12),
+    transparent
+  );
+}
+
+.card {
+  align-self: flex-end;
+}
+
+.shelf.full::after {
+  left: 0;
+  right: 0;
+}
+
+.shelf.short::after {
+  left: 10%;
+  right: 10%;
+}
+.shelf.offset::after {
+  left: 20%;
+  right: 0;
+}
+
+.shelf::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 20px;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.25),
+    transparent 70%
+  );
+
+  opacity: 0.5;
+}
 
 
 
