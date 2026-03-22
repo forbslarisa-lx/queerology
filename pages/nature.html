@@ -4,333 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nature · Queerology</title>
-  <link rel="stylesheet" href="../style.css" />
-
-  <style>
-    .subpage{
-      width:min(var(--max), calc(100% - 48px));
-      margin:0 auto;
-      padding:20px 60px 88px;
-      position:relative;
-      z-index:1;
-    }
-
-    .back-link{
-      display:inline-block;
-      margin-bottom:18px;
-      font-size:.82rem;
-      color:rgba(255,255,255,.68);
-      text-decoration:none;
-      transition:.25s;
-    }
-
-    .back-link:hover{
-      color:#fff;
-    }
-
-    .section-kicker{
-      display:inline-block;
-      margin:0 0 10px;
-      padding:8px 14px;
-      font-size:.72rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:#d7d7d7;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:999px;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-    }
-
-    .section-title{
-      margin:0 0 12px;
-      font-size:clamp(2.8rem, 6vw, 5rem);
-      line-height:.94;
-      letter-spacing:-0.05em;
-      background:linear-gradient(180deg, #ffffff 0%, #d7d7d7 88%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-      max-width:10ch;
-    }
-
-    .section-intro{
-      max-width:860px;
-      margin:0 0 34px;
-      color:rgba(255,255,255,.78);
-      font-size:1.05rem;
-      line-height:1.7;
-    }
-
-    .concept-wall{
-      display:grid;
-      grid-template-columns:1.2fr .9fr;
-      gap:24px;
-      align-items:start;
-    }
-
-    .concept-card{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      min-height:320px;
-      padding:22px 22px 18px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
-      box-shadow:0 16px 40px rgba(0,0,0,.25);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      overflow:hidden;
-    }
-
-    .concept-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.05), transparent 34%, rgba(255,255,255,.015));
-      pointer-events:none;
-    }
-
-    .concept-label{
-      position:relative;
-      z-index:1;
-      margin:0 0 10px;
-      font-size:.72rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.44);
-    }
-
-    .concept-card h2{
-      position:relative;
-      z-index:1;
-      margin:0 0 12px;
-      font-size:clamp(1.8rem, 3vw, 2.3rem);
-      line-height:1.04;
-      letter-spacing:-0.03em;
-      color:#fff;
-      max-width:14ch;
-    }
-
-    .concept-text{
-      position:relative;
-      z-index:1;
-      color:rgba(255,255,255,.78);
-      font-size:1rem;
-      line-height:1.72;
-      max-width:48ch;
-      margin:0 0 20px;
-    }
-
-    .author-block{
-      position:relative;
-      z-index:1;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:0 0 16px;
-      padding:10px 0 12px;
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .author-block img{
-      width:52px;
-      height:52px;
-      object-fit:cover;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      filter:grayscale(100%);
-      flex:0 0 auto;
-    }
-
-    .author-name{
-      margin:0;
-      font-size:.98rem;
-      font-weight:600;
-      color:#f4f4f4;
-    }
-
-    .author-role{
-      margin:2px 0 0;
-      font-size:.86rem;
-      color:rgba(255,255,255,.58);
-      line-height:1.4;
-    }
-
-    .quote{
-      position:relative;
-      z-index:1;
-      margin:0 0 18px;
-      padding-left:14px;
-      border-left:2px solid rgba(255,255,255,.10);
-      font-family:"Georgia", "Iowan Old Style", serif;
-      font-size:1rem;
-      line-height:1.7;
-      font-style:italic;
-      color:rgba(242,237,228,.82);
-      max-width:34ch;
-    }
-
-    .resources{
-      position:relative;
-      z-index:1;
-      margin-top:auto;
-    }
-
-    .resources-label{
-      margin:0 0 10px;
-      font-size:.7rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.42);
-    }
-
-    .resources-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-    }
-
-    .resources-list li{
-      position:relative;
-      margin:0 0 8px;
-      padding-left:14px;
-    }
-
-    .resources-list li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:4px;
-      width:3px;
-      height:14px;
-      border-radius:2px;
-      background:rgba(255,255,255,.55);
-    }
-
-    .resources-list a{
-      color:rgba(255,255,255,.72);
-      text-decoration:none;
-      transition:.2s;
-    }
-
-    .resources-list a:hover{
-      color:#fff;
-    }
-
-    .span-wide{
-      grid-column:1 / 2;
-    }
-
-    .span-tall{
-      min-height:360px;
-    }
-
-    .bottom-row{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:24px;
-      margin-top:24px;
-    }
-
-    @media (max-width: 980px){
-      .subpage{
-        width:min(100% - 28px, var(--max));
-        padding:20px 26px 76px;
-      }
-
-      .concept-wall{
-        grid-template-columns:1fr;
-      }
-
-      .bottom-row{
-        grid-template-columns:1fr;
-      }
-
-      .span-wide{
-        grid-column:auto;
-      }
-    }
-
-    @media (max-width: 700px){
-      .subpage{
-        padding-left:18px;
-        padding-right:18px;
-      }
-
-      .section-title{
-        max-width:unset;
-      }
-
-      .concept-card{
-        min-height:auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../style.css"/>
 </head>
 <body>
+
   <div class="library-bg" aria-hidden="true"></div>
 
-  <main class="subpage">
-    <a class="back-link" href="../index.html">← Back to map</a>
+  <main class="topic-page">
 
-    <div class="section-kicker">Queerology · Nature</div>
-    <h1 class="section-title">Nature</h1>
-    <p class="section-intro">
-      A curated wall of concepts exploring how “nature” is imagined, governed, exploited, and defended through power, extraction, gender, and culture.
-    </p>
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
 
-    <section class="concept-wall">
-      <article class="concept-card span-wide span-tall">
-        <div class="concept-label">Core concept</div>
-        <h2>Anthropocentrism</h2>
+    <header class="topic-header">
+      <div class="topic-eyebrow">Queerology · Nature</div>
+      <h1>Nature</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how “nature” is imagined, governed,
+        extracted, gendered, and defended through ideology, economics, and culture.
+      </p>
+    </header>
+
+    <section class="topic-board">
+
+      <article class="concept-block block-b paper-cool">
+        <div class="concept-label">Lens</div>
+        <h2 class="concept-title">Ecofeminism</h2>
+
         <p class="concept-text">
-          Anthropocentrism places the human at the center of value, meaning, and moral concern. It treats the non-human world as background, property, or raw material. This concept helps explain why environmental destruction is so often normalized: nature is framed as something to manage, consume, or master rather than something humans are inseparable from.
+          Ecofeminism links the domination of nature to the domination of women
+          and other marginalized groups. It argues that exploitation often follows
+          the same logic: what is feminized, colonized, racialized, or naturalized
+          becomes easier to control, extract from, and dismiss.
         </p>
 
-        <div class="author-block">
-          <img src="../assets/plumwood.jpg" alt="Val Plumwood">
-          <div>
-            <p class="author-name">Val Plumwood</p>
-            <p class="author-role">Ecofeminist philosopher and critic of human-centered reason</p>
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/shiva.jpg" alt="Portrait of Vandana Shiva" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Vandana Shiva</div>
+            <div class="author-role">Scholar and activist linking ecology, colonialism, and gendered power</div>
           </div>
         </div>
 
-        <blockquote class="quote">
-          “The problem is not simply that humans use nature, but that dominant culture imagines humans as outside and above it.”
-        </blockquote>
-
-        <div class="resources">
-          <div class="resources-label">Reading shelf</div>
-          <ul class="resources-list">
-            <li><a href="#">Feminism and the Mastery of Nature</a></li>
-            <li><a href="#">Anthropocentrism overview</a></li>
-            <li><a href="#">Human exceptionalism and ecology</a></li>
-          </ul>
-        </div>
-      </article>
-
-      <article class="concept-card">
-        <div class="concept-label">Connected lens</div>
-        <h2>Ecofeminism</h2>
-        <p class="concept-text">
-          Ecofeminism connects the exploitation of nature with the exploitation of women and other marginalized groups. It shows how domination often works through the same logic: what is feminized, racialized, colonized, or naturalized becomes easier to control, extract from, or dismiss.
-        </p>
-
-        <div class="author-block">
-          <img src="../assets/shiva.jpg" alt="Vandana Shiva">
-          <div>
-            <p class="author-name">Vandana Shiva</p>
-            <p class="author-role">Scholar and activist linking ecology, colonialism, and gendered power</p>
-          </div>
-        </div>
-
-        <blockquote class="quote">
-          “What is presented as development often depends on the destruction of lands, lives, and knowledges.”
+        <blockquote class="concept-quote">
+          What is presented as development often depends on the destruction of lands, lives, and knowledges.
         </blockquote>
 
         <div class="resources">
@@ -338,69 +58,117 @@
           <ul class="resources-list">
             <li><a href="#">Ecofeminism overview</a></li>
             <li><a href="#">Staying Alive</a></li>
-            <li><a href="#">Gender, ecology, and justice</a></li>
           </ul>
         </div>
       </article>
-    </section>
 
-    <section class="bottom-row">
-      <article class="concept-card">
-        <div class="concept-label">System</div>
-        <h2>Petroculture</h2>
+      <article class="concept-block block-a paper-warm">
+        <div class="concept-label">Core concept</div>
+        <h2 class="concept-title">Anthropocentrism</h2>
+
         <p class="concept-text">
-          Petroculture names the way fossil fuels shape not just industry, but imagination, movement, comfort, aesthetics, and everyday life. Oil becomes culture. It organizes infrastructure, desire, and political power so deeply that extractive systems begin to feel ordinary, inevitable, even invisible.
+          Anthropocentrism places the human at the center of value, meaning, and
+          moral concern. It treats the non-human world as background, property,
+          or resource. This concept helps explain why environmental destruction
+          is so often normalized: nature is framed as something to manage, consume,
+          or master rather than something humans are inseparable from.
         </p>
 
-        <div class="author-block">
-          <img src="../assets/szeman.jpg" alt="Imre Szeman">
-          <div>
-            <p class="author-name">Imre Szeman</p>
-            <p class="author-role">Cultural theorist known for work on energy humanities and petroculture</p>
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/plumwood.jpg" alt="Portrait of Val Plumwood" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Val Plumwood</div>
+            <div class="author-role">Ecofeminist philosopher and critic of human-centered reason</div>
           </div>
         </div>
 
-        <blockquote class="quote">
-          “Oil is not only an energy source. It is a way of organizing modern life.”
+        <blockquote class="concept-quote">
+          The problem is not simply that humans use nature, but that dominant culture imagines humans as outside and above it.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
+            <li><a href="#">Feminism and the Mastery of Nature</a></li>
+            <li><a href="#">Anthropocentrism overview</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-c paper-plain">
+        <div class="concept-label">System</div>
+        <h2 class="concept-title">Petroculture</h2>
+
+        <p class="concept-text">
+          Petroculture names the way fossil fuels shape not just industry, but also
+          movement, comfort, imagination, aesthetics, and political life. Oil is
+          not only an energy source. It becomes a cultural logic that organizes how
+          modern life feels ordinary, mobile, and desirable.
+        </p>
+
+        <div class="concept-meta split-meta">
+          <div class="author-info">
+            <div class="author-name">Imre Szeman</div>
+            <div class="author-role">Cultural theorist known for work on energy humanities and petroculture</div>
+          </div>
+
+          <div class="author-photo-wrap">
+            <img src="../assets/szeman.jpg" alt="Portrait of Imre Szeman" class="author-photo">
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Oil is not only an energy source. It is a way of organizing modern life.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+           <ul class="resources-list">
             <li><a href="#">Petrocultures reader</a></li>
             <li><a href="#">Energy humanities primer</a></li>
           </ul>
         </div>
       </article>
 
-      <article class="concept-card">
+      <article class="concept-block block-d paper-note">
         <div class="concept-label">Why it matters</div>
-        <h2>Nature is political, not neutral</h2>
+        <h2 class="concept-title">Nature as a Political Category</h2>
+
         <p class="concept-text">
-          These ideas belong together because they reveal a shared pattern: what gets called natural is often what power wants to make unquestionable. Human supremacy, extractive economics, gendered domination, and environmental collapse are not separate stories. They overlap, reinforce one another, and shape both policy and everyday life.
+          These concepts belong together because they show that “nature” is never
+          just a neutral background. It is narrated, owned, defended, and exploited
+          through power. What gets called natural is often what dominant systems
+          want to make unquestionable. Reading nature politically reveals how
+          ecology, gender, class, empire, and extraction intersect.
         </p>
 
-        <div class="author-block">
-          <img src="../assets/haraway.jpg" alt="Donna Haraway">
-          <div>
-            <p class="author-name">Donna Haraway</p>
-            <p class="author-role">Scholar of science, nature, and situated knowledge</p>
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/haraway.jpg" alt="Portrait of Donna Haraway" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Donna Haraway</div>
+            <div class="author-role">Scholar of science, nature, and situated knowledge</div>
           </div>
         </div>
 
-        <blockquote class="quote">
-          “Nature is not a place of innocence. It is a field of stories, power, struggle, and relation.”
+        <blockquote class="concept-quote">
+          Nature is not a place of innocence. It is a field of stories, struggle, relation, and power.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">Queer ecologies introduction</a></li>
             <li><a href="#">Situated knowledges</a></li>
-            <li><a href="#">Further reading on nature and normativity</a></li>
+            <li><a href="#">Queer ecologies introduction</a></li>
           </ul>
         </div>
       </article>
+
     </section>
   </main>
 </body>
