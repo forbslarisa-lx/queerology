@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+
+  <style>
+    .layout-race{
+      display:grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+        "extra-left extra-left extra-right"
+        "top-left top-left top-right"
+        "mid-left core core"
+        "mid-left bottom bottom";
+      gap:28px 32px;
+      margin-top:34px;
+    }
+
+    .block-extra-left{ grid-area:extra-left; }
+    .block-extra-right{ grid-area:extra-right; }
+
+    .block-top-left{ grid-area:top-left; }
+    .block-top-right{ grid-area:top-right; }
+    .block-core{ grid-area:core; }
+    .block-mid-left{ grid-area:mid-left; }
+    .block-bottom{ grid-area:bottom; }
+
+    @media (max-width:1100px){
+      .layout-race{
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+          "extra-left extra-right"
+          "top-left top-right"
+          "core core"
+          "mid-left bottom";
+      }
+    }
+
+    @media (max-width:780px){
+      .layout-race{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "extra-left"
+          "extra-right"
+          "top-left"
+          "top-right"
+          "core"
+          "mid-left"
+          "bottom";
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-women">
+
+<div class="library-bg"></div>
+
+<main class="topic-page">
+
+<nav class="topic-nav">
+  <a href="../index.html" class="back-link">← Back to map</a>
+</nav>
+
+<header class="topic-header">
+  <div class="topic-eyebrow">
+    <span class="eyebrow-main">Queerology ·</span>
+    <span class="eyebrow-topic">Women</span>
+  </div>
+
+  <h1>Women</h1>
+
+  <p class="topic-intro">
+    A layered exploration of how “woman” is not a fixed identity but a historical,
+    political, and contested category shaped through power, exclusion, resistance,
+    and continuous redefinition.
+  </p>
+</header>
+
+<section class="topic-board layout-race">
+
+<!-- EXTRA BLOCK 1 -->
+<article class="concept-block block-extra-left paper-note">
+<div class="concept-label">Historical rupture</div>
+<h2 class="concept-title">The Birth of “Woman” as a Category</h2>
+
+<p class="concept-text">
+The category “woman” has not always existed in its current form.
+Modern gender categories emerged alongside Enlightenment thinking,
+colonial expansion, and the structuring of rights. Who counted as a
+“woman” was always political — often excluding enslaved women,
+colonized women, and working-class women.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/gouges.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Olympe de Gouges</div>
+    <div class="author-role">Author of the Declaration of the Rights of Woman</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+Woman is born free and lives equal to man in her rights.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Declaration of the Rights of Woman</a></li>
+</ul>
+</div>
+</article>
+
+<!-- EXTRA BLOCK 2 -->
+<article class="concept-block block-extra-right paper-warm">
+<div class="concept-label">Core rupture</div>
+<h2 class="concept-title">“One is not born, but becomes a woman”</h2>
+
+<p class="concept-text">
+Womanhood is not biological destiny but a social process.
+It is produced through norms, expectations, education,
+and power structures. Becoming a woman means being shaped
+by a system that defines what femininity should be.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/beauvoir.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Simone de Beauvoir</div>
+    <div class="author-role">Existentialist philosopher</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+One is not born, but rather becomes, a woman.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">The Second Sex</a></li>
+</ul>
+</div>
+</article>
+
+<!-- TOP LEFT -->
+<article class="concept-block block-top-left paper-cool">
+<div class="concept-label">System</div>
+<h2 class="concept-title">Patriarchy</h2>
+
+<p class="concept-text">
+Patriarchy is a system where power is structured through male dominance.
+It shapes institutions, knowledge, labor, and expectations. It is not just
+about men vs women — it is a system that organizes hierarchy and control.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/hooks.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">bell hooks</div>
+    <div class="author-role">Feminist theorist</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+Patriarchy has no gender. It is a system we are all socialized into.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Feminism is for Everybody</a></li>
+</ul>
+</div>
+</article>
+
+<!-- TOP RIGHT -->
+<article class="concept-block block-top-right paper-plain">
+<div class="concept-label">Lens</div>
+<h2 class="concept-title">Intersectionality</h2>
+
+<p class="concept-text">
+Women are not a single group. Race, class, sexuality, and ability shape
+how womanhood is lived. Intersectionality shows how systems overlap,
+producing very different realities for different women.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/crenshaw.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Kimberlé Crenshaw</div>
+    <div class="author-role">Legal scholar</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+If you see only gender, you miss how power actually works.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Intersectionality theory</a></li>
+</ul>
+</div>
+</article>
+
+<!-- CORE -->
+<article class="concept-block block-core paper-note">
+<div class="concept-label">Core concept</div>
+<h2 class="concept-title">Gender as Structure</h2>
+
+<p class="concept-text">
+Gender organizes society: labor, care, reproduction, value, and visibility.
+Women’s work has historically been undervalued, invisible, or unpaid.
+Gender is not just identity — it is infrastructure.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/federici.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Silvia Federici</div>
+    <div class="author-role">Feminist Marxist theorist</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+Reproductive labor is the hidden foundation of capitalism.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Caliban and the Witch</a></li>
+</ul>
+</div>
+</article>
+
+<!-- MID LEFT -->
+<article class="concept-block block-mid-left paper-warm">
+<div class="concept-label">Embodiment</div>
+<h2 class="concept-title">Control over Bodies</h2>
+
+<p class="concept-text">
+Women’s bodies have been regulated through medicine, law, and morality.
+From reproductive rights to beauty standards, control over bodies
+is central to maintaining power structures.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/foucault.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Michel Foucault</div>
+    <div class="author-role">Theorist of power and biopolitics</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+Power operates directly on bodies.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Biopolitics overview</a></li>
+</ul>
+</div>
+</article>
+
+<!-- BOTTOM -->
+<article class="concept-block block-bottom paper-cool">
+<div class="concept-label">Why it matters</div>
+<h2 class="concept-title">Reclaiming “Woman”</h2>
+
+<p class="concept-text">
+The category “woman” is not static. It is continuously redefined
+through feminist, queer, and trans struggles. It can exclude,
+but it can also be reclaimed, expanded, and transformed.
+</p>
+
+<div class="concept-meta">
+  <div class="author-photo-wrap">
+    <img src="../assets/butler.jpg" class="author-photo">
+  </div>
+  <div class="author-info">
+    <div class="author-name">Judith Butler</div>
+    <div class="author-role">Philosopher of gender and performativity</div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+Categories are never stable. That is where change becomes possible.
+</blockquote>
+
+<div class="resources">
+<ul class="resources-list">
+<li><a href="#">Gender Trouble</a></li>
+</ul>
+</div>
+</article>
+
+</section>
+</main>
+</body>
+</html>
