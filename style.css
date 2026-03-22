@@ -1187,7 +1187,14 @@ body::after{
 .resources-list a:hover {
   color: #fff;
 }
+.resources-list li:hover::before {
+  opacity: 1;
+  transform: scaleY(1.1);
+}
 
+.resources-list li:hover {
+  transform: translateX(2px);
+}
 
 
 
