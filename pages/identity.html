@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Race · Queerology</title>
+  <title>Identity · Queerology</title>
   <link rel="stylesheet" href="../style.css"/>
 
   <style>
-    /* ===== RACE LAYOUT TEST ===== */
+    /* ===== IDENTITY LAYOUT TEST ===== */
 
     .layout-race{
       display:grid;
@@ -37,8 +36,7 @@
     .block-top-right{
       grid-area:top-right;
       min-height:370px;
-      transform:translateY(-12px);
-      transform:translateX(6px);
+      transform:translateX(6px) translateY(-12px);
     }
 
     .block-core{
@@ -53,19 +51,16 @@
     .block-mid-left{
       grid-area:mid-left;
       min-height:360px;
-      transform:translateY(72px);
-      transform:translateX(-18px);
+      transform:translateX(-18px) translateY(72px);
     }
 
     .block-bottom{
       grid-area:bottom;
       min-height:240px;
-      transform:translateY(8px);
-      transform:translateX(10px)
+      transform:translateX(10px) translateY(8px);
     }
 
     /* ===== TYPOGRAPHY WIDTH FIX ===== */
-    /* вот это как раз тест, чтобы текст не делал башни */
 
     .layout-race .concept-title{
       max-width:22ch;
@@ -157,7 +152,7 @@
     }
   </style>
 </head>
-<body class="theme-race">
+<body class="theme-identity">
 
   <div class="library-bg" aria-hidden="true"></div>
 
@@ -170,12 +165,12 @@
     <header class="topic-header">
       <div class="topic-eyebrow">
         <span class="eyebrow-main">Queerology ·</span>
-        <span class="eyebrow-topic">Race</span>
+        <span class="eyebrow-topic">Identity</span>
       </div>
-      <h1>Race</h1>
+      <h1>Identity</h1>
       <p class="topic-intro">
-        A curated wall of concepts exploring how race is invented, institutionalized,
-        normalized, and lived through classification, power, history, and social reality.
+        A curated wall of concepts exploring how identity is named, performed,
+        recognized, contested, and shaped through language, power, history, and belonging.
       </p>
     </header>
 
@@ -183,175 +178,178 @@
 
       <article class="concept-block block-top-left paper-warm">
         <div class="concept-label">Mechanism</div>
-        <h2 class="concept-title">Othering</h2>
+        <h2 class="concept-title">Naming & Identity</h2>
 
         <p class="concept-text">
-          Othering is the process through which a group is marked as different,
-          inferior, dangerous, or outside the norm. In racial systems, othering
-          turns difference into hierarchy and makes exclusion feel natural,
-          justified, and ordinary.
+          Identity is often shaped through naming. Categories such as woman, queer,
+          migrant, citizen, deviant, or normal do not simply describe people.
+          They position them socially. Naming can offer visibility and solidarity,
+          but it can also impose limits, expectations, and control.
         </p>
 
         <div class="concept-meta">
           <div class="author-photo-wrap">
-            <img src="../assets/said.jpg" alt="Portrait of Edward Said" class="author-photo">
+            <img src="../assets/hall.jpg" alt="Portrait of Stuart Hall" class="author-photo">
           </div>
 
           <div class="author-info">
-            <div class="author-name">Edward Said</div>
-            <div class="author-role">Literary critic and theorist of representation</div>
+            <div class="author-name">Stuart Hall</div>
+            <div class="author-role">Cultural theorist of identity, representation, and difference</div>
           </div>
         </div>
 
         <blockquote class="concept-quote">
-          The “other” is often produced not to describe difference, but to stabilize power.
+          Identity is not an essence we uncover, but a position we inhabit, negotiate, and narrate.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">Orientalism</a></li>
-            <li><a href="#">Othering and representation</a></li>
+            <li><a href="#">Cultural Identity and Diaspora</a></li>
+            <li><a href="#">Representation and identity</a></li>
           </ul>
         </div>
       </article>
 
       <article class="concept-block block-top-right paper-cool">
-        <div class="concept-label">Norm</div>
-        <h2 class="concept-title">Whiteness</h2>
+        <div class="concept-label">Recognition</div>
+        <h2 class="concept-title">Recognition</h2>
 
         <p class="concept-text">
-          Whiteness functions not only as an identity category but as an invisible
-          norm, shaping who is seen as universal, neutral, rational, and fully
-          belonging. It often appears most powerful when it is unnamed.
+          Identity is not only how we see ourselves, but also how we are seen,
+          misread, refused, or recognized by others. Recognition can affirm a life,
+          but it can also become conditional, forcing people to appear in legible
+          ways before they are granted dignity or belonging.
         </p>
 
         <div class="concept-meta">
           <div class="author-photo-wrap small-photo">
-            <img src="../assets/dyer.png" alt="Portrait of Richard Dyer" class="author-photo">
+            <img src="../assets/butler.jpg" alt="Portrait of Judith Butler" class="author-photo">
           </div>
 
           <div class="author-info">
-            <div class="author-name">Richard Dyer</div>
-            <div class="author-role">Scholar of whiteness and visual culture</div>
+            <div class="author-name">Judith Butler</div>
+            <div class="author-role">Philosopher of gender, embodiment, and recognizability</div>
           </div>
         </div>
 
         <blockquote class="concept-quote">
-          Power is often hardest to see when it presents itself as ordinary.
+          To be recognizable is never neutral. It means being measured against an existing frame.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">White</a></li>
-            <li><a href="#">Whiteness as norm</a></li>
+            <li><a href="#">Undoing Gender</a></li>
+            <li><a href="#">Recognition and norms</a></li>
           </ul>
         </div>
       </article>
 
       <article class="concept-block block-core paper-note">
         <div class="concept-label">Core concept</div>
-        <h2 class="concept-title">Race as a Social Construct</h2>
+        <h2 class="concept-title">Identity as a Social Construct</h2>
 
         <p class="concept-text">
-          Race is not a fixed biological truth. It is a social and political system
-          for sorting people, attaching meaning to bodily difference, and organizing
-          hierarchy. This does not make race unreal. It makes it historically produced.
-          Race becomes real through law, science, institutions, violence,
-          representation, and everyday life.
+          Identity is not simply something hidden inside the self, waiting to be
+          discovered unchanged. It is shaped through language, institutions,
+          culture, memory, and power. This does not make identity fake. It makes
+          it historical, relational, and lived. Identities become real through the
+          ways people are named, positioned, recognized, resisted, and embodied
+          in social life.
         </p>
 
         <div class="concept-meta">
           <div class="author-photo-wrap">
-            <img src="../assets/o-mi-winant.jpg" alt="Portrait of Michael Omi and Howard Winant" class="author-photo">
+            <img src="../assets/hall.jpg" alt="Portrait of Stuart Hall" class="author-photo">
           </div>
 
           <div class="author-info">
-            <div class="author-name">Michael Omi &amp; Howard Winant</div>
-            <div class="author-role">Theorists of racial formation</div>
+            <div class="author-name">Stuart Hall</div>
+            <div class="author-role">Theorist of identity, difference, and cultural formation</div>
           </div>
         </div>
 
         <blockquote class="concept-quote">
-          Race is made, remade, and enforced through social struggle, not discovered as a neutral fact of nature.
+          Identity is made through history, discourse, and struggle, not found as a stable inner core.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">Racial Formation in the United States</a></li>
-            <li><a href="#">Race and social construction</a></li>
+            <li><a href="#">Identity and cultural studies</a></li>
+            <li><a href="#">Identity as process, not essence</a></li>
           </ul>
         </div>
       </article>
 
       <article class="concept-block block-mid-left paper-plain">
-        <div class="concept-label">History</div>
-        <h2 class="concept-title">Scientific Racism</h2>
+        <div class="concept-label">Process</div>
+        <h2 class="concept-title">Performativity & Becoming</h2>
 
         <p class="concept-text">
-          Stephen Gould critiqued the measurements of human skulls to support the preconception that Europeans had larger brains—and thus higher intelligence—than other races. 
-          He challenged biological determinism — the idea that social differences are natural and inherited.
-          Gould argued that "scientific racism" attempts to justify societal inequalities (segregation, slavery) by attributing them to biological inferiority.
-          Gould’s work is a reminder that science is never fully neutral and can reproduce bias as easily as it reveals truth.
+          Identity is often stabilized through repetition. The self is not expressed
+          once and for all, but continually enacted through gestures, norms,
+          expectations, speech, and social performance. This makes identity dynamic:
+          constrained by structure, but never fully closed.
         </p>
 
         <div class="concept-meta split-meta">
           <div class="author-info">
-            <div class="author-name">Stephen Jay Gould</div>
-            <div class="author-role">Historian of science and critic of racial measurement</div>
+            <div class="author-name">Judith Butler</div>
+            <div class="author-role">Philosopher of performativity and becoming</div>
           </div>
 
           <div class="author-photo-wrap">
-            <img src="../assets/gould.jpg" alt="Portrait of Stephen Jay Gould" class="author-photo">
+            <img src="../assets/butler.jpg" alt="Portrait of Judith Butler" class="author-photo">
           </div>
         </div>
 
         <blockquote class="concept-quote">
-          Numbers can look neutral even when they are built to confirm hierarchy.
+          Identity persists not because it is fixed, but because it is repeated until it feels natural.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="https://books.google.com/books?id=WTtTiG4eda0C&lpg=PA68&pg=PP1#v=onepage&q&f=false">The Mismeasure of Man</a></li>
-            <li><a href="#">Race, science, and classification</a></li>
+            <li><a href="#">Gender Trouble</a></li>
+            <li><a href="#">Performativity overview</a></li>
           </ul>
         </div>
       </article>
 
       <article class="concept-block block-bottom paper-warm">
         <div class="concept-label">Why it matters</div>
-        <h2 class="concept-title">Race, Power, and Modernity</h2>
+        <h2 class="concept-title">Identity, Power, and Belonging</h2>
 
         <p class="concept-text">
-          Race persists not because biology proves it, but because modern societies
-          continue to reproduce it through policing, migration regimes, media,
-          education, wealth, housing, and memory. Even when race is declared
-          socially invented, its material effects remain structured into everyday life.
+          Identity matters because it is tied to power: who gets to belong, who is
+          treated as legible, whose self-definition is respected, and whose life is
+          framed as deviant, incoherent, or excessive. Identity is not only personal.
+          It is political. It shapes access, recognition, safety, community, and the
+          terms under which people are allowed to appear in public life.
         </p>
 
         <div class="concept-meta">
           <div class="author-photo-wrap small-photo">
-            <img src="../assets/gilroy.jpg" alt="Portrait of Paul Gilroy" class="author-photo">
+            <img src="../assets/ahmed.jpg" alt="Portrait of Sara Ahmed" class="author-photo">
           </div>
 
           <div class="author-info">
-            <div class="author-name">Paul Gilroy</div>
-            <div class="author-role">Scholar of race, culture, and postcolonial modernity</div>
+            <div class="author-name">Sara Ahmed</div>
+            <div class="author-role">Scholar of identity, orientation, and feminist queer critique</div>
           </div>
         </div>
 
         <blockquote class="concept-quote">
-          A category can be historically invented and still shape the world with brutal consistency.
+          Belonging is never just a feeling. It is structured by the worlds that make some identities fit more easily than others.
         </blockquote>
 
         <div class="resources">
           <div class="resources-label">Reading shelf</div>
           <ul class="resources-list">
-            <li><a href="#">Race and modernity</a></li>
-            <li><a href="#">Postcolonial critique of race</a></li>
+            <li><a href="#">Queer Phenomenology</a></li>
+            <li><a href="#">Identity and belonging</a></li>
           </ul>
         </div>
       </article>
