@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Race · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+
+  <style>
+    /* ===== RACE: CENTRAL LAYOUT ===== */
+
+    .layout-center{
+      position:relative;
+      min-height:1120px;
+      margin-top:18px;
+    }
+
+    .layout-center .concept-block{
+      position:absolute;
+    }
+
+    .block-core{
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      width:min(38vw, 470px);
+      min-height:360px;
+      z-index:3;
+    }
+
+    .block-top-left{
+      left:2%;
+      top:4%;
+      width:min(33vw, 400px);
+      min-height:290px;
+      z-index:2;
+    }
+
+    .block-top-right{
+      right:3%;
+      top:7%;
+      width:min(29vw, 350px);
+      min-height:270px;
+      z-index:2;
+    }
+
+    .block-bottom-left{
+      left:7%;
+      bottom:6%;
+      width:min(28vw, 340px);
+      min-height:255px;
+      z-index:2;
+    }
+
+    .block-bottom-right{
+      right:4%;
+      bottom:3%;
+      width:min(34vw, 410px);
+      min-height:300px;
+      z-index:2;
+    }
+
+    /* subtle "tails" that reach toward the center */
+    .tail-to-core{
+      overflow:visible;
+    }
+
+    .tail-to-core::after{
+      content:"";
+      position:absolute;
+      background:inherit;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:inherit;
+      z-index:-1;
+    }
+
+    /* top-left reaches downward/right */
+    .block-top-left.tail-to-core::after{
+      width:92px;
+      height:88px;
+      right:28px;
+      bottom:-58px;
+      border-top:none;
+      border-left:none;
+      border-radius:0 0 20px 0;
+      clip-path:polygon(0 0, 100% 0, 100% 100%, 58% 100%, 58% 42%, 0 42%);
+    }
+
+    /* top-right reaches downward/left */
+    .block-top-right.tail-to-core::after{
+      width:86px;
+      height:78px;
+      left:24px;
+      bottom:-50px;
+      border-top:none;
+      border-right:none;
+      border-radius:0 0 0 20px;
+      clip-path:polygon(0 0, 100% 0, 100% 42%, 42% 42%, 42% 100%, 0 100%);
+    }
+
+    /* bottom-left reaches upward/right */
+    .block-bottom-left.tail-to-core::after{
+      width:82px;
+      height:84px;
+      right:26px;
+      top:-54px;
+      border-bottom:none;
+      border-left:none;
+      border-radius:0 20px 0 0;
+      clip-path:polygon(0 58%, 58% 58%, 58% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* bottom-right reaches upward/left */
+    .block-bottom-right.tail-to-core::after{
+      width:98px;
+      height:92px;
+      left:24px;
+      top:-58px;
+      border-bottom:none;
+      border-right:none;
+      border-radius:20px 0 0 0;
+      clip-path:polygon(0 0, 42% 0, 42% 58%, 100% 58%, 100% 100%, 0 100%);
+    }
+
+    /* central block gets a little more presence */
+    .block-core{
+      box-shadow:
+        0 28px 72px rgba(0,0,0,.42),
+        0 10px 26px rgba(0,0,0,.18);
+    }
+
+    .block-core .concept-title{
+      max-width:12ch;
+    }
+
+    .block-core .concept-text{
+      max-width:42ch;
+    }
+
+    /* a little looseness so it feels less geometric */
+    .block-top-left{
+      transform:rotate(-1.2deg);
+    }
+
+    .block-top-right{
+      transform:rotate(.8deg);
+    }
+
+    .block-bottom-left{
+      transform:rotate(.6deg);
+    }
+
+    .block-bottom-right{
+      transform:rotate(-.8deg);
+    }
+
+    .block-core{
+      transform:translate(-50%, -50%) rotate(-.3deg);
+    }
+
+    /* mobile fallback */
+    @media (max-width: 1100px){
+      .layout-center{
+        min-height:1180px;
+      }
+
+      .block-top-left{ left:1%; width:min(35vw, 390px); }
+      .block-top-right{ right:1%; width:min(30vw, 330px); }
+      .block-bottom-left{ left:4%; width:min(30vw, 320px); }
+      .block-bottom-right{ right:1%; width:min(35vw, 390px); }
+      .block-core{ width:min(42vw, 460px); }
+    }
+
+    @media (max-width: 860px){
+      .layout-center{
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+        gap:22px;
+      }
+
+      .layout-center .concept-block{
+        position:relative;
+        left:auto;
+        right:auto;
+        top:auto;
+        bottom:auto;
+        width:100%;
+        min-height:auto;
+        transform:none !important;
+      }
+
+      .tail-to-core::after{
+        display:none;
+      }
+
+      .block-core{
+        order:3;
+      }
+
+      .block-top-left{
+        order:1;
+      }
+
+      .block-top-right{
+        order:2;
+      }
+
+      .block-bottom-left{
+        order:4;
+      }
+
+      .block-bottom-right{
+        order:5;
+      }
+    }
+  </style>
+</head>
+<body class="theme-race">
+
+  <div class="library-bg" aria-hidden="true"></div>
+
+  <main class="topic-page">
+
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
+
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Race</span>
+      </div>
+      <h1>Race</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how race is invented, institutionalized,
+        normalized, and lived through classification, power, history, and social reality.
+      </p>
+    </header>
+
+    <section class="topic-board layout-center">
+
+      <article class="concept-block block-top-left paper-warm tail-to-core">
+        <div class="concept-label">Mechanism</div>
+        <h2 class="concept-title">Othering</h2>
+
+        <p class="concept-text">
+          Othering is the process through which a group is marked as different,
+          inferior, dangerous, or outside the norm. In racial systems, othering
+          turns difference into hierarchy. It makes exclusion feel natural and
+          helps justify segregation, surveillance, fear, and unequal belonging.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/said.jpg" alt="Portrait of Edward Said" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Edward Said</div>
+            <div class="author-role">Literary critic and theorist of representation</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          The “other” is often produced not to describe difference, but to stabilize power.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Orientalism</a></li>
+            <li><a href="#">Othering and representation</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-top-right paper-cool tail-to-core">
+        <div class="concept-label">Norm</div>
+        <h2 class="concept-title">Whiteness</h2>
+
+        <p class="concept-text">
+          Whiteness is not just an identity category. It also functions as an
+          invisible norm against which others are measured. It shapes who is seen
+          as universal, neutral, rational, and fully belonging, often without
+          naming itself as a position of power.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/dyer.jpg" alt="Portrait of Richard Dyer" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Richard Dyer</div>
+            <div class="author-role">Scholar of whiteness and visual culture</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Power is often hardest to see when it presents itself as ordinary.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">White</a></li>
+            <li><a href="#">Whiteness as norm</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-core paper-note">
+        <div class="concept-label">Core concept</div>
+        <h2 class="concept-title">Race as a Social Construct</h2>
+
+        <p class="concept-text">
+          Race is not a fixed biological truth. It is a social and political
+          system for sorting people, attaching meaning to bodily difference, and
+          organizing hierarchy. This does not make race unreal. It makes it
+          historically produced. Race becomes real through law, science,
+          institutions, violence, representation, and everyday life.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/o-mi-winant.jpg" alt="Portrait of Michael Omi and Howard Winant" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Michael Omi &amp; Howard Winant</div>
+            <div class="author-role">Theorists of racial formation</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Race is made, remade, and enforced through social struggle, not discovered as a neutral fact of nature.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Racial Formation in the United States</a></li>
+            <li><a href="#">Race and social construction</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-bottom-left paper-plain tail-to-core">
+        <div class="concept-label">History</div>
+        <h2 class="concept-title">Scientific Racism</h2>
+
+        <p class="concept-text">
+          Scientific racism used the language of objectivity, biology, and
+          measurement to legitimize racial hierarchy. Classification, skull
+          measurement, eugenics, and pseudo-scientific ranking turned prejudice
+          into “evidence” and helped institutions present domination as reason.
+        </p>
+
+        <div class="concept-meta split-meta">
+          <div class="author-info">
+            <div class="author-name">Stephen Jay Gould</div>
+            <div class="author-role">Historian of science and critic of racial measurement</div>
+          </div>
+
+          <div class="author-photo-wrap">
+            <img src="../assets/gould.jpg" alt="Portrait of Stephen Jay Gould" class="author-photo">
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Numbers can look neutral even when they are built to confirm hierarchy.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">The Mismeasure of Man</a></li>
+            <li><a href="#">Race, science, and classification</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-bottom-right paper-warm tail-to-core">
+        <div class="concept-label">Why it matters</div>
+        <h2 class="concept-title">Race, Power, and Modernity</h2>
+
+        <p class="concept-text">
+          Race persists not because biology proves it, but because modern societies
+          continue to reproduce it through policing, migration regimes, media,
+          education, wealth, housing, and memory. Even when race is declared
+          socially invented, its material effects remain structured into everyday
+          life. That is why race must be studied as both fiction and force.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/gilroy.jpg" alt="Portrait of Paul Gilroy" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Paul Gilroy</div>
+            <div class="author-role">Scholar of race, culture, and postcolonial modernity</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          A category can be historically invented and still shape the world with brutal consistency.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Race and modernity</a></li>
+            <li><a href="#">Postcolonial critique of race</a></li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
