@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colonialism · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body class="theme-colonialism">
+
+  <div class="library-bg" aria-hidden="true"></div>
+
+  <main class="topic-page">
+
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
+
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Colonialism</span>
+      </div>
+      <h1>Colonialism</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how colonial power orders people,
+        land, language, knowledge, and identity long after formal empire ends.
+      </p>
+    </header>
+
+    <section class="topic-board">
+
+      <article class="concept-block block-a paper-warm">
+        <div class="concept-label">Core concept</div>
+        <h2 class="concept-title">Colonialism</h2>
+
+        <p class="concept-text">
+          Colonialism is a system in which one power occupies, rules, extracts from,
+          and reorganizes another land and its people. It is not only military control
+          or territorial conquest. It also reshapes language, law, education, religion,
+          labor, and ideas of who is fully human. Colonialism produces hierarchies that
+          continue to shape the present.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/fanon.jpg" alt="Portrait of Frantz Fanon" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Frantz Fanon</div>
+            <div class="author-role">Psychiatrist, anti-colonial thinker, and critic of empire</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Colonial domination does not stop at land. It enters the mind, the body, and the social order.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">The Wretched of the Earth</a></li>
+            <li><a href="#">Colonialism overview</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-b paper-cool">
+        <div class="concept-label">Mechanism</div>
+        <h2 class="concept-title">Othering</h2>
+
+        <p class="concept-text">
+          Othering is the process by which people are marked as different, inferior,
+          dangerous, backward, or outside the norm. Colonial systems depend on this
+          logic. They construct the colonized as an “other” in order to justify control,
+          civilizing missions, surveillance, and exclusion. Othering turns difference
+          into hierarchy.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/said.jpg" alt="Portrait of Edward Said" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Edward Said</div>
+            <div class="author-role">Literary critic and theorist of Orientalism</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          The “other” is often invented not to describe difference, but to stabilize power.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Orientalism</a></li>
+            <li><a href="#">Othering and representation</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-c paper-plain">
+        <div class="concept-label">Response</div>
+        <h2 class="concept-title">Decolonization</h2>
+
+        <p class="concept-text">
+          Decolonization is not just the transfer of state power or the lowering of
+          a colonial flag. It is the dismantling of colonial structures, habits, and
+          ways of knowing. It asks what it would mean to return land, restore dignity,
+          challenge imposed categories, and undo the idea that Europe is the measure
+          of history, knowledge, and humanity.
+        </p>
+
+        <div class="concept-meta split-meta">
+          <div class="author-info">
+            <div class="author-name">Ngũgĩ wa Thiong’o</div>
+            <div class="author-role">Writer and critic of colonial language and culture</div>
+          </div>
+
+          <div class="author-photo-wrap">
+            <img src="../assets/ngugi.jpg" alt="Portrait of Ngũgĩ wa Thiong’o" class="author-photo">
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          To decolonize is also to recover the right to name the world in one’s own terms.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+           <ul class="resources-list">
+            <li><a href="#">Decolonising the Mind</a></li>
+            <li><a href="#">Decolonization and language</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-d paper-note">
+        <div class="concept-label">Why it matters</div>
+        <h2 class="concept-title">Coloniality after empire</h2>
+
+        <p class="concept-text">
+          Formal empire may end, but colonial logics often remain. They survive in
+          borders, development discourse, racial hierarchy, extraction, academic canon,
+          migration regimes, and assumptions about modernity. This is why colonialism
+          cannot be treated as only a past event. It is also a structure that continues
+          to organize the present.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/lugones.jpg" alt="Portrait of María Lugones" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">María Lugones</div>
+            <div class="author-role">Philosopher of coloniality, gender, and power</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Colonial rule does not disappear when administrations leave. It can persist as a way the world is sorted.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Coloniality of gender</a></li>
+            <li><a href="#">Coloniality and modern power</a></li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
