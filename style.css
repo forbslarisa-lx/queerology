@@ -1305,26 +1305,62 @@ body::after{
 .resources-list a:hover{
   color: #fff;
 }
-/* ===== PAGE THEMES ===== */
+/* ===== PAGE THEMES (extended) ===== */
 
-.theme-gender{
-  --accent-color: rgba(255, 120, 160, 1);
-}
-
-.theme-nature{
-  --accent-color: rgba(120, 200, 140, 1);
-}
-
-.theme-power{
-  --accent-color: rgba(160, 120, 255, 1);
-}
-
-.theme-language{
-  --accent-color: rgba(100, 180, 255, 1);
+.theme-knowledge{
+  --accent-color: rgba(156, 92, 255, 1); /* фиолетовый */
 }
 
 .theme-identity{
-  --accent-color: rgba(255, 180, 90, 1);
+  --accent-color: rgba(255, 90, 168, 1); /* розовый */
 }
 
+.theme-gender{
+  --accent-color: rgba(255, 107, 107, 1); /* красно-розовый */
+}
+
+.theme-women{
+  --accent-color: rgba(255, 149, 88, 1); /* тёплый оранжевый */
+}
+
+.theme-race{
+  --accent-color: rgba(255, 198, 77, 1); /* жёлто-золотой */
+}
+
+.theme-colonialism{
+  --accent-color: rgba(201, 166, 90, 1); /* приглушённое золото */
+}
+
+.theme-immigration{
+  --accent-color: rgba(125, 211, 111, 1); /* зелёный */
+}
+
+.theme-power{
+  --accent-color: rgba(87, 221, 177, 1); /* мятный */
+}
+
+.theme-language{
+  --accent-color: rgba(70, 190, 255, 1); /* голубой */
+}
+
+.theme-nature{
+  --accent-color: rgba(78, 216, 200, 1); /* бирюзовый */
+}
+
+.theme-agency{
+  --accent-color: rgba(141, 112, 255, 1); /* холодный фиолет */
+}
+
+.theme-misc{
+  --accent-color: rgba(255, 126, 196, 1); /* мягкий розовый */
+}
+
+.theme-glossary{
+  --accent-color: rgba(220, 220, 220, 1); /* нейтральный */
+}
+
+/* особый случай — normativity */
+.theme-normativity{
+  --accent-color: rgba(180, 180, 180, 1);
+}
 
