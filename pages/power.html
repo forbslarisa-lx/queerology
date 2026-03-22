@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+
+  <style>
+    .layout-race{
+      display:grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+        "extra-left extra-left extra-right"
+        "top-left top-left top-right"
+        "mid-left core core"
+        "mid-left bottom bottom";
+      gap:28px 32px;
+      align-items:start;
+      margin-top:34px;
+    }
+
+    .layout-race .concept-block{
+      min-height:unset;
+    }
+
+    .block-extra-left{
+      grid-area:extra-left;
+      min-height:250px;
+      transform:translateY(10px);
+    }
+
+    .block-extra-right{
+      grid-area:extra-right;
+      min-height:330px;
+      transform:translateX(8px) translateY(-6px);
+    }
+
+    .block-top-left{
+      grid-area:top-left;
+      min-height:250px;
+      transform:translateY(8px);
+    }
+
+    .block-top-right{
+      grid-area:top-right;
+      min-height:360px;
+      transform:translateX(6px) translateY(-10px);
+    }
+
+    .block-core{
+      grid-area:core;
+      min-height:330px;
+      transform:translate(-8px, -6px);
+      box-shadow:
+        0 28px 72px rgba(0,0,0,.42),
+        0 10px 26px rgba(0,0,0,.18);
+    }
+
+    .block-mid-left{
+      grid-area:mid-left;
+      min-height:390px;
+      transform:translateX(-18px) translateY(70px);
+    }
+
+    .block-bottom{
+      grid-area:bottom;
+      min-height:260px;
+      transform:translateX(10px) translateY(8px);
+    }
+
+    .layout-race .concept-title{
+      max-width:24ch;
+    }
+
+    .layout-race .concept-text{
+      max-width:56ch;
+      line-height:1.68;
+      text-wrap:pretty;
+    }
+
+    .layout-race .block-top-right .concept-text,
+    .layout-race .block-mid-left .concept-text,
+    .layout-race .block-extra-right .concept-text{
+      max-width:31ch;
+    }
+
+    .layout-race .block-core .concept-text,
+    .layout-race .block-bottom .concept-text{
+      max-width:90ch;
+    }
+
+    .layout-race .concept-quote{
+      max-width:40ch;
+    }
+
+    @media (max-width: 1100px){
+      .layout-race{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "extra-left extra-right"
+          "top-left top-right"
+          "core core"
+          "mid-left bottom";
+        gap:24px;
+      }
+
+      .block-extra-left,
+      .block-extra-right,
+      .block-top-left,
+      .block-top-right,
+      .block-core,
+      .block-mid-left,
+      .block-bottom{
+        transform:none;
+      }
+
+      .block-extra-right,
+      .block-top-right{
+        min-height:320px;
+      }
+
+      .block-mid-left{
+        min-height:320px;
+      }
+
+      .block-bottom{
+        min-height:250px;
+      }
+    }
+
+    @media (max-width: 780px){
+      .layout-race{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "extra-left"
+          "extra-right"
+          "top-left"
+          "top-right"
+          "core"
+          "mid-left"
+          "bottom";
+      }
+
+      .block-extra-left,
+      .block-extra-right,
+      .block-top-left,
+      .block-top-right,
+      .block-core,
+      .block-mid-left,
+      .block-bottom{
+        min-height:auto;
+      }
+
+      .layout-race .concept-text,
+      .layout-race .block-top-right .concept-text,
+      .layout-race .block-mid-left .concept-text,
+      .layout-race .block-extra-right .concept-text,
+      .layout-race .block-core .concept-text,
+      .layout-race .block-bottom .concept-text{
+        max-width:unset;
+      }
+    }
+  </style>
+</head>
+<body class="theme-power">
+
+  <div class="library-bg" aria-hidden="true"></div>
+
+  <main class="topic-page">
+
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
+
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Power</span>
+      </div>
+      <h1>Power</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how power regulates bodies, defines norms,
+        classifies lives, produces knowledge, and decides who is protected, corrected,
+        exposed, or abandoned.
+      </p>
+    </header>
+
+    <section class="topic-board layout-race">
+
+      <article class="concept-block block-extra-left paper-note">
+        <div class="concept-label">Mechanism</div>
+        <h2 class="concept-title">Institutions</h2>
+
+        <p class="concept-text">
+          Power does not float above society as an abstract force. It lives in institutions:
+          the family, school, clinic, prison, church, border regime, military, media, and state.
+          Institutions make power durable by turning norms into routines. They decide what counts
+          as healthy, legal, respectable, intelligent, deviant, risky, or worthy of protection.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/foucault.jpg" alt="Portrait of Michel Foucault" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Michel Foucault</div>
+            <div class="author-role">Theorist of institutions, discipline, and modern power</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Power becomes ordinary when it is built into the places that organize daily life.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Discipline and Punish</a></li>
+            <li><a href="#">The history of institutions and control</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-extra-right paper-warm">
+        <div class="concept-label">Norms</div>
+        <h2 class="concept-title">Normativity</h2>
+
+        <p class="concept-text">
+          Normativity is the quiet architecture of power. It defines what feels natural,
+          proper, healthy, civilized, feminine, masculine, productive, or moral. Once a norm
+          is established, difference can be framed as failure, pathology, danger, or defect.
+          This is how power hides: not only by punishing deviation, but by making the norm feel
+          like common sense.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/ahmed.jpg" alt="Portrait of Sara Ahmed" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Sara Ahmed</div>
+            <div class="author-role">Scholar of norms, orientation, and institutional power</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          A norm is most effective when it disappears into the background and starts to feel like reality itself.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Queer Phenomenology</a></li>
+            <li><a href="#">Living a Feminist Life</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-top-left paper-cool">
+        <div class="concept-label">Core concept</div>
+        <h2 class="concept-title">Biopolitics</h2>
+
+        <p class="concept-text">
+          Biopolitics describes how modern power manages life. It tracks populations, regulates
+          reproduction, health, sexuality, hygiene, productivity, and risk. Instead of ruling only
+          through spectacular punishment, modern states increasingly govern by optimizing life:
+          measuring it, improving it, correcting it, and sorting it into normal and abnormal forms.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/foucault.jpg" alt="Portrait of Michel Foucault" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Michel Foucault</div>
+            <div class="author-role">Philosopher of biopower, discipline, and state rationality</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Modern power does not only threaten death. It administers life.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">The History of Sexuality, Vol. 1</a></li>
+            <li><a href="#">Biopolitics overview</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-top-right paper-plain">
+        <div class="concept-label">Afterlife of power</div>
+        <h2 class="concept-title">Necropolitics</h2>
+
+        <p class="concept-text">
+          Necropolitics asks a darker question: if biopolitics manages life, who gets pushed toward death,
+          disposability, exposure, and abandonment? Some groups are not protected by the state but rendered
+          killable, neglectable, or permanently vulnerable. Power does not only produce life chances. It also
+          decides whose suffering is acceptable, invisible, or politically useful.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/mbembe.jpg" alt="Portrait of Achille Mbembe" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Achille Mbembe</div>
+            <div class="author-role">Political theorist of sovereignty, violence, and death-worlds</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Sovereignty is revealed most clearly in the power to decide who may live and who may be left to die.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Necropolitics</a></li>
+            <li><a href="#">Sovereignty, violence, and abandonment</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-core paper-note">
+        <div class="concept-label">Medical power</div>
+        <h2 class="concept-title">Medicalization</h2>
+
+        <p class="concept-text">
+          Medicalization is the process by which social, moral, sexual, or behavioral differences are
+          redefined as medical issues. It gives institutions the authority to diagnose, classify, correct,
+          and normalize. Queer lives, disabled bodies, reproductive choices, and nonconforming genders have
+          often been governed through this lens. Medical language can sound neutral, even caring, while
+          quietly converting difference into disorder and political control into treatment.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/conrad.jpg" alt="Portrait of Peter Conrad" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Peter Conrad</div>
+            <div class="author-role">Sociologist of medicalization and diagnosis</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          To medicalize is often to move a question from ethics or politics into the authority of diagnosis.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">The Medicalization of Society</a></li>
+            <li><a href="#">Pathologization and diagnosis</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-mid-left paper-warm">
+        <div class="concept-label">Violent optimization</div>
+        <h2 class="concept-title">Eugenics</h2>
+
+        <p class="concept-text">
+          Eugenics is the fantasy of improving the population by controlling who may reproduce,
+          belong, or be considered fully valuable. It combines science, nationalism, ableism,
+          racism, class hierarchy, and reproductive control. Eugenics is not just a historical horror.
+          Its logic survives in sterilization, border sorting, genetic panic, fitness narratives,
+          and policies that rank some lives as more desirable than others.
+        </p>
+
+        <div class="concept-meta split-meta">
+          <div class="author-info">
+            <div class="author-name">Angela Davis</div>
+            <div class="author-role">Scholar of prisons, race, and reproductive justice</div>
+          </div>
+
+          <div class="author-photo-wrap">
+            <img src="../assets/davis.jpg" alt="Portrait of Angela Davis" class="author-photo">
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          The dream of “better populations” is never neutral. It is built from hierarchies of whose future matters.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Women, Race & Class</a></li>
+            <li><a href="#">Histories of eugenics and reproductive control</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-bottom paper-cool">
+        <div class="concept-label">Why it matters</div>
+        <h2 class="concept-title">Surveillance, Law, and Resistance</h2>
+
+        <p class="concept-text">
+          Power is not only top-down force. It is also the network of files, forms, data, police,
+          diagnoses, documentation, school rules, border checks, algorithms, and public narratives
+          that decide who becomes legible and who becomes suspect. But power is never total. People
+          resist through refusal, community, mutual care, reclaiming language, breaking categories,
+          exposing institutions, and building other ways to live. Power draws the map. Resistance
+          redraws it.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/butler.jpg" alt="Portrait of Judith Butler" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Judith Butler</div>
+            <div class="author-role">Philosopher of precarity, recognizability, and political resistance</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Where life is constrained by power, politics begins with the struggle over whose lives become livable.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Frames of War</a></li>
+            <li><a href="#">Precarity, recognizability, and resistance</a></li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</body>
+</html>
