@@ -12,7 +12,7 @@
       grid-template-columns: 1fr 1.2fr 1fr;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
-        "extra-left extra-left extra-right"
+        "extra-right extra-left extra-left "
         "top-left top-left top-right"
         "mid-left core core"
         "mid-left bottom bottom";
@@ -30,12 +30,12 @@
       min-height:250px;
       transform:translateY(10px);
     }
-
     .block-extra-right{
       grid-area:extra-right;
       min-height:330px;
       transform:translateX(8px) translateY(-6px);
     }
+
 
     .block-top-left{
       grid-area:top-left;
@@ -87,8 +87,9 @@
     }
 
     .layout-race .block-core .concept-text,
+     .layout-race .block-extra-left .concept-text,
     .layout-race .block-bottom .concept-text{
-      max-width:90ch;
+      max-width:80ch;
     }
 
     .layout-race .concept-quote{
@@ -105,9 +106,9 @@
           "mid-left bottom";
         gap:24px;
       }
-
-      .block-extra-left,
+      
       .block-extra-right,
+      .block-extra-left,
       .block-top-left,
       .block-top-right,
       .block-core,
@@ -134,8 +135,8 @@
       .layout-race{
         grid-template-columns:1fr;
         grid-template-areas:
-          "extra-left"
           "extra-right"
+         "extra-left"
           "top-left"
           "top-right"
           "core"
@@ -143,8 +144,9 @@
           "bottom";
       }
 
-      .block-extra-left,
+      
       .block-extra-right,
+      .block-extra-left,
       .block-top-left,
       .block-top-right,
       .block-core,
