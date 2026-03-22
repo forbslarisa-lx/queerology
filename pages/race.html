@@ -7,89 +7,107 @@
   <link rel="stylesheet" href="../style.css"/>
 
   <style>
-    /* ===== LAYOUT B: CENTRAL WALL ===== */
+    /* ===== RACE LAYOUT TEST ===== */
 
-    .layout-wall{
+    .layout-race{
       display:grid;
-      grid-template-columns: 1.15fr 0.95fr 0.9fr;
+      grid-template-columns: 1fr 1.2fr 1fr;
       grid-template-rows: auto auto auto;
       grid-template-areas:
-        "top-left . top-right"
-        ". core top-right"
-        "bottom-left bottom-right bottom-right";
-      gap:28px 30px;
+        "top-left top-left top-right"
+        "mid-left core core"
+        "mid-left bottom bottom";
+      gap:28px 32px;
       align-items:start;
-      margin-top:32px;
+      margin-top:34px;
     }
 
-    .layout-wall .concept-block{
+    .layout-race .concept-block{
       min-height:unset;
     }
 
+    /* positions */
     .block-top-left{
       grid-area:top-left;
-      min-height:250px;
-      transform:translateY(6px);
+      min-height:230px;
+      transform:translateY(4px);
     }
 
     .block-top-right{
       grid-area:top-right;
-      min-height:380px;
+      min-height:370px;
       transform:translateY(18px);
     }
 
     .block-core{
       grid-area:core;
-      min-height:280px;
-      transform:translate(-10px, -8px);
+      min-height:300px;
+      transform:translate(-8px, -6px);
       box-shadow:
         0 28px 72px rgba(0,0,0,.42),
         0 10px 26px rgba(0,0,0,.18);
     }
 
-    .block-core .concept-title{
-      max-width:12ch;
-    }
-
-    .block-bottom-left{
-      grid-area:bottom-left;
+    .block-mid-left{
+      grid-area:mid-left;
       min-height:360px;
-      transform:translateY(-12px);
+      transform:translateY(-10px);
     }
 
-    .block-bottom-right{
-      grid-area:bottom-right;
-      min-height:250px;
-      transform:translate(8px, -4px);
+    .block-bottom{
+      grid-area:bottom;
+      min-height:240px;
+      transform:translateY(-8px);
     }
 
-    /* make proportions feel different */
-    .block-top-left .concept-title,
-    .block-bottom-right .concept-title{
-      max-width:14ch;
+    /* ===== TYPOGRAPHY WIDTH FIX ===== */
+    /* вот это как раз тест, чтобы текст не делал башни */
+
+    .layout-race .concept-title{
+      max-width:22ch;
     }
 
-    .block-top-right .concept-title,
-    .block-bottom-left .concept-title{
-      max-width:11ch;
+    .layout-race .concept-text{
+      max-width:54ch;
+      line-height:1.68;
+      text-wrap:pretty;
+    }
+
+    .layout-race .block-top-right .concept-text,
+    .layout-race .block-mid-left .concept-text{
+      max-width:30ch;
+    }
+
+    .layout-race .block-core .concept-title,
+    .layout-race .block-bottom .concept-title{
+      max-width:24ch;
+    }
+
+    .layout-race .block-core .concept-text,
+    .layout-race .block-bottom .concept-text{
+      max-width:58ch;
+    }
+
+    .layout-race .concept-quote{
+      max-width:38ch;
     }
 
     /* responsive */
     @media (max-width: 1100px){
-      .layout-wall{
-        grid-template-columns: 1fr 0.95fr;
+      .layout-race{
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
           "top-left top-right"
           "core core"
-          "bottom-left bottom-right";
+          "mid-left bottom";
         gap:24px;
       }
 
       .block-top-left,
       .block-top-right,
       .block-core,
-      .block-bottom-left,
-      .block-bottom-right{
+      .block-mid-left,
+      .block-bottom{
         transform:none;
       }
 
@@ -97,28 +115,40 @@
         min-height:320px;
       }
 
-      .block-bottom-left{
+      .block-mid-left{
         min-height:300px;
+      }
+
+      .block-bottom{
+        min-height:250px;
       }
     }
 
     @media (max-width: 780px){
-      .layout-wall{
-        grid-template-columns: 1fr;
+      .layout-race{
+        grid-template-columns:1fr;
         grid-template-areas:
           "top-left"
           "top-right"
           "core"
-          "bottom-left"
-          "bottom-right";
+          "mid-left"
+          "bottom";
       }
 
       .block-top-left,
       .block-top-right,
       .block-core,
-      .block-bottom-left,
-      .block-bottom-right{
+      .block-mid-left,
+      .block-bottom{
         min-height:auto;
+      }
+
+      .layout-race .concept-text,
+      .layout-race .block-top-right .concept-text,
+      .layout-race .block-mid-left .concept-text,
+      .layout-race .block-core .concept-text,
+      .layout-race .block-bottom .concept-text{
+        max-width:unset;
       }
     }
   </style>
@@ -145,7 +175,7 @@
       </p>
     </header>
 
-    <section class="topic-board layout-wall">
+    <section class="topic-board layout-race">
 
       <article class="concept-block block-top-left paper-warm">
         <div class="concept-label">Mechanism</div>
@@ -154,8 +184,8 @@
         <p class="concept-text">
           Othering is the process through which a group is marked as different,
           inferior, dangerous, or outside the norm. In racial systems, othering
-          turns difference into hierarchy and makes exclusion feel natural, justified,
-          and ordinary.
+          turns difference into hierarchy and makes exclusion feel natural,
+          justified, and ordinary.
         </p>
 
         <div class="concept-meta">
@@ -252,7 +282,7 @@
         </div>
       </article>
 
-      <article class="concept-block block-bottom-left paper-plain">
+      <article class="concept-block block-mid-left paper-plain">
         <div class="concept-label">History</div>
         <h2 class="concept-title">Scientific Racism</h2>
 
@@ -286,7 +316,7 @@
         </div>
       </article>
 
-      <article class="concept-block block-bottom-right paper-warm">
+      <article class="concept-block block-bottom paper-warm">
         <div class="concept-label">Why it matters</div>
         <h2 class="concept-title">Race, Power, and Modernity</h2>
 
