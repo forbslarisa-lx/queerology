@@ -7,26 +7,41 @@
   <link rel="stylesheet" href="../style.css"/>
 
   <style>
-    /* ===== RACE: CENTRAL LAYOUT / CLEAN ===== */
+    /* ===== LAYOUT B: CENTRAL WALL ===== */
 
-    .layout-center{
-      position:relative;
-      min-height:1200px;
-      margin-top:34px;
+    .layout-wall{
+      display:grid;
+      grid-template-columns: 1.15fr 0.95fr 0.9fr;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "top-left . top-right"
+        ". core top-right"
+        "bottom-left bottom-right bottom-right";
+      gap:28px 30px;
+      align-items:start;
+      margin-top:32px;
     }
 
-    .layout-center .concept-block{
-      position:absolute;
+    .layout-wall .concept-block{
+      min-height:unset;
     }
 
-    /* center */
+    .block-top-left{
+      grid-area:top-left;
+      min-height:250px;
+      transform:translateY(6px);
+    }
+
+    .block-top-right{
+      grid-area:top-right;
+      min-height:380px;
+      transform:translateY(18px);
+    }
+
     .block-core{
-      left:50%;
-      top:44%;
-      transform:translate(-50%, -50%);
-      width:min(32vw, 390px);
-      min-height:350px;
-      z-index:3;
+      grid-area:core;
+      min-height:280px;
+      transform:translate(-10px, -8px);
       box-shadow:
         0 28px 72px rgba(0,0,0,.42),
         0 10px 26px rgba(0,0,0,.18);
@@ -36,121 +51,75 @@
       max-width:12ch;
     }
 
-    /* top row */
-    .block-top-left{
-      left:1%;
-      top:8%;
-      width:min(19vw, 230px);
-      min-height:320px;
-      z-index:2;
-    }
-
-    .block-top-right{
-      right:2%;
-      top:9%;
-      width:min(18vw, 220px);
-      min-height:300px;
-      z-index:2;
-    }
-
-    /* bottom row */
     .block-bottom-left{
-      left:4%;
-      bottom:7%;
-      width:min(19vw, 235px);
-      min-height:260px;
-      z-index:2;
+      grid-area:bottom-left;
+      min-height:360px;
+      transform:translateY(-12px);
     }
 
     .block-bottom-right{
-      right:3%;
-      bottom:8%;
-      width:min(30vw, 360px);
+      grid-area:bottom-right;
       min-height:250px;
-      z-index:2;
+      transform:translate(8px, -4px);
     }
 
-    @media (max-width: 1180px){
-      .layout-center{
-        min-height:1120px;
+    /* make proportions feel different */
+    .block-top-left .concept-title,
+    .block-bottom-right .concept-title{
+      max-width:14ch;
+    }
+
+    .block-top-right .concept-title,
+    .block-bottom-left .concept-title{
+      max-width:11ch;
+    }
+
+    /* responsive */
+    @media (max-width: 1100px){
+      .layout-wall{
+        grid-template-columns: 1fr 0.95fr;
+        grid-template-areas:
+          "top-left top-right"
+          "core core"
+          "bottom-left bottom-right";
+        gap:24px;
       }
 
-      .block-core{
-        width:min(36vw, 380px);
-      }
-
-      .block-top-left{
-        width:min(22vw, 230px);
+      .block-top-left,
+      .block-top-right,
+      .block-core,
+      .block-bottom-left,
+      .block-bottom-right{
+        transform:none;
       }
 
       .block-top-right{
-        width:min(21vw, 220px);
+        min-height:320px;
       }
 
       .block-bottom-left{
-        width:min(22vw, 230px);
-      }
-
-      .block-bottom-right{
-        width:min(33vw, 350px);
+        min-height:300px;
       }
     }
 
-    @media (max-width: 980px){
-      .layout-center{
-        min-height:1040px;
+    @media (max-width: 780px){
+      .layout-wall{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "top-left"
+          "top-right"
+          "core"
+          "bottom-left"
+          "bottom-right";
       }
 
-      .block-core{
-        width:min(42vw, 360px);
-        top:43%;
-      }
-
-      .block-top-left{
-        left:0;
-        width:min(24vw, 220px);
-      }
-
-      .block-top-right{
-        right:0;
-        width:min(23vw, 210px);
-      }
-
-      .block-bottom-left{
-        left:1%;
-        width:min(24vw, 220px);
-      }
-
+      .block-top-left,
+      .block-top-right,
+      .block-core,
+      .block-bottom-left,
       .block-bottom-right{
-        right:1%;
-        width:min(35vw, 330px);
-      }
-    }
-
-    @media (max-width: 860px){
-      .layout-center{
         min-height:auto;
-        display:flex;
-        flex-direction:column;
-        gap:22px;
       }
-
-      .layout-center .concept-block{
-        position:relative;
-        left:auto;
-        right:auto;
-        top:auto;
-        bottom:auto;
-        width:100%;
-        min-height:auto;
-        transform:none !important;
-      }
-
-      .block-top-left{ order:1; }
-      .block-top-right{ order:2; }
-      .block-core{ order:3; }
-      .block-bottom-left{ order:4; }
-      .block-bottom-right{ order:5; }
     }
   </style>
 </head>
@@ -176,7 +145,7 @@
       </p>
     </header>
 
-    <section class="topic-board layout-center">
+    <section class="topic-board layout-wall">
 
       <article class="concept-block block-top-left paper-warm">
         <div class="concept-label">Mechanism</div>
@@ -185,7 +154,8 @@
         <p class="concept-text">
           Othering is the process through which a group is marked as different,
           inferior, dangerous, or outside the norm. In racial systems, othering
-          turns difference into hierarchy and makes exclusion feel natural.
+          turns difference into hierarchy and makes exclusion feel natural, justified,
+          and ordinary.
         </p>
 
         <div class="concept-meta">
@@ -218,7 +188,8 @@
 
         <p class="concept-text">
           Whiteness functions not only as an identity category but as an invisible
-          norm, shaping who is seen as universal, neutral, and fully belonging.
+          norm, shaping who is seen as universal, neutral, rational, and fully
+          belonging. It often appears most powerful when it is unnamed.
         </p>
 
         <div class="concept-meta">
@@ -250,11 +221,11 @@
         <h2 class="concept-title">Race as a Social Construct</h2>
 
         <p class="concept-text">
-          Race is not a fixed biological truth. It is a social and political
-          system for sorting people, attaching meaning to bodily difference, and
-          organizing hierarchy. This does not make race unreal. It makes it
-          historically produced through law, science, institutions, violence,
-          and everyday life.
+          Race is not a fixed biological truth. It is a social and political system
+          for sorting people, attaching meaning to bodily difference, and organizing
+          hierarchy. This does not make race unreal. It makes it historically produced.
+          Race becomes real through law, science, institutions, violence,
+          representation, and everyday life.
         </p>
 
         <div class="concept-meta">
@@ -287,7 +258,8 @@
 
         <p class="concept-text">
           Scientific racism used measurement, biology, and classification to give
-          prejudice the appearance of objectivity and reason.
+          prejudice the appearance of objectivity and reason. It turned bias into
+          “evidence” and helped institutions present hierarchy as fact.
         </p>
 
         <div class="concept-meta split-meta">
