@@ -1,118 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge - Queerology</title>
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowledge · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
 </head>
-<body>
+<body class="theme-knowledge">
 
-    <!-- Library Background (no <img> needed, CSS handles it) -->
-    <div class="library-bg" aria-hidden="true"></div>
+  <div class="library-bg" aria-hidden="true"></div>
 
-    <main class="page">
+  <main class="topic-page">
 
-        <!-- Navigation -->
-        <nav class="nav">
-            <a href="../index.html" class="nav-btn">Home</a>
-            <a href="../about.html" class="nav-btn">About</a>
-        </nav>
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
 
-        <!-- Page intro — NOT using class "about" to avoid conflict -->
-        <section class="section page-intro">
-            <h2>Knowledge</h2>
-            <p>This page explores key concepts in knowledge, including Epistemology, Situated Knowledge, Cognitive Biases, and Queer as a Method of Learning. These concepts are connected by their focus on how we learn, process information, and how our perspectives shape knowledge.</p>
-        </section>
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Knowledge</span>
+      </div>
+      <h1>Knowledge</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how knowledge is produced, authorized,
+        limited, and contested through power, perspective, institutions, and lived experience.
+      </p>
+    </header>
 
-        <!-- Epistemology -->
-        <section class="section epistemology">
-            <h2>Epistemology</h2>
-            <div class="concept">
-                <p>Epistemology is the study of knowledge, including its nature, origin, and limits. It investigates questions such as "What is knowledge?" and "How is knowledge different from belief or opinion?"</p>
-                <div class="author-section">
-                    <img src="../assets/author1.jpg" alt="Immanuel Kant" class="author-photo">
-                    <p class="author-name">Immanuel Kant</p>
-                </div>
-                <blockquote>"Science is organized knowledge. Wisdom is organized life."</blockquote>
-                <a href="../resources.html" class="resources-btn">View Resources</a>
-            </div>
-        </section>
+    <section class="topic-board">
 
-        <div class="staircase-divider">
-            <img src="../assets/staircase.png" alt="Divider">
+      <article class="concept-block block-a paper-warm">
+        <div class="concept-label">Core concept</div>
+        <h2 class="concept-title">Epistemology</h2>
+
+        <p class="concept-text">
+          Epistemology is the study of knowledge: what counts as knowledge, how we
+          know what we know, who is treated as credible, and which methods are
+          considered valid. In queer and critical thought, epistemology matters
+          because knowledge is never neutral. It is shaped by institutions, norms,
+          access, and power.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap">
+            <img src="../assets/foucault.jpg" alt="Portrait of Michel Foucault" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Michel Foucault</div>
+            <div class="author-role">Philosopher of knowledge and power</div>
+          </div>
         </div>
 
-        <!-- Situated Knowledge -->
-        <section class="section situated">
-            <h2>Situated Knowledge</h2>
-            <div class="concept">
-                <p>Situated knowledge emphasizes that all knowledge is influenced by our position in society and the contexts in which we are situated. It challenges the idea of neutral or objective knowledge.</p>
-                <div class="author-section">
-                    <img src="../assets/author2.jpg" alt="Donna Haraway" class="author-photo">
-                    <p class="author-name">Donna Haraway</p>
-                </div>
-                <blockquote>"Knowledge is always situated, influenced by our experiences, our identities, and our perspectives."</blockquote>
-                <a href="../resources.html" class="resources-btn">View Resources</a>
-            </div>
-        </section>
+        <blockquote class="concept-quote">
+          Knowledge does not stand outside power. It is one of the ways power works.
+        </blockquote>
 
-        <div class="staircase-divider">
-            <img src="../assets/staircase.png" alt="Divider">
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">What is epistemology?</a></li>
+            <li><a href="#">Power/knowledge overview</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-b paper-cool">
+        <div class="concept-label">Lens</div>
+        <h2 class="concept-title">Situated Knowledge</h2>
+
+        <p class="concept-text">
+          Situated knowledge challenges the fantasy of a detached, universal point
+          of view. It argues that all knowledge comes from somewhere: from a body,
+          a history, a location, a social position. Instead of pretending to be
+          nowhere, critical knowledge asks us to be accountable for where we speak from.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/haraway.jpg" alt="Portrait of Donna Haraway" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">Donna Haraway</div>
+            <div class="author-role">Scholar of science, embodiment, and situated knowledge</div>
+          </div>
         </div>
 
-        <!-- Cognitive Biases -->
-        <section class="section cognitive">
-            <h2>Cognitive Biases</h2>
-            <div class="concept">
-                <p>Cognitive biases are systematic patterns of deviation from norm or rationality in judgment. These biases affect how we perceive and make decisions.</p>
-                <div class="author-section">
-                    <img src="../assets/author3.jpg" alt="Daniel Kahneman" class="author-photo">
-                    <p class="author-name">Daniel Kahneman</p>
-                </div>
-                <blockquote>"We are all subject to biases, but recognizing them allows us to make better decisions."</blockquote>
-                <a href="../resources.html" class="resources-btn">View Resources</a>
-            </div>
-        </section>
+        <blockquote class="concept-quote">
+          Objectivity is not the view from nowhere, but a responsible account of partial perspective.
+        </blockquote>
 
-        <div class="staircase-divider">
-            <img src="../assets/staircase.png" alt="Divider">
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Situated Knowledges</a></li>
+            <li><a href="#">Partial perspective explained</a></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="concept-block block-c paper-plain">
+        <div class="concept-label">Challenge</div>
+        <h2 class="concept-title">Cognitive Bias</h2>
+
+        <p class="concept-text">
+          Cognitive bias refers to the recurring patterns through which perception
+          and judgment can become distorted. We do not meet facts as blank slates.
+          We interpret them through expectation, fear, familiarity, ideology, and
+          social training. Bias is not just an individual flaw. It can also be built
+          into institutions, research traditions, and public common sense.
+        </p>
+
+        <div class="concept-meta split-meta">
+          <div class="author-info">
+            <div class="author-name">Daniel Kahneman</div>
+            <div class="author-role">Psychologist of judgment and decision-making</div>
+          </div>
+
+          <div class="author-photo-wrap">
+            <img src="../assets/kahneman.jpg" alt="Portrait of Daniel Kahneman" class="author-photo">
+          </div>
         </div>
 
-        <!-- Queer as a Method of Learning -->
-        <section class="section queer">
-            <h2>QUEER as a Method of Learning</h2>
-            <div class="concept">
-                <p>Queer theory challenges conventional understandings of gender, sexuality, and identity. It offers a unique method of learning that disrupts traditional approaches and encourages critical thinking.</p>
-                <div class="author-section">
-                    <img src="../assets/author4.jpg" alt="Judith Butler" class="author-photo">
-                    <p class="author-name">Judith Butler</p>
-                </div>
-                <blockquote>"Gender is not something we are, but something we do."</blockquote>
-                <a href="../resources.html" class="resources-btn">View Resources</a>
-            </div>
-        </section>
+        <blockquote class="concept-quote">
+          We tend to mistake familiar narratives for truth, even when they narrow what we can perceive.
+        </blockquote>
 
-    </main>
-
-    <footer class="footer">
-        <div class="footer-wrap">
-            <div class="footer-inner">
-                <div class="footer-left">
-                    <div class="footer-title">Queerology</div>
-                    <div class="footer-sub">A critical knowledge system about identity, power, and the social world.</div>
-                </div>
-                <div class="footer-links">
-                    <a href="../about.html">About</a>
-                    <a href="../pages/glossary.html">Glossary</a>
-                    <a href="../credits.html">Credits</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                Concept, research, writing, and design by Larisa Forbs.
-            </div>
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+           <ul class="resources-list">
+            <li><a href="#">Thinking, Fast and Slow</a></li>
+            <li><a href="#">Bias and social perception</a></li>
+          </ul>
         </div>
-    </footer>
+      </article>
 
+      <article class="concept-block block-d paper-note">
+        <div class="concept-label">Why it matters</div>
+        <h2 class="concept-title">Who gets to count as knowledge?</h2>
+
+        <p class="concept-text">
+          These ideas belong together because they expose a central question:
+          whose voice is treated as credible, objective, educated, rational, or
+          universal? Knowledge is not only discovered. It is sorted, ranked,
+          institutionalized, and defended. Critical theory helps us see how some
+          experiences become evidence while others are dismissed as emotion, anecdote,
+          identity, or noise.
+        </p>
+
+        <div class="concept-meta">
+          <div class="author-photo-wrap small-photo">
+            <img src="../assets/hooks.jpg" alt="Portrait of bell hooks" class="author-photo">
+          </div>
+
+          <div class="author-info">
+            <div class="author-name">bell hooks</div>
+            <div class="author-role">Writer and critic of knowledge, education, and power</div>
+          </div>
+        </div>
+
+        <blockquote class="concept-quote">
+          Theory matters when it helps us name what has been lived but not yet recognized as knowledge.
+        </blockquote>
+
+        <div class="resources">
+          <div class="resources-label">Reading shelf</div>
+          <ul class="resources-list">
+            <li><a href="#">Teaching to Transgress</a></li>
+            <li><a href="#">Knowledge, power, and education</a></li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+  </main>
 </body>
 </html>
