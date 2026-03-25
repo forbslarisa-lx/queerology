@@ -6,53 +6,111 @@
   <title>Women · Queerology</title>
   <link rel="stylesheet" href="../style.css"/>
 
-  <style>
-    .layout-race{
-      display:grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      grid-template-rows: auto auto auto auto;
-      grid-template-areas:
-        "extra-left extra-left extra-right"
-        "top-left top-left top-right"
-        "mid-left core core"
-        "mid-left bottom bottom";
-      gap:28px 32px;
-      margin-top:34px;
-    }
+ <style>
+  .layout-race{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "extra-left extra-left extra-right"
+      "top-left top-left top-right"
+      "mid-left core core"
+      "mid-left bottom bottom";
+    gap:28px 32px;
+    margin-top:34px;
+  }
 
-    .block-extra-left{ grid-area:extra-left; }
-    .block-extra-right{ grid-area:extra-right; }
+  /* ===== TOP EXTRA BLOCKS ===== */
 
-    .block-top-left{ grid-area:top-left; }
-    .block-top-right{ grid-area:top-right; }
-    .block-core{ grid-area:core; }
-    .block-mid-left{ grid-area:mid-left; }
-    .block-bottom{ grid-area:bottom; }
+  .block-extra-left{
+    grid-area:extra-left;
+    min-height:220px;
+  }
 
-    @media (max-width:1100px){
-      .layout-race{
-        grid-template-columns:1fr 1fr;
-        grid-template-areas:
-          "extra-left extra-right"
-          "top-left top-right"
-          "core core"
-          "mid-left bottom";
-      }
-    }
+  .block-extra-right{
+    grid-area:extra-right;
+    min-height:220px;
+    transform: translateY(12px);
+  }
 
-    @media (max-width:780px){
-      .layout-race{
-        grid-template-columns:1fr;
-        grid-template-areas:
-          "extra-left"
-          "extra-right"
-          "top-left"
-          "top-right"
-          "core"
-          "mid-left"
-          "bottom";
-      }
-    }
+  /* ===== MAIN BLOCKS ===== */
+
+  .block-top-left{ 
+    grid-area:top-left; 
+  }
+
+  .block-top-right{ 
+    grid-area:top-right; 
+  }
+
+  .block-core{ 
+    grid-area:core; 
+  }
+
+  .block-mid-left{ 
+    grid-area:mid-left; 
+  }
+
+  .block-bottom{ 
+    grid-area:bottom; 
+  }
+
+@media (max-width:1100px){
+  .layout-race{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "extra-left extra-right"
+      "top-left top-right"
+      "core core"
+      "mid-left bottom";
+    gap:24px;
+  }
+
+  /* убираем возможные смещения */
+  .block-extra-left,
+  .block-extra-right,
+  .block-top-left,
+  .block-top-right,
+  .block-core,
+  .block-mid-left,
+  .block-bottom{
+    transform:none;
+  }
+
+  /* чуть выравниваем высоты */
+  .block-extra-left,
+  .block-extra-right{
+    min-height:200px;
+  }
+}
+
+
+@media (max-width:780px){
+  .layout-race{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "extra-left"
+      "extra-right"
+      "top-left"
+      "top-right"
+      "core"
+      "mid-left"
+      "bottom";
+    gap:20px;
+  }
+
+  /* всё становится “чистым стеком” */
+  .block-extra-left,
+  .block-extra-right,
+  .block-top-left,
+  .block-top-right,
+  .block-core,
+  .block-mid-left,
+  .block-bottom{
+    transform:none;
+    min-height:auto;
+  }
+}
   </style>
 </head>
 
@@ -278,6 +336,74 @@ Power operates directly on bodies.
 </div>
 </article>
 
+ <article class="concept-block paper-note">
+
+  <div class="concept-label">Structure</div>
+  <h2 class="concept-title">The Canon and the Making of “Woman”</h2>
+
+  <p class="concept-text">
+    The literary and academic canon defines which stories are preserved,
+    taught, and treated as universal. It shapes what counts as knowledge,
+    culture, and “human experience.” Historically, this canon has been
+    overwhelmingly shaped by male authors, male perspectives, and male
+    protagonists.
+  </p>
+
+  <p class="concept-text">
+    As a result, women have often appeared not as full subjects, but as
+    limited narrative roles: the mother, the muse, the seductress, the
+    witch, the victim, or the moral warning. Even when central to the plot,
+    they are frequently defined in relation to male characters — as love
+    interests, obstacles, or symbols, rather than autonomous agents.
+  </p>
+
+  <p class="concept-text">
+    These patterns do not simply reflect reality. They actively shape it.
+    Repeated representations produce expectations about what women are,
+    what they should desire, how they should behave, and what kinds of
+    lives are imaginable or acceptable for them.
+  </p>
+
+  <p class="concept-text">
+    Feminist and queer critique has shown that the canon is not neutral.
+    It is a site of power: it includes, excludes, elevates, and silences.
+    What is left out is often treated as marginal, personal, or less serious —
+    even when it reflects the experiences of the majority.
+  </p>
+
+  <p class="concept-text">
+    Expanding the canon is not only about adding more voices. It is about
+    questioning the idea of universality itself: asking whose stories have
+    been treated as “human,” and whose have been reduced to category,
+    stereotype, or exception.
+  </p>
+
+  <div class="concept-meta">
+    <div class="author-photo-wrap">
+      <img src="../assets/mulvey.jpg" alt="Laura Mulvey" class="author-photo">
+    </div>
+
+    <div class="author-info">
+      <div class="author-name">Laura Mulvey · bell hooks</div>
+      <div class="author-role">Feminist film theory · cultural criticism</div>
+    </div>
+  </div>
+
+  <blockquote class="concept-quote">
+    The power to tell stories is also the power to define who counts as fully human.
+  </blockquote>
+
+  <div class="resources">
+    <div class="resources-label">Reading shelf</div>
+    <ul class="resources-list">
+      <li><a href="#">Visual Pleasure and Narrative Cinema</a></li>
+      <li><a href="#">The Oppositional Gaze</a></li>
+      <li><a href="#">Feminist critique of the canon</a></li>
+    </ul>
+  </div>
+
+</article> 
+  
 <!-- BOTTOM -->
 <article class="concept-block block-bottom paper-cool">
 <div class="concept-label">Why it matters</div>
