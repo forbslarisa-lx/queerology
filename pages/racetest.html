@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Race · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+
+  <style>
+    /* ===== PAGE-SPECIFIC LAYOUT: RACE ===== */
+
+    .race-layer{
+      position: relative;
+      margin-top: 34px;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 16px 42px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      overflow: hidden;
+    }
+
+    .race-layer::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 40%);
+      opacity:.8;
+    }
+
+    .race-layer > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .race-layer-intro{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:22px;
+    }
+
+    .race-layer-label{
+      font-size:.7rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.58);
+    }
+
+    .race-layer-title{
+      margin:0;
+      font-size:1.35rem;
+      line-height:1.15;
+    }
+
+    .race-layer-note{
+      margin:0;
+      max-width:72ch;
+      color:rgba(255,255,255,.78);
+      line-height:1.65;
+      font-size:.96rem;
+    }
+
+    /* ===== TOP LAYER: CLASSICAL / US ===== */
+
+    .race-grid-classic{
+      display:grid;
+      grid-template-columns: 1fr 0.95fr;
+      grid-template-areas:
+        "othering whiteness"
+        "scientific core"
+        "scientific modernity";
+      gap:28px;
+      align-items:start;
+    }
+
+    .classic-othering{ grid-area:othering; min-height:320px; }
+    .classic-whiteness{ grid-area:whiteness; min-height:320px; }
+    .classic-scientific{ grid-area:scientific; min-height:390px; }
+    .classic-core{ grid-area:core; min-height:300px; }
+    .classic-modernity{ grid-area:modernity; min-height:250px; }
+
+    /* ===== BRIDGE ===== */
+
+    .race-bridge{
+      margin:30px auto 8px;
+      max-width:860px;
+      text-align:center;
+      padding:12px 18px 0;
+    }
+
+    .race-bridge p{
+      margin:0;
+      color:rgba(255,255,255,.72);
+      line-height:1.7;
+      font-size:.98rem;
+    }
+
+    /* ===== BOTTOM LAYER: EUROPE / POST-SOVIET / LAYERED ===== */
+
+    .race-layer.layer-contextual{
+      margin-top: 24px;
+      background: rgba(255,255,255,.038);
+    }
+
+    .race-grid-contextual{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "racialization triangulation colorism"
+        "conditional coloniality respectability"
+        "intrawhite migrantization migrantization";
+      gap:26px;
+      align-items:start;
+    }
+
+    .ctx-racialization{
+      grid-area:racialization;
+      min-height:280px;
+      transform:translateY(10px);
+    }
+
+    .ctx-triangulation{
+      grid-area:triangulation;
+      min-height:320px;
+      transform:translateY(-8px);
+      box-shadow:
+        0 26px 66px rgba(0,0,0,.36),
+        0 8px 22px rgba(0,0,0,.18);
+    }
+
+    .ctx-colorism{
+      grid-area:colorism;
+      min-height:255px;
+      transform:translate(8px, 14px);
+    }
+
+    .ctx-conditional{
+      grid-area:conditional;
+      min-height:280px;
+      transform:translate(-10px, 6px);
+    }
+
+    .ctx-coloniality{
+      grid-area:coloniality;
+      min-height:295px;
+      transform:translateY(22px);
+    }
+
+    .ctx-respectability{
+      grid-area:respectability;
+      min-height:260px;
+      transform:translate(4px, -4px);
+    }
+
+    .ctx-intrawhite{
+      grid-area:intrawhite;
+      min-height:260px;
+      transform:translate(-14px, 8px);
+    }
+
+    .ctx-migrantization{
+      grid-area:migrantization;
+      min-height:260px;
+      transform:translate(10px, 26px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1180px){
+      .race-grid-classic{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "othering"
+          "whiteness"
+          "scientific"
+          "core"
+          "modernity";
+      }
+
+      .race-grid-contextual{
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+          "racialization triangulation"
+          "colorism conditional"
+          "coloniality respectability"
+          "intrawhite migrantization";
+      }
+
+      .ctx-racialization,
+      .ctx-triangulation,
+      .ctx-colorism,
+      .ctx-conditional,
+      .ctx-coloniality,
+      .ctx-respectability,
+      .ctx-intrawhite,
+      .ctx-migrantization{
+        transform:none;
+      }
+    }
+
+    @media (max-width: 780px){
+      .race-layer{
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .race-grid-contextual{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "racialization"
+          "triangulation"
+          "colorism"
+          "conditional"
+          "coloniality"
+          "respectability"
+          "intrawhite"
+          "migrantization";
+      }
+    }
+  </style>
+</head>
+<body class="theme-race">
+
+  <div class="library-bg" aria-hidden="true"></div>
+
+  <main class="topic-page">
+
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
+
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Race</span>
+      </div>
+      <h1>Race</h1>
+      <p class="topic-intro">
+        A curated wall of concepts exploring how race is invented, institutionalized,
+        normalized, and lived through classification, power, history, and social reality.
+      </p>
+    </header>
+
+    <!-- ===== LAYER 1: CLASSICAL / US ===== -->
+    <section class="race-layer layer-classic">
+      <div class="race-layer-intro">
+        <div class="race-layer-label">Dominant framework</div>
+        <h2 class="race-layer-title">Classical race theory · U.S. perspective</h2>
+        <p class="race-layer-note">
+          This framework emphasizes race as a structured hierarchy built through
+          white supremacy, scientific classification, exclusion, and systemic inequality.
+          It helps explain how race became institutionalized and reproduced through law,
+          education, media, science, and everyday life.
+        </p>
+      </div>
+
+      <div class="race-grid-classic">
+
+        <article class="concept-block classic-othering paper-warm">
+          <div class="concept-label">Mechanism</div>
+          <h2 class="concept-title">Othering</h2>
+
+          <p class="concept-text">
+            Othering is the process through which a group is marked as different,
+            inferior, dangerous, or outside the norm. In racial systems, othering
+            turns difference into hierarchy and makes exclusion feel natural,
+            justified, and ordinary.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/said.jpg" alt="Portrait of Edward Said" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Edward Said</div>
+              <div class="author-role">Literary critic and theorist of representation</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            The “other” is often produced not to describe difference, but to stabilize power.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Orientalism</a></li>
+              <li><a href="#">Othering and representation</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block classic-whiteness paper-cool">
+          <div class="concept-label">Norm</div>
+          <h2 class="concept-title">Whiteness</h2>
+
+          <p class="concept-text">
+            Whiteness functions not only as an identity category but as an invisible
+            norm, shaping who is seen as universal, neutral, rational, and fully
+            belonging. It often appears most powerful when it is unnamed.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/dyer.jpg" alt="Portrait of Richard Dyer" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Richard Dyer</div>
+              <div class="author-role">Scholar of whiteness and visual culture</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Power is often hardest to see when it presents itself as ordinary.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">White</a></li>
+              <li><a href="#">Whiteness as norm</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block classic-scientific paper-plain">
+          <div class="concept-label">History</div>
+          <h2 class="concept-title">Scientific Racism</h2>
+
+          <p class="concept-text">
+            Scientific racism refers to the use of supposedly objective methods to
+            rank human groups and justify inequality. Craniometry, taxonomy, eugenics,
+            and racial classification transformed political domination into something
+            that looked measurable, neutral, and rational.
+          </p>
+
+          <div class="concept-meta split-meta">
+            <div class="author-info">
+              <div class="author-name">Stephen Jay Gould</div>
+              <div class="author-role">Historian of science and critic of racial measurement</div>
+            </div>
+
+            <div class="author-photo-wrap">
+              <img src="../assets/gould.jpg" alt="Portrait of Stephen Jay Gould" class="author-photo">
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Numbers can look natural even when they are built to confirm hierarchy.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">The Mismeasure of Man</a></li>
+              <li><a href="#">Race, science, and classification</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block classic-core paper-note">
+          <div class="concept-label">Core concept</div>
+          <h2 class="concept-title">Race as a Social Construct</h2>
+
+          <p class="concept-text">
+            Race is not a biological truth. It is a social and political system for
+            sorting people, attaching meaning to bodily difference, and organizing
+            hierarchy. This does not make race unreal. It makes it historically
+            produced, institutionally reinforced, and lived in everyday life.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/omi-winant.jpg" alt="Portraits of Michael Omi and Howard Winant" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Michael Omi & Howard Winant</div>
+              <div class="author-role">Theorists of racial formation</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Race is made, remade, and defended through social struggle, not discovered as a natural fact.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Racial Formation in the United States</a></li>
+              <li><a href="#">Race and social construction</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block classic-modernity paper-warm">
+          <div class="concept-label">Why it matters</div>
+          <h2 class="concept-title">Race, Power, and Modernity</h2>
+
+          <p class="concept-text">
+            Race persists not because biology proves it, but because modern societies
+            continue to reproduce it through policing, migration regimes, media,
+            education, housing, wealth, and memory. Even when race is declared socially
+            invented, its material effects remain structured into everyday life.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/gilroy.jpg" alt="Portrait of Paul Gilroy" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Paul Gilroy</div>
+              <div class="author-role">Scholar of race, culture, and postcolonial modernity</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            A category can be historically invented and still shape the world with brutal consistency.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Race and modernity</a></li>
+              <li><a href="#">Postcolonial critique of race</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== BRIDGE ===== -->
+    <div class="race-bridge">
+      <p>
+        Race is not structured in a single way across contexts. Different histories
+        produce different logics of classification, belonging, exclusion, and perceived
+        proximity to the norm.
+      </p>
+    </div>
+
+    <!-- ===== LAYER 2: CONTEXTUAL / EUROPE / POST-SOVIET ===== -->
+    <section class="race-layer layer-contextual">
+      <div class="race-layer-intro">
+        <div class="race-layer-label">Alternative framework</div>
+        <h2 class="race-layer-title">Layered race formations · Europe and post-Soviet contexts</h2>
+        <p class="race-layer-note">
+          In many contexts, racism does not operate through a single black–white binary.
+          Instead, groups are positioned through overlapping hierarchies of foreignness,
+          cultural proximity, migration, language, class, religion, and conditional
+          access to belonging. Here, race often works through shifting gradations rather
+          than a single visible divide.
+        </p>
+      </div>
+
+      <div class="race-grid-contextual">
+
+        <article class="concept-block ctx-racialization paper-plain">
+          <div class="concept-label">Process</div>
+          <h2 class="concept-title">Racialization</h2>
+
+          <p class="concept-text">
+            Racialization is the process through which groups come to be treated as
+            racialized, even when difference is framed as cultural, linguistic, national,
+            or civilizational. Race is not always named directly. It is often built through
+            repeated associations with danger, backwardness, foreignness, or excess.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/hall.jpg" alt="Portrait of Stuart Hall" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Stuart Hall</div>
+              <div class="author-role">Theorist of race, ideology, and representation</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Difference becomes racial when power repeatedly teaches society how to read it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Race and articulation</a></li>
+              <li><a href="#">Racialization and discourse</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-triangulation paper-note">
+          <div class="concept-label">Structure</div>
+          <h2 class="concept-title">Racial Triangulation</h2>
+
+          <p class="concept-text">
+            Racial triangulation shows that groups are not positioned along a single
+            line of superiority and inferiority. They may be relatively valorized in one
+            respect and excluded in another, praised as useful or disciplined while still
+            marked as foreign, suspect, or not fully belonging. This prevents solidarity
+            and stabilizes dominant power.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/claire-kim.jpg" alt="Portrait of Claire Jean Kim" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Claire Jean Kim</div>
+              <div class="author-role">Political theorist of racial triangulation</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Groups can be positioned as both valued and excluded, closer to the norm yet never inside it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">The Racial Triangulation of Asian Americans</a></li>
+              <li><a href="#">Beyond binary race models</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-colorism paper-cool">
+          <div class="concept-label">Hierarchy</div>
+          <h2 class="concept-title">Colorism</h2>
+
+          <p class="concept-text">
+            Colorism names hierarchies based on skin tone within and across racialized
+            groups. It often reflects colonial histories, beauty standards, and proximity
+            to whiteness, showing that racial power works not only between groups, but also
+            within them.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/alice-walker.jpg" alt="Portrait of Alice Walker" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Alice Walker</div>
+              <div class="author-role">Writer who popularized the term colorism</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Hierarchy can survive even inside communities shaped by the same system.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Colorism</a></li>
+              <li><a href="#">Shade and hierarchy</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-conditional paper-warm">
+          <div class="concept-label">Belonging</div>
+          <h2 class="concept-title">Conditional Whiteness / Belonging</h2>
+
+          <p class="concept-text">
+            Some groups are not fully excluded, but never fully included. Their belonging
+            remains conditional: dependent on language, behavior, class performance,
+            usefulness, and conformity to dominant norms. Acceptance can always be withdrawn.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/ahmed.jpg" alt="Portrait of Sara Ahmed" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Sara Ahmed</div>
+              <div class="author-role">Scholar of orientation, belonging, and institutional fit</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            To be allowed near the center is not the same as being treated as part of it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Belonging and institutional fit</a></li>
+              <li><a href="#">Conditional inclusion</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-coloniality paper-plain">
+          <div class="concept-label">Historical logic</div>
+          <h2 class="concept-title">Coloniality</h2>
+
+          <p class="concept-text">
+            Coloniality names the persistence of colonial logics after formal empire ends.
+            Hierarchies of civilization, backwardness, modernity, and human value continue
+            to shape how populations are sorted. This is crucial for understanding Europe,
+            Russia, internal empire, borderlands, and the racialization of the “South.”
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/lugones.jpg" alt="Portrait of María Lugones" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">María Lugones</div>
+              <div class="author-role">Philosopher of coloniality, gender, and power</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Empire can leave the map and remain in the social imagination.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Coloniality of power</a></li>
+              <li><a href="#">Coloniality of gender</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-respectability paper-cool">
+          <div class="concept-label">Discipline</div>
+          <h2 class="concept-title">Respectability Politics</h2>
+
+          <p class="concept-text">
+            Respectability politics describes the pressure on marginalized groups to become
+            acceptable by performing discipline, morality, respectability, or assimilation.
+            It promises conditional recognition while leaving the larger hierarchy untouched.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/higginbotham.jpg" alt="Portrait of Evelyn Brooks Higginbotham" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Evelyn Brooks Higginbotham</div>
+              <div class="author-role">Historian of respectability politics</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Respectability can become a survival script inside an unjust order.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">The Politics of Respectability</a></li>
+              <li><a href="#">Assimilation and discipline</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-intrawhite paper-note">
+          <div class="concept-label">Gradient</div>
+          <h2 class="concept-title">Intra-white Hierarchy</h2>
+
+          <p class="concept-text">
+            Whiteness is not always experienced as a fixed border. In many contexts it
+            functions as a gradient, producing distinctions between “real Europeans,”
+            “eastern,” “southern,” “borderland,” or “not-quite-white” populations.
+            This helps explain forms of racism that unfold inside nominal whiteness.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/bonnett.jpg" alt="Portrait of Alastair Bonnett" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Alastair Bonnett</div>
+              <div class="author-role">Scholar of whiteness, Europe, and racial boundaries</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Even the norm can fracture into inner circles and outer edges.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">White Identities</a></li>
+              <li><a href="#">Whiteness in Europe</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ctx-migrantization paper-warm">
+          <div class="concept-label">Position</div>
+          <h2 class="concept-title">Migrantization</h2>
+
+          <p class="concept-text">
+            Migrantization is the process through which people are treated as migrants
+            regardless of their legal status, biography, or actual belonging. Accent,
+            name, clothing, religion, neighborhood, or perceived origin can mark someone
+            as permanently outside the national body. Here, “migrant” becomes less a fact
+            than a racialized social position.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/mecheril.jpg" alt="Portrait of Paul Mecheril" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Paul Mecheril</div>
+              <div class="author-role">Scholar of migration, belonging, and racialized difference</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            One can live inside a nation and still be read as arriving from outside it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Migration and belonging</a></li>
+              <li><a href="#">Racialized foreignness</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
