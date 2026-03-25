@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="../style.css"/>
 
  <style>
-  .layout-race{
-    display:grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-      "extra-left extra-left extra-right"
-      "top-left top-left top-right"
-      "mid-left core core"
-      "mid-left bottom bottom";
-    gap:28px 32px;
-    margin-top:34px;
-  }
+.layout-race{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "extra-left extra-left extra-right"
+    "top-left top-left top-right"
+    "mid-left core core"
+    "mid-left bottom bottom"
+    "full full full";
+  gap:28px 32px;
+  margin-top:34px;
+}
 
   /* ===== TOP EXTRA BLOCKS ===== */
 
@@ -51,6 +52,19 @@
     grid-area:mid-left; 
   }
 
+   .block-full{
+  grid-area: full;
+  padding: 32px 36px;
+}
+
+.block-full .concept-text{
+  max-width: 90ch;
+}
+
+.block-full .concept-title{
+  max-width: 28ch;
+}
+   
   .block-bottom{ 
     grid-area:bottom; 
   }
@@ -83,7 +97,32 @@
     min-height:200px;
   }
 }
+@media (max-width:1100px){
+  .layout-race{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "extra-left extra-right"
+      "top-left top-right"
+      "core core"
+      "mid-left bottom"
+      "full full";
+  }
+}
 
+@media (max-width:780px){
+  .layout-race{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "extra-left"
+      "extra-right"
+      "top-left"
+      "top-right"
+      "core"
+      "mid-left"
+      "bottom"
+      "full";
+  }
+}
 
 @media (max-width:780px){
   .layout-race{
@@ -336,8 +375,8 @@ Power operates directly on bodies.
 </div>
 </article>
 
- <article class="concept-block paper-note">
 
+<article class="concept-block block-full">
   <div class="concept-label">Structure</div>
   <h2 class="concept-title">The Canon and the Making of “Woman”</h2>
 
