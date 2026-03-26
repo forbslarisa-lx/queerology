@@ -1664,3 +1664,50 @@ body::after{
     padding-top:0;
   }
 }
+.academic-main-grid{
+  display:grid;
+  grid-template-columns:1.25fr .85fr;
+  gap:28px;
+  align-items:start;
+}
+
+.academic-main-copy{
+  min-width:0;
+}
+
+.academic-main-copy .concept-text{
+  max-width:64ch;
+}
+
+.academic-main-side{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding-top:4px;
+}
+
+.academic-side-meta{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.side-note{
+  font-size:.85rem;
+  line-height:1.5;
+  color:var(--muted);
+  border-left:2px solid rgba(255,255,255,.15);
+  padding-left:10px;
+}
+
+/* mobile */
+@media (max-width:900px){
+  .academic-main-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .academic-main-copy .concept-text{
+    max-width:none;
+  }
+}
