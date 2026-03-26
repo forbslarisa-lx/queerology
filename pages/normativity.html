@@ -73,7 +73,21 @@
       background-size:26px 26px;
       mask-image:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.85));
     }
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
 
+  opacity:.11; /* было .075 → стало заметнее */
+
+  background:
+    linear-gradient(rgba(12,10,8,.28), rgba(12,10,8,.28)),
+    url("assets/library.png") center center / cover no-repeat;
+
+  mix-blend-mode:multiply;
+}
     .page{
       width:min(var(--max), calc(100% - 40px));
       margin:0 auto;
