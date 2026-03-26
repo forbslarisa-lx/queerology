@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <a href="index.html" class="back-link">← Back to Map</a>
+  <a href="../index.html" class="back-link">← Back to map</a>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Normativity · Queerology</title>
@@ -26,7 +26,28 @@
     *{box-sizing:border-box}
 
     html{scroll-behavior:smooth}
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.42);
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.25s ease;
+  white-space:nowrap;
+}
 
+.back-link:hover{
+  background:rgba(255,255,255,.68);
+  color:var(--ink);
+  transform:translateY(-1px);
+}
     body{
       margin:0;
       font-family:var(--sans);
