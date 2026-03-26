@@ -1738,3 +1738,13 @@ body::after{
   position:relative;
   z-index:1;
 }
+.academic-colonial-layer{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
+}
+.academic-colonial-layer{
+  margin-top:6px;
+}
+.language-academic .concept-title{
+  margin-bottom:14px;
+}
