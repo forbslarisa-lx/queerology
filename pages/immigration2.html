@@ -37,6 +37,8 @@
       position:relative;
     }
 
+ 
+
     .library-bg{
       position:fixed;
       inset:0;
@@ -45,7 +47,7 @@
       overflow:hidden;
       background:
         linear-gradient(rgba(5,8,10,.56), rgba(5,8,10,.74)),
-        url('assets/library.png') center/cover no-repeat;
+        url("./assets/library.png") center/cover no-repeat;
       opacity:.62;
       filter:saturate(.82) contrast(1.02);
     }
@@ -570,11 +572,12 @@
     }
   </style>
 </head>
-<body>
+
+    <body class="theme-immigration">  
   <div class="library-bg" aria-hidden="true"></div>
   <main class="page">
     <div class="topbar">
-      <a class="back-link" href="index.html">← Back to Library</a>
+      <a class="back-link" href="../index.html">← Back to Library</a>
       <div class="nav-mini">
         <a class="nav-chip" href="#structural">Systems</a>
         <a class="nav-chip" href="#power">Power</a>
