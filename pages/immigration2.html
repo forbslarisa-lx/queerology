@@ -40,16 +40,52 @@
     .library-bg{
       position:fixed;
       inset:0;
-      background:
-        linear-gradient(rgba(5,8,10,.72), rgba(5,8,10,.82)),
-        url('assets/library.png') center/cover no-repeat;
-      opacity:.34;
       z-index:0;
       pointer-events:none;
-      filter:saturate(.72) blur(.2px);
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(5,8,10,.56), rgba(5,8,10,.74)),
+        url('assets/library.png') center/cover no-repeat;
+      opacity:.62;
+      filter:saturate(.82) contrast(1.02);
+    }
+
+    .library-bg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          rgba(86,63,42,.22) 0 12px,
+          rgba(32,22,16,.0) 12px 108px,
+          rgba(99,74,48,.24) 108px 120px
+        ),
+        repeating-linear-gradient(
+          to right,
+          rgba(255,255,255,.028) 0 2px,
+          transparent 2px 86px,
+          rgba(255,255,255,.02) 86px 88px,
+          transparent 88px 140px
+        );
+      opacity:.28;
+      mix-blend-mode:screen;
+    }
+
+    .library-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(201,170,116,.16), transparent 0 20%),
+        radial-gradient(circle at 14% 30%, rgba(255,255,255,.08), transparent 0 14%),
+        radial-gradient(circle at 82% 36%, rgba(255,255,255,.07), transparent 0 16%),
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.28));
+      opacity:.9;
     }
 
     body::before{
+      z-index:0;
       content:"";
       position:fixed;
       inset:0;
@@ -396,13 +432,42 @@
       background:rgba(255,255,255,.04);
     }
 
-    .thinker img{
+    .thinker-portrait{
       width:64px;
       height:64px;
-      object-fit:cover;
+      position:relative;
       border-radius:16px;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.04)),
+        radial-gradient(circle at 50% 28%, rgba(236,223,203,.28), transparent 0 24%),
+        linear-gradient(180deg, rgba(113,127,137,.34), rgba(61,67,79,.46));
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .thinker img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      position:relative;
+      z-index:2;
       background:rgba(255,255,255,.05);
+    }
+
+    .thinker-fallback{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-size:1rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      color:#f4eee5;
+      z-index:1;
     }
 
     .thinker-label{
@@ -568,7 +633,7 @@
           <p>
             This concept matters because it reveals that control is not exceptional. It is built into ordinary institutions. The border follows migrants inward, often long after the crossing itself.
           </p>
-          <div class="thinker"><img src="assets/thinkers/foucault.jpg" alt="Michel Foucault" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Power, surveillance, discipline, and the dispersed machinery of control.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Michel Foucault, Sandro Mezzadra, Nicholas De Genova, Didier Bigo</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">MF</span><img src="assets/thinkers/foucault.jpg" alt="Michel Foucault" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Power, surveillance, discipline, and the dispersed machinery of control.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Michel Foucault, Sandro Mezzadra, Nicholas De Genova, Didier Bigo</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>The border is not just where territory ends. It is where governance thickens.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Surveillance, deportability, detention, state bureaucracy, categorization</div></div>
         </article>
@@ -582,7 +647,7 @@
           <p>
             In migration studies, citizenship is less a neutral membership card than a gatekeeping structure that distributes safety, rights, and legitimacy. Some people live physically inside a nation for years while remaining socially outside it.
           </p>
-          <div class="thinker"><img src="assets/thinkers/arendt.jpg" alt="Hannah Arendt" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Hannah Arendt</div><div class="thinker-note">Citizenship, statelessness, and the terrifying fragility of the “right to have rights.”</div></div></div><div class="author"><strong>Key thinkers</strong><div>Hannah Arendt, Yasemin Soysal, Judith Butler, Engin Isin</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">HA</span><img src="assets/thinkers/arendt.jpg" alt="Hannah Arendt" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Hannah Arendt</div><div class="thinker-note">Citizenship, statelessness, and the terrifying fragility of the “right to have rights.”</div></div></div><div class="author"><strong>Key thinkers</strong><div>Hannah Arendt, Yasemin Soysal, Judith Butler, Engin Isin</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Citizenship is not merely belonging to a state. It is access to recognizability, protection, and rights.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Recognition, rights, non-citizenship, civic exclusion, national identity</div></div>
         </article>
@@ -596,7 +661,7 @@
           <p>
             Courses often use this concept to show how law can manufacture precarity and then treat that very precarity as evidence of undeservingness.
           </p>
-          <div class="thinker"><img src="assets/thinkers/ngai.jpg" alt="Mae Ngai" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Mae Ngai</div><div class="thinker-note">How immigration law manufactures exclusion and turns people into “impossible subjects.”</div></div></div><div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova, Mae Ngai</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">MN</span><img src="assets/thinkers/ngai.jpg" alt="Mae Ngai" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Mae Ngai</div><div class="thinker-note">How immigration law manufactures exclusion and turns people into “impossible subjects.”</div></div></div><div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova, Mae Ngai</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Illegality is not a natural quality of a person. It is an effect of policy.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Criminalization, documentation, labor exploitation, deportability</div></div>
         </article>
@@ -607,7 +672,7 @@
           <p>
             Deportability names the condition of living under the shadow of possible removal. A person does not need to be deported for deportation to shape behavior. The possibility is enough. It disciplines movement, employment choices, housing, public visibility, and even willingness to report violence or abuse.
           </p>
-          <div class="thinker"><img src="assets/thinkers/degenova.jpg" alt="Nicholas De Genova" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Nicholas De Genova</div><div class="thinker-note">Deportability as a permanent condition of pressure, fear, and governability.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">ND</span><img src="assets/thinkers/degenova.jpg" alt="Nicholas De Genova" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Nicholas De Genova</div><div class="thinker-note">Deportability as a permanent condition of pressure, fear, and governability.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>The threat does political work even when the event never happens.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Fear, compliance, silence, labor control</div></div>
         </article>
@@ -618,7 +683,7 @@
           <p>
             Asylum is often publicly framed as humanitarian rescue. University courses complicate this image by showing how asylum systems force people to narrate suffering in institutionally acceptable ways. Applicants must often perform credibility, trauma, coherence, and vulnerability under hostile conditions.
           </p>
-          <div class="thinker"><img src="assets/thinkers/fassin.jpg" alt="Didier Fassin" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Fassin</div><div class="thinker-note">Humanitarian reason, moral selection, and the politics of credible suffering.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Judith Butler</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">DF</span><img src="assets/thinkers/fassin.jpg" alt="Didier Fassin" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Fassin</div><div class="thinker-note">Humanitarian reason, moral selection, and the politics of credible suffering.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Judith Butler</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Protection is granted through a process that often begins with disbelief.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Refugee regimes, testimony, proof, deserving victimhood</div></div>
         </article>
@@ -629,7 +694,7 @@
           <p>
             Migrants are disproportionately exposed to tracking through paperwork, institutional reporting, biometric identification, employer checks, school databases, welfare systems, and digital records. Surveillance is not only a technical matter. It is a moral one. It signals that some populations must constantly prove legitimacy.
           </p>
-          <div class="thinker"><img src="assets/thinkers/bigo.jpg" alt="Didier Bigo" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Bigo</div><div class="thinker-note">Security, databases, policing, and how bureaucratic watching becomes normal.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Didier Bigo, Michel Foucault</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">DB</span><img src="assets/thinkers/bigo.jpg" alt="Didier Bigo" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Bigo</div><div class="thinker-note">Security, databases, policing, and how bureaucratic watching becomes normal.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Didier Bigo, Michel Foucault</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>To be watched is to be told that your presence is not self-evident.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Biometrics, files, databases, suspicion, control</div></div>
         </article>
@@ -640,7 +705,7 @@
           <p>
             Michel Foucault’s concept of biopolitics helps explain how modern states manage populations through health, demography, reproduction, mobility, and risk. In migration contexts, biopolitical thinking appears when states classify whose lives must be fostered, whose movement must be optimized, and whose presence is coded as a burden or danger.
           </p>
-          <div class="thinker"><img src="assets/thinkers/foucault.jpg" alt="Michel Foucault" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Biopolitics, discipline, and the state’s management of populations.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Michel Foucault</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">MF</span><img src="assets/thinkers/foucault.jpg" alt="Michel Foucault" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Biopolitics, discipline, and the state’s management of populations.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Michel Foucault</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Power does not only prohibit. It organizes life.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Population, risk, public order, reproductive governance</div></div>
         </article>
@@ -654,7 +719,7 @@
           <p>
             Necropolitics is especially powerful because it disrupts liberal narratives of neutral administration. It shows that some border arrangements do not merely fail to protect. They produce conditions under which certain lives become expendable.
           </p>
-          <div class="thinker"><img src="assets/thinkers/mbembe.jpg" alt="Achille Mbembe" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Achille Mbembe</div><div class="thinker-note">Necropolitics and the chilling question of whose life becomes expendable.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Achille Mbembe</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">AM</span><img src="assets/thinkers/mbembe.jpg" alt="Achille Mbembe" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Achille Mbembe</div><div class="thinker-note">Necropolitics and the chilling question of whose life becomes expendable.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Achille Mbembe</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Migration policy is never only about entry. It can also be about managed exposure to death.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Detention, abandonment, camps, securitization, lethal border zones</div></div>
         </article>
@@ -685,7 +750,7 @@
           <p>
             In class, this concept often opens a broader insight: migration systems are not separate from capitalism. They are one of the ways labor markets are stratified.
           </p>
-          <div class="thinker"><img src="assets/thinkers/sassen.jpg" alt="Saskia Sassen" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Saskia Sassen</div><div class="thinker-note">Global cities, labor demand, expulsion, and migration under contemporary capitalism.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Saskia Sassen, Bridget Anderson, Nandita Sharma</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SS</span><img src="assets/thinkers/sassen.jpg" alt="Saskia Sassen" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Saskia Sassen</div><div class="thinker-note">Global cities, labor demand, expulsion, and migration under contemporary capitalism.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Saskia Sassen, Bridget Anderson, Nandita Sharma</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Migration is often managed not around human flourishing, but around labor demand.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Temporary workers, segmentation, flexibility, precarity</div></div>
         </article>
@@ -699,7 +764,7 @@
           <p>
             Academic discussion here often rejects the myth that abuse is accidental. Instead, exploitation is analyzed as structurally enabled by immigration law and labor policy together.
           </p>
-          <div class="thinker"><img src="assets/thinkers/anderson.jpg" alt="Bridget Anderson" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Bridget Anderson</div><div class="thinker-note">Work, borders, and the politics of the “good” and exploitable migrant worker.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Karl Marx, Bridget Anderson, Rhacel Salazar Parreñas</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">BA</span><img src="assets/thinkers/anderson.jpg" alt="Bridget Anderson" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Bridget Anderson</div><div class="thinker-note">Work, borders, and the politics of the “good” and exploitable migrant worker.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Karl Marx, Bridget Anderson, Rhacel Salazar Parreñas</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Vulnerability is not a side effect. It is often built into the labor arrangement itself.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Domestic labor, agricultural labor, wage theft, employer control</div></div>
         </article>
@@ -713,7 +778,7 @@
           <p>
             This concept interrupts simplistic moralism. It asks what histories make some passports powerful and others burdensome, some labor markets stable and others collapsed.
           </p>
-          <div class="thinker"><img src="assets/thinkers/mignolo.jpg" alt="Walter Mignolo" /><div><div class="thinker-label">Thinker</div><div class="thinker-name">Walter Mignolo</div><div class="thinker-note">Colonial difference, world systems, and the geopolitics of unequal movement.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Immanuel Wa
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">WM</span><img src="assets/thinkers/mignolo.jpg" alt="Walter Mignolo" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Walter Mignolo</div><div class="thinker-note">Colonial difference, world systems, and the geopolitics of unequal movement.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Immanuel Wallerstein, Saskia Sassen, Walter Mignolo</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Migration often follows the fault lines carved by unequal histories.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Empire, development, debt, displacement, uneven mobility</div></div>
         </article>
@@ -746,7 +811,7 @@
           <p>
             Deservingness is the moral script that divides migrants into worthy and unworthy categories: hardworking versus lazy, grateful versus demanding, assimilated versus resistant, innocent versus suspicious. This is a deeply ideological concept, because it disguises structural inequality as personal character judgment.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Bridget Anderson, Sara Ahmed</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SA</span><img src="assets/thinkers/ahmed.jpg" alt="Sara Ahmed" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Sara Ahmed</div><div class="thinker-note">How comfort, familiarity, and institutional orientation shape who is received as belonging.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Bridget Anderson, Sara Ahmed</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Belonging is often conditional on performing the right kind of goodness.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Respectability, gratitude, innocence, good migrant narrative</div></div>
         </article>
@@ -785,7 +850,7 @@
           <p>
             Diaspora describes communities formed through movement, displacement, memory, and connection across multiple places. It is not simply exile, and not simply assimilation. It points to identities lived across locations, histories, and attachments. In classroom discussion, diaspora helps students think beyond nationalist fantasies of one origin, one home, one language, one loyalty.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Avtar Brah, James Clifford</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/thinkers/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">Diaspora, identity in motion, and the refusal of pure cultural origins.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Avtar Brah, James Clifford</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Identity in diaspora is not purity preserved. It is history lived in motion.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Memory, home, multiplicity, cultural continuity</div></div>
         </article>
@@ -796,7 +861,7 @@
           <p>
             Hybridity challenges the fantasy that cultures remain sealed and untouched. It names the mixed, improvised, and emergent forms of identity that arise through contact, pressure, translation, and survival. This concept can be liberating, but universities also discuss how celebration of hybridity sometimes hides unequal power relations.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Homi K. Bhabha, Stuart Hall</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">HB</span><img src="assets/thinkers/bhabha.jpg" alt="Homi K. Bhabha" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Homi K. Bhabha</div><div class="thinker-note">Hybridity, ambivalence, and the unstable spaces where culture gets remade.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Homi K. Bhabha, Stuart Hall</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Migration does not produce a split self so much as a layered one.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Translation, cultural mixing, adaptation, ambivalence</div></div>
         </article>
@@ -807,7 +872,7 @@
           <p>
             Belonging is often treated as emotional, but it is also political. It concerns who is imagined as part of “us,” who is merely present, and who is tolerated only under conditions. Non-belonging does not always look dramatic. It can be quiet: hesitation, misrecognition, curious distance, permanent explanation, endless proving.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Sara Ahmed, Nira Yuval-Davis</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SA</span><img src="assets/thinkers/ahmed.jpg" alt="Sara Ahmed" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Sara Ahmed</div><div class="thinker-note">Belonging as orientation: who feels at home, who must keep adjusting to the room.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Sara Ahmed, Nira Yuval-Davis</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>To belong is to be received without having to justify your presence over and over again.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Recognition, comfort, social space, conditional inclusion</div></div>
         </article>
@@ -818,7 +883,7 @@
           <p>
             Othering is the process through which people are made legible as different, inferior, suspect, or not fully part of the social “we.” In migration contexts, othering often fuses race, religion, language, and nationality into a simplified image of foreignness.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Edward Said, Stuart Hall, bell hooks</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">ES</span><img src="assets/thinkers/said.jpg" alt="Edward Said" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Edward Said</div><div class="thinker-note">Othering, representation, and the cultural manufacture of the outsider.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Edward Said, Stuart Hall, bell hooks</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>The other is not found. The other is produced.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Representation, fear, stereotype, exclusion</div></div>
         </article>
@@ -829,7 +894,7 @@
           <p>
             Migrantization describes the process by which people are socially read as migrants regardless of formal status, time lived in a country, or even place of birth. The label sticks. It becomes a way of marking some subjects as always arriving, never fully settled, never entirely native to the space they inhabit.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Paul Mecheril and critical migration scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">PM</span><img src="assets/thinkers/mecheril.jpg" alt="Paul Mecheril" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Paul Mecheril</div><div class="thinker-note">Migrantization and the sticky social label of never being quite fully from here.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Paul Mecheril and critical migration scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Some people are allowed to move on. Others are made to remain migrant forever.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Conditional belonging, racialization, perpetual outsiderhood</div></div>
         </article>
@@ -840,7 +905,7 @@
           <p>
             Accent is often treated as a minor issue, but academic work shows that it functions as a marker of competence, trustworthiness, intelligence, and belonging. Accent discrimination reveals how deeply the nation can hide in the ear. Some voices are heard as normal, others as less credible before they even finish the first sentence.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Rosina Lippi-Green</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">PB</span><img src="assets/thinkers/bourdieu.jpg" alt="Pierre Bourdieu" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Pierre Bourdieu</div><div class="thinker-note">Linguistic capital, symbolic violence, and how “proper” speech turns into power.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Rosina Lippi-Green</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>An accent can become a passport that fails at the level of sound.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Standard language ideology, linguistic capital, bias</div></div>
         </article>
@@ -851,7 +916,7 @@
           <p>
             Code-switching refers to shifting language, register, tone, or style depending on context. In migration-related settings it is not simply playful versatility. It can be a discipline of self-management, a protection strategy, or an attempt to reduce friction in institutions that reward only certain forms of speech.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Erving Goffman, sociolinguistics scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">EG</span><img src="assets/thinkers/goffman.jpg" alt="Erving Goffman" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Erving Goffman</div><div class="thinker-note">Impression management, social performance, and the labor of adjusting one’s presentation.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Erving Goffman, sociolinguistics scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Changing your voice can be a way of staying safe inside unequal spaces.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Masking, impression management, adaptation, strain</div></div>
         </article>
@@ -865,7 +930,7 @@
           <p>
             This concept is especially useful because it links institutions, language, identity, and respectability. It helps explain why migrants are so often expected to prove flexibility while the dominant culture treats itself as neutral.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Sara Ahmed, assimilation theory critics</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/thinkers/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">Identity as process, never-finished belonging, and the cultural costs of forced fit.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Sara Ahmed, assimilation theory critics</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Integration invites participation. Assimilation asks for disappearance.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>National culture, respectability, adaptation, conformity</div></div>
         </article>
@@ -893,7 +958,7 @@
           <p>
             Displacement refers not only to the loss of physical place but also to the loss of orientation, familiarity, and social anchoring. A person may know where they are geographically and still feel unplaced. Migration can disrupt sensory habits, humor, speed of speech, professional confidence, family roles, and the invisible routines that once made reality readable.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Edward Said, Avtar Brah, displacement studies scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">ES</span><img src="assets/thinkers/said.jpg" alt="Edward Said" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Edward Said</div><div class="thinker-note">Exile, estrangement, and the unsettling distance between memory and present location.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Edward Said, Avtar Brah, displacement studies scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>To be displaced is not merely to leave home. It is to lose the coordinates that made the world legible.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Loss, reorientation, grief, unfamiliarity</div></div>
         </article>
@@ -904,7 +969,7 @@
           <p>
             Migration often splits a person across contexts. You may be competent in one language and reduced in another. Respected in one setting, infantilized in the next. Legible in one bureaucracy, invisible in another. Identity fragmentation names the strain of carrying multiple social selves that do not fit neatly together.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Erik Erikson, diaspora and identity scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/thinkers/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">The self as historical, relational, and repeatedly reorganized across contexts.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Erik Erikson, diaspora and identity scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>The self does not disappear in migration. It multiplies under pressure.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Role conflict, instability, translation of self, fractured continuity</div></div>
         </article>
@@ -915,7 +980,7 @@
           <p>
             When hostile narratives about migrants circulate constantly, they do not remain outside the person. They can be absorbed. Internalized stigma appears as shame about accent, status, paperwork, origin, dependency, cultural difference, or not moving “fast enough.” It is one of the most intimate forms of structural violence because it recruits the self against itself.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Erving Goffman, Frantz Fanon, minority stress scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">FF</span><img src="assets/thinkers/fanon.jpg" alt="Frantz Fanon" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Frantz Fanon</div><div class="thinker-note">How stigma, racialization, and colonial injury are absorbed into the intimate self.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Erving Goffman, Frantz Fanon, minority stress scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Stigma becomes powerful when it begins to sound like your own inner voice.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Shame, silence, self-surveillance, diminished confidence</div></div>
         </article>
@@ -929,7 +994,7 @@
           <p>
             The emotional texture of precarity includes hypervigilance, fatigue, compressed time horizons, difficulty resting, and a constant sense that one administrative shift could rearrange everything.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Judith Butler, Isabell Lorey, Lauren Berlant</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">JB</span><img src="assets/thinkers/butler.jpg" alt="Judith Butler" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Judith Butler</div><div class="thinker-note">Precarity, vulnerability, and the unequal distribution of livable conditions.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Judith Butler, Isabell Lorey, Lauren Berlant</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Precarity is what happens when the future cannot be trusted to hold still.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Instability, vulnerability, suspended planning, chronic stress</div></div>
         </article>
@@ -943,7 +1008,7 @@
           <p>
             Courses that include temporality show that migration is not only spatial movement. It is also governance through delay. The person moves countries, but life can still be forced into pause.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Ghassan Hage, migration temporality scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">GH</span><img src="assets/thinkers/hage.jpg" alt="Ghassan Hage" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Ghassan Hage</div><div class="thinker-note">The politics of waiting, stuckness, and exhausted futurity.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Ghassan Hage, migration temporality scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Waiting is often the hidden border after the border.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Delay, uncertainty, bureaucracy, suspended adulthood, stalled future</div></div>
         </article>
@@ -974,7 +1039,7 @@
           <p>
             It insists that borders are historical artifacts shaped by conquest, extraction, racial ordering, and the geopolitical distribution of whose movement is treated as normal.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>María Lugones, Walter Mignolo, Franck Düvell, decolonial migration scholars</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">ML</span><img src="assets/thinkers/lugones.jpg" alt="María Lugones" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">María Lugones</div><div class="thinker-note">Coloniality, power, classification, and the long afterlife of imperial world-making.</div></div></div><div class="author"><strong>Key thinkers</strong><div>María Lugones, Walter Mignolo, Franck Düvell, decolonial migration scholars</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Modern borders often inherit the worldview of empire while speaking the language of legality.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Coloniality, race, geopolitics, passport hierarchy, global north</div></div>
         </article>
@@ -985,7 +1050,7 @@
           <p>
             Gloria Anzaldúa’s borderlands is not only a geographic concept. It is also a psychic and cultural one. Borderlands are spaces of mixing, contradiction, ambiguity, and creative survival. They refuse the neat binary between here and there, self and other, nation and outside. For many migration-related pages, this concept brings poetry without losing theory.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Gloria Anzaldúa</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">GA</span><img src="assets/thinkers/anzaldua.jpg" alt="Gloria Anzaldúa" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Gloria Anzaldúa</div><div class="thinker-note">Borderlands as wound, threshold, and generative space of mixed becoming.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Gloria Anzaldúa</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>The borderland is where categories rub against each other until something new is forced into being.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>In-betweenness, hybridity, contradiction, creativity, pain</div></div>
         </article>
@@ -996,7 +1061,7 @@
           <p>
             Transnationalism describes the way migrants often live across states at once through remittances, family ties, politics, media, language, care work, and emotional attachment. This concept disrupts the assumption that migration ends with settlement. Many people remain active participants in multiple national and social worlds simultaneously.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Nina Glick Schiller, Linda Basch, Steven Vertovec</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">NG</span><img src="assets/thinkers/glickschiller.jpg" alt="Nina Glick Schiller" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Nina Glick Schiller</div><div class="thinker-note">Transnational life, multiple attachments, and social worlds stretched across states.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Nina Glick Schiller, Linda Basch, Steven Vertovec</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Migration does not always relocate life from one country to another. It can stretch life across several.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Remittances, distant care, diasporic politics, multiple attachments</div></div>
         </article>
@@ -1010,7 +1075,7 @@
           <p>
             This larger concept ties together passport inequality, racialized suspicion, development discourse, and the moral geography of the modern world.
           </p>
-          <div class="author"><strong>Key thinkers</strong><div>Mimi Sheller, John Urry, critical mobility studies</div></div>
+          <div class="thinker"><div class="thinker-portrait"><span class="thinker-fallback">MS</span><img src="assets/thinkers/sheller.jpg" alt="Mimi Sheller" onerror="this.style.display='none'" /></div><div><div class="thinker-label">Thinker</div><div class="thinker-name">Mimi Sheller</div><div class="thinker-note">Mobility as hierarchy, infrastructure, and unequally distributed freedom.</div></div></div><div class="author"><strong>Key thinkers</strong><div>Mimi Sheller, John Urry, critical mobility studies</div></div>
           <div class="quote"><strong>Conceptual pulse</strong><div>Not all movement is read as freedom. Some movement is made to look like a problem by design.</div></div>
           <div class="resources"><strong>Linked ideas</strong><div>Tourism versus migration, global privilege, securitization, freedom asymmetry</div></div>
         </article>
