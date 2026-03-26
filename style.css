@@ -1542,4 +1542,39 @@ body::after{
   grid-template-columns: 1fr; /* ВАЖНО */
   gap:32px;
 }
+.language-board{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:32px;
+}
 
+.language-zone,
+.language-academic,
+.language-lower-grid{
+  width:100%;
+}
+
+.language-lower-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+.language-lower-grid .concept-block{
+  min-height:100%;
+  margin:0;
+}
+
+@media (max-width:820px){
+  .language-lower-grid{
+    grid-template-columns:1fr;
+  }
+}
+.language-academic .concept-text,
+.language-migration .concept-text,
+.language-switching .concept-text,
+.language-reclaim .concept-text,
+.language-lacan .concept-text{
+  max-width:62ch;
+}
