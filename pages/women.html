@@ -6,7 +6,8 @@
   <title>Women · Queerology</title>
   <link rel="stylesheet" href="../style.css"/>
 
- <style>
+
+<style>
 .layout-race{
   display:grid;
   grid-template-columns: 1fr 1.2fr 1fr;
@@ -15,10 +16,40 @@
     "extra-left extra-left extra-right"
     "top-left top-left top-right"
     "mid-left core core"
-      "full full full"
-    "mid-left bottom bottom";
+    "full full full"
+    "bottom bottom bottom";
   gap:28px 32px;
   margin-top:34px;
+}
+
+.block-extra-left{
+  grid-area:extra-left;
+  min-height:220px;
+}
+
+.block-extra-right{
+  grid-area:extra-right;
+  min-height:220px;
+  transform:translateY(12px);
+}
+
+.block-top-left{ grid-area:top-left; }
+.block-top-right{ grid-area:top-right; }
+.block-core{ grid-area:core; }
+.block-mid-left{ grid-area:mid-left; }
+.block-bottom{ grid-area:bottom; }
+
+.block-full{
+  grid-area:full;
+  padding:32px 36px;
+}
+
+.block-full .concept-text{
+  max-width:90ch;
+}
+
+.block-full .concept-title{
+  max-width:28ch;
 }
 
   /* ===== TOP EXTRA BLOCKS ===== */
