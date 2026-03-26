@@ -6,17 +6,16 @@
   <title>Immigration · Queerology</title>
   <style>
     :root{
-      --bg:#070707;
-      --bg-2:#101010;
-      --panel:rgba(255,255,255,.06);
-      --panel-2:rgba(255,255,255,.08);
-      --border:rgba(255,255,255,.1);
-      --text:#f5f3ee;
-      --muted:#c7c1b8;
-      --soft:#9fb3b8;
-      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --bg:#050505;
+      --panel:rgba(255,255,255,.055);
+      --panel-2:rgba(255,255,255,.072);
+      --border:rgba(255,255,255,.085);
+      --text:#f5f5f5;
+      --muted:#c7c7c7;
+      --gold:#d4ae63;
+      --shadow:0 18px 45px rgba(0,0,0,.36);
       --radius:26px;
-      --max:1380px;
+      --max:1280px;
       --transition:280ms cubic-bezier(.2,.7,.2,1);
     }
 
@@ -27,11 +26,7 @@
       margin:0;
       font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(91,124,135,.14), transparent 0 28%),
-        radial-gradient(circle at 80% 10%, rgba(148,115,90,.12), transparent 0 22%),
-        radial-gradient(circle at 50% 80%, rgba(101,82,110,.10), transparent 0 26%),
-        linear-gradient(180deg, #060606 0%, #0d0d0d 42%, #0a0a0a 100%);
+      background:#050505;
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
@@ -42,18 +37,30 @@
       position:fixed;
       inset:0;
       pointer-events:none;
+      z-index:0;
       background:
-        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
-      background-size:34px 34px;
-      mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.35));
-      opacity:.4;
+      background-size:42px 42px;
+      opacity:.18;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.18));
+    }
+
+    .library-bg{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(3,4,6,.58), rgba(3,4,6,.78)),
+        url('assets/library.png') center/cover no-repeat;
+      opacity:.72;
     }
 
     .page{
       width:min(var(--max), calc(100% - 40px));
       margin:0 auto;
-      padding:28px 0 72px;
+      padding:22px 0 70px;
       position:relative;
       z-index:1;
     }
@@ -62,8 +69,8 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
-      margin-bottom:30px;
+      gap:14px;
+      margin-bottom:18px;
       flex-wrap:wrap;
     }
 
@@ -72,237 +79,176 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:10px 16px;
+      padding:9px 14px;
       border-radius:999px;
       border:1px solid var(--border);
       background:rgba(255,255,255,.05);
       color:var(--text);
       text-decoration:none;
-      font-size:.95rem;
-      letter-spacing:.01em;
+      font-size:.77rem;
+      letter-spacing:.02em;
       transition:transform var(--transition), background var(--transition), border-color var(--transition);
-      backdrop-filter:blur(10px);
+      backdrop-filter:blur(8px);
+      box-shadow:0 8px 20px rgba(0,0,0,.18);
     }
 
     .back-link:hover,
     .nav-chip:hover{
       transform:translateY(-2px);
-      background:rgba(255,255,255,.09);
-      border-color:rgba(255,255,255,.18);
+      background:rgba(255,255,255,.085);
+      border-color:rgba(255,255,255,.16);
     }
 
     .nav-mini{
       display:flex;
-      gap:10px;
+      gap:8px;
       flex-wrap:wrap;
     }
 
-    .hero{
-      position:relative;
+    .hero,
+    .layer,
+    .bridge-note{
       border:1px solid var(--border);
-      border-radius:34px;
-      padding:36px 32px 34px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
-        linear-gradient(180deg, rgba(117,138,148,.08), rgba(0,0,0,.06));
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.038));
       box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      position:relative;
       overflow:hidden;
-      margin-bottom:30px;
     }
 
     .hero::before,
-    .hero::after{
+    .layer::before,
+    .bridge-note::before{
       content:"";
       position:absolute;
-      border-radius:50%;
-      filter:blur(14px);
-      opacity:.45;
+      inset:0;
       pointer-events:none;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255,255,255,.06), transparent 0 19%),
+        linear-gradient(120deg, rgba(255,255,255,.045), transparent 36%, rgba(255,255,255,.018) 68%, transparent 100%);
+      opacity:.75;
     }
 
-    .hero::before{
-      width:240px;
-      height:240px;
-      right:-60px;
-      top:-80px;
-      background:radial-gradient(circle, rgba(131,158,170,.26), transparent 68%);
-    }
-
-    .hero::after{
-      width:260px;
-      height:260px;
-      left:-80px;
-      bottom:-120px;
-      background:radial-gradient(circle, rgba(165,130,105,.18), transparent 72%);
+    .hero{
+      border-radius:28px;
+      padding:18px 16px 14px;
+      margin-bottom:22px;
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding:8px 12px;
+      gap:8px;
+      padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:#d7e0e3;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(0,0,0,.2);
+      color:#efe6d6;
       text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.72rem;
-      margin-bottom:18px;
-    }
-
-    h1{
-      margin:0 0 18px;
-      font-size:clamp(2.4rem, 5vw, 4.8rem);
-      line-height:.96;
-      letter-spacing:-.04em;
-      max-width:920px;
+      letter-spacing:.14em;
+      font-size:.58rem;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.35fr .85fr;
-      gap:24px;
+      grid-template-columns:1.35fr .78fr;
+      gap:18px;
       align-items:start;
+      position:relative;
+      z-index:1;
     }
 
-    .hero p{
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(2.2rem, 4.8vw, 4.1rem);
+      line-height:.92;
+      letter-spacing:-.05em;
+      max-width:740px;
+    }
+
+    .hero p,
+    .hero-note p,
+    .layer-desc,
+    .layer-side,
+    .bridge-note p{
       margin:0;
       color:var(--muted);
-      font-size:1.06rem;
-      line-height:1.72;
-      max-width:860px;
+      line-height:1.58;
+      font-size:.88rem;
     }
 
     .hero-note{
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:22px;
-      padding:18px 18px 16px;
-      background:rgba(255,255,255,.045);
-      backdrop-filter:blur(8px);
-    }
-
-    .hero-note h3,
-    .hero-note p{
-      margin:0;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:16px;
+      padding:14px;
+      background:rgba(255,255,255,.04);
     }
 
     .hero-note h3{
-      font-size:.86rem;
-      letter-spacing:.12em;
+      margin:0 0 8px;
+      font-size:.62rem;
+      letter-spacing:.15em;
       text-transform:uppercase;
-      color:#d7d1c5;
-      margin-bottom:10px;
-    }
-
-    .hero-note p{
-      font-size:.96rem;
-      line-height:1.68;
-      color:#dfd9cf;
+      color:#f1e6d2;
     }
 
     .intro-strip{
-      margin:26px 0 4px;
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:12px;
+      gap:10px;
+      margin-top:14px;
     }
 
     .intro-pill{
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:18px;
-      padding:14px 16px;
-      background:rgba(255,255,255,.04);
-      color:#ddd6ca;
-      font-size:.92rem;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:10px 12px;
+      background:rgba(255,255,255,.035);
+      color:#dadada;
+      font-size:.72rem;
       line-height:1.45;
     }
 
     .layer{
-      position:relative;
-      margin-top:32px;
-      border-radius:34px;
-      border:1px solid var(--border);
-      padding:30px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .layer::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:linear-gradient(120deg, rgba(255,255,255,.04), transparent 32%, rgba(255,255,255,.015) 68%, transparent 100%);
-      opacity:.9;
-    }
-
-    .layer-structural{
-      background:
-        radial-gradient(circle at 85% 12%, rgba(147,165,180,.11), transparent 0 20%),
-        linear-gradient(180deg, rgba(89,105,120,.14), rgba(23,25,28,.82));
-    }
-
-    .layer-power{
-      background:
-        radial-gradient(circle at 14% 20%, rgba(176,127,86,.14), transparent 0 24%),
-        linear-gradient(180deg, rgba(82,58,42,.30), rgba(19,18,17,.9));
-    }
-
-    .layer-identity{
-      background:
-        radial-gradient(circle at 78% 18%, rgba(96,142,138,.12), transparent 0 23%),
-        linear-gradient(180deg, rgba(42,77,80,.26), rgba(16,20,22,.92));
-    }
-
-    .layer-psychology{
-      background:
-        radial-gradient(circle at 18% 18%, rgba(121,93,121,.14), transparent 0 22%),
-        linear-gradient(180deg, rgba(63,43,66,.25), rgba(18,16,22,.94));
-    }
-
-    .layer-critical{
-      background:
-        radial-gradient(circle at 84% 20%, rgba(117,130,87,.13), transparent 0 20%),
-        linear-gradient(180deg, rgba(62,71,40,.28), rgba(19,20,15,.94));
+      border-radius:24px;
+      padding:16px;
+      margin-top:22px;
     }
 
     .layer-header{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:16px;
+      align-items:start;
       position:relative;
       z-index:1;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:22px;
-      align-items:start;
-      margin-bottom:28px;
+      margin-bottom:14px;
     }
 
     .layer-label{
-      display:inline-block;
-      margin-bottom:12px;
-      padding:8px 12px;
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.11);
-      background:rgba(255,255,255,.05);
-      font-size:.72rem;
-      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(0,0,0,.16);
+      color:#efe5d2;
+      font-size:.58rem;
       letter-spacing:.14em;
-      color:#eee6d8;
+      text-transform:uppercase;
+      margin-bottom:10px;
     }
 
     .layer h2{
-      margin:0 0 14px;
-      font-size:clamp(1.6rem, 2.4vw, 2.5rem);
-      line-height:1.02;
+      margin:0 0 8px;
+      font-size:clamp(1.45rem, 2.5vw, 2.2rem);
+      line-height:.98;
       letter-spacing:-.03em;
-    }
-
-    .layer-desc,
-    .layer-side{
-      margin:0;
-      color:var(--muted);
-      line-height:1.72;
-      font-size:1rem;
     }
 
     .cards{
@@ -310,17 +256,16 @@
       z-index:1;
       display:grid;
       grid-template-columns:repeat(12, 1fr);
-      gap:18px;
+      gap:12px;
     }
 
     .card{
-      border:1px solid rgba(255,255,255,.1);
-      background:rgba(255,255,255,.055);
-      border-radius:26px;
-      padding:20px 20px 18px;
-      box-shadow:0 10px 24px rgba(0,0,0,.2);
-      backdrop-filter:blur(9px);
-      transition:transform var(--transition), background var(--transition), border-color var(--transition);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:14px 14px 12px;
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.026));
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
+      min-height:100%;
       position:relative;
       overflow:hidden;
     }
@@ -328,133 +273,184 @@
     .card::after{
       content:"";
       position:absolute;
-      inset:auto -20% -55% auto;
-      width:110px;
-      height:110px;
+      inset:auto -28px -34px auto;
+      width:120px;
+      height:120px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
+      background:radial-gradient(circle, rgba(255,255,255,.055), transparent 70%);
       pointer-events:none;
+      opacity:.35;
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      background:rgba(255,255,255,.075);
-      border-color:rgba(255,255,255,.18);
-    }
-
-    .span-3{ grid-column:span 3; }
-    .span-4{ grid-column:span 4; }
-    .span-5{ grid-column:span 5; }
-    .span-6{ grid-column:span 6; }
+    .span-3{grid-column:span 3;}
+    .span-4{grid-column:span 4;}
+    .span-5{grid-column:span 5;}
+    .span-6{grid-column:span 6;}
+    .span-7{grid-column:span 7;}
+    .span-8{grid-column:span 8;}
 
     .tag{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      font-size:.72rem;
+      color:#e6e6e6;
       text-transform:uppercase;
-      letter-spacing:.13em;
-      color:#d9e4e5;
-      margin-bottom:10px;
+      letter-spacing:.12em;
+      font-size:.55rem;
+      margin-bottom:8px;
+      opacity:.96;
     }
 
     .card h3{
-      margin:0 0 12px;
-      font-size:1.32rem;
-      line-height:1.08;
+      margin:0 0 9px;
+      font-size:1.02rem;
+      line-height:1.05;
       letter-spacing:-.02em;
     }
 
     .card p{
-      margin:0 0 12px;
-      color:#ddd7cd;
-      line-height:1.72;
-      font-size:.98rem;
+      margin:0 0 10px;
+      color:#d0d0d0;
+      font-size:.77rem;
+      line-height:1.56;
     }
 
-    .author,
+    .thinker{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      padding:10px;
+      background:rgba(255,255,255,.03);
+      display:grid;
+      grid-template-columns:48px 1fr;
+      gap:10px;
+      align-items:center;
+      margin:10px 0;
+    }
+
+    .thinker-portrait{
+      width:48px;
+      height:48px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+      display:grid;
+      place-items:center;
+      flex-shrink:0;
+    }
+
+    .thinker-portrait img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .thinker-fallback{
+      color:#f1eadf;
+      font-size:.82rem;
+      font-weight:700;
+      letter-spacing:.06em;
+    }
+
+    .thinker-label{
+      color:#f0e4d1;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.53rem;
+      margin-bottom:2px;
+    }
+
+    .thinker-name{
+      font-size:.82rem;
+      font-weight:700;
+      color:#f5f5f5;
+      margin-bottom:2px;
+    }
+
+    .thinker-note{
+      color:#cbcbcb;
+      font-size:.7rem;
+      line-height:1.42;
+    }
+
     .quote,
     .resources{
-      margin-top:12px;
-      padding-top:12px;
+      margin-top:10px;
+      padding-top:10px;
       border-top:1px solid rgba(255,255,255,.08);
     }
 
-    .author strong,
     .quote strong,
     .resources strong{
       display:block;
-      margin-bottom:6px;
-      font-size:.8rem;
-      letter-spacing:.1em;
+      margin-bottom:5px;
+      color:#f0e4cf;
+      font-size:.55rem;
       text-transform:uppercase;
-      color:#e8dfd1;
-    }
-
-    .author div,
-    .quote div,
-    .resources div{
-      color:#cfc8bc;
-      line-height:1.66;
-      font-size:.94rem;
+      letter-spacing:.13em;
     }
 
     .quote div{
+      color:#e6dcc8;
+      font-size:.76rem;
+      line-height:1.55;
       font-style:italic;
-      color:#e6dfd4;
     }
 
-    .footer-note{
-      margin-top:34px;
-      padding:24px 26px;
-      border-radius:28px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.045);
-      color:var(--muted);
-      line-height:1.75;
-      box-shadow:var(--shadow);
+    .quote div::before{
+      content:"“";
+      color:var(--gold);
+      font-size:1.35rem;
+      line-height:0;
+      vertical-align:-.18em;
+      margin-right:2px;
     }
 
-    .footer-note strong{
-      color:#f1eadf;
+    .resources div{
+      color:#d0d0d0;
+      font-size:.72rem;
+      line-height:1.5;
     }
 
-    @media (max-width:1180px){
+    .bridge-note{
+      border-radius:22px;
+      padding:16px;
+      margin-top:22px;
+    }
+
+    .bridge-note h3{
+      margin:0 0 8px;
+      font-size:1.12rem;
+      line-height:1.06;
+      letter-spacing:-.02em;
+      position:relative;
+      z-index:1;
+    }
+
+    .bridge-note p{ position:relative; z-index:1; }
+
+    @media (max-width:1080px){
       .hero-grid,
-      .layer-header{
-        grid-template-columns:1fr;
-      }
-
-      .intro-strip{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .span-3,
-      .span-4,
-      .span-5,
-      .span-6{
-        grid-column:span 6;
-      }
+      .layer-header{ grid-template-columns:1fr; }
+      .intro-strip{ grid-template-columns:repeat(2, 1fr); }
+      .span-3,.span-4,.span-5,.span-6,.span-7,.span-8{ grid-column:span 6; }
     }
 
-    @media (max-width:760px){
-      .page{ width:min(100% - 22px, var(--max)); padding-top:18px; }
-      .hero{ padding:24px 18px 22px; border-radius:28px; }
-      .layer{ padding:22px 16px; border-radius:28px; }
+    @media (max-width:720px){
+      .page{ width:min(100% - 20px, var(--max)); padding-top:16px; }
+      .hero,.layer,.bridge-note{ border-radius:20px; }
       .cards{ grid-template-columns:1fr; }
-      .span-3,
-      .span-4,
-      .span-5,
-      .span-6{ grid-column:auto; }
+      .span-3,.span-4,.span-5,.span-6,.span-7,.span-8{ grid-column:auto; }
       .intro-strip{ grid-template-columns:1fr; }
-      .topbar{ margin-bottom:20px; }
     }
   </style>
 </head>
 <body>
+  <div class="library-bg" aria-hidden="true"></div>
+
   <main class="page">
     <div class="topbar">
-      <a class="back-link" href="index.html">← Back to Library</a>
+      <a class="back-link" href="../index.html">← Back to map</a>
       <div class="nav-mini">
         <a class="nav-chip" href="#structural">Systems</a>
         <a class="nav-chip" href="#power">Power</a>
@@ -470,514 +466,494 @@
         <div>
           <h1>Immigration is not only movement. It is law, labor, language, waiting, and the politics of belonging.</h1>
           <p>
-            University courses on immigration rarely treat migration as a simple story of travel, adaptation, or personal courage. They ask a sharper question: who gets to move with dignity, who is forced to move through danger, and who is stopped, sorted, delayed, extracted, or made permanently conditional. Immigration is therefore not just a demographic fact. It is a social position, a legal condition, an economic arrangement, a cultural reading, and an internal psychological experience. To study immigration critically is to study how states classify bodies, how borders operate far beyond the edge of a map, how language becomes a test of worthiness, and how people learn to live inside suspended recognition.
+            University courses on immigration rarely treat migration as a simple story of travel, adaptation, or personal courage. They ask a sharper question: who gets to move with dignity, who is forced to move through danger, and who is stopped, sorted, delayed, extracted, or made permanently conditional. Immigration is therefore not only a fact of geography. It is a legal condition, an economic arrangement, a cultural reading, and an internal psychological experience. To study immigration critically is to study how states classify bodies, how borders operate far beyond the edge of a map, how language becomes a test of worthiness, and how people learn to live inside suspended recognition.
           </p>
         </div>
         <aside class="hero-note">
-          <h3>Page logic</h3>
+          <h3>Page Logic</h3>
           <p>
-            This page is organized in five layers. Each layer gathers concepts that universities often teach together: the structural architecture of control, the economic uses of migration, the cultural and identity dimensions of belonging, the psychological consequences of displacement, and the broader critical theories that connect migration to coloniality, global inequality, and uneven mobility. Read it like a map with pressure zones rather than a neat ladder.
+            This page is organized into five layers. Each layer gathers concepts that universities often teach together: the structural architecture of control, the economic uses of migration, the cultural and identity dimensions of belonging, the psychological consequences of displacement, and the broader critical theories that connect migration to coloniality, global inequality, and uneven mobility.
           </p>
         </aside>
       </div>
-
       <div class="intro-strip">
         <div class="intro-pill">Immigration is governed through categories: citizen, resident, undocumented person, asylum seeker, deportable body.</div>
         <div class="intro-pill">Migration is shaped by labor demand, extraction, and unequal access to safety, paperwork, and recognition.</div>
         <div class="intro-pill">Belonging is never only legal. It is read through accent, race, usefulness, familiarity, and social comfort.</div>
-        <div class="intro-pill">The border does not stay at the border. It enters schools, workplaces, healthcare systems, databases, and inner life.</div>
+        <div class="intro-pill">The border does not stay at the border. It enters schools, workplaces, databases, healthcare systems, and inner life.</div>
       </div>
     </section>
 
-    <section class="layer layer-structural" id="structural">
+    <section class="layer" id="structural">
       <div class="layer-header">
         <div>
           <div class="layer-label">Layer 1 · Structural / System</div>
           <h2>The architecture of control</h2>
           <p class="layer-desc">
-            This layer looks at immigration as a state-managed system. Here migration appears not as a free human act, but as something organized through documents, permissions, surveillance, selection, detention, asylum procedures, and the threat of removal. In university classrooms this is usually where students learn to see the border not as a line, but as a regime: a dispersed machinery of sorting, monitoring, and deciding whose movement is naturalized and whose movement becomes suspicious.
+            This layer looks at immigration as a state-managed system. Migration appears here not as pure personal movement, but as something organized through documents, permissions, surveillance, detention, selection, asylum procedures, and the threat of removal. The key shift is conceptual: the border is not a line. It is a regime, a dispersed machinery of sorting, monitoring, and deciding whose movement becomes ordinary and whose movement becomes suspicious.
           </p>
         </div>
         <p class="layer-side">
-          The key shift here is conceptual: people are not simply “inside” or “outside” a nation. They are placed into hierarchies of legibility. Some are welcomed as investors, tourists, specialists, or students. Others are filtered through humanitarian suspicion, criminalization, biometric scrutiny, and waiting. The state does not only respond to migration. It actively produces migrant vulnerability.
+          People are not simply “inside” or “outside” a nation. They are placed into hierarchies of legibility. Some are welcomed as investors, tourists, specialists, or students. Others are filtered through humanitarian suspicion, criminalization, biometric scrutiny, and waiting. The state does not only respond to migration. It actively produces migrant vulnerability.
         </p>
       </div>
 
       <div class="cards">
         <article class="card span-4">
-          <div class="tag">System concept</div>
+          <div class="tag">System Concept</div>
           <h3>Border Regimes</h3>
-          <p>
-            A border regime is the full infrastructure through which states regulate movement: passports, visas, detention centers, airport questioning, biometric systems, digital databases, offshore processing, checkpoints, and legal categories. It helps us move away from the childish image of a border as a thin line on a map. In critical migration studies, the border is understood as mobile, expandable, and deeply administrative. It can appear in embassies, rental forms, school enrollment rules, police stops, asylum interviews, or healthcare intake desks.
-          </p>
-          <p>
-            This concept matters because it reveals that control is not exceptional. It is built into ordinary institutions. The border follows migrants inward, often long after the crossing itself.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Michel Foucault, Sandro Mezzadra, Nicholas De Genova, Didier Bigo</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The border is not just where territory ends. It is where governance thickens.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Surveillance, deportability, detention, state bureaucracy, categorization</div></div>
+          <p>Border regimes include the full infrastructure through which states regulate movement: passports, visas, detention centers, airport questioning, biometric systems, databases, offshore processing, and checkpoints. The concept helps move us away from imagining a border as a mere line. The border follows migrants inward, often long after the crossing itself.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">MF</span><img src="assets/foucault.jpg" alt="Michel Foucault" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Power, surveillance, discipline, and the dispersed machinery of control.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>The border is not just where territory ends. It is where governance thickens.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Control, surveillance, classification, bordering practices</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Legal status</div>
+          <div class="tag">Legal Status</div>
           <h3>Citizenship</h3>
-          <p>
-            Citizenship is often taught as a legal status, but critical courses unpack it as a technology of uneven access. Citizenship decides who may vote, work, travel, reunite with family, receive benefits, and live without everyday fear. Yet it also carries a symbolic dimension: it marks some bodies as naturally belonging and others as conditionally tolerated.
-          </p>
-          <p>
-            In migration studies, citizenship is less a neutral membership card than a gatekeeping structure that distributes safety, rights, and legitimacy. Some people live physically inside a nation for years while remaining socially outside it.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Hannah Arendt, Yasemin Soysal, Judith Butler, Engin Isin</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Citizenship is not merely belonging to a state. It is access to recognizability, protection, and rights.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Recognition, rights, non-citizenship, civic exclusion, national identity</div></div>
+          <p>Citizenship is often taught as a legal status, but critical migration courses unpack it as a technology of uneven access. It distributes safety, rights, mobility, and recognizability. Some bodies are treated as naturally belonging. Others remain physically inside the nation while socially outside it.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">HA</span><img src="assets/arendt.jpg" alt="Hannah Arendt" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Hannah Arendt</div><div class="thinker-note">Citizenship, statelessness, and the fragility of the “right to have rights.”</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Citizenship is not merely belonging to a state. It is access to recognizability, protection, and rights.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Rights, recognition, non-citizenship, national membership</div></div>
         </article>
 
         <article class="card span-4">
           <div class="tag">Criminalization</div>
           <h3>Illegality as a Constructed Condition</h3>
-          <p>
-            One of the most important interventions in migration studies is the refusal to describe people as “illegal” in any essential sense. Laws make particular forms of presence or movement unauthorized. The condition is produced. That means illegality is not a moral truth but a political outcome. This shift has enormous consequences: it redirects attention from allegedly deviant migrants to the systems that criminalize them.
-          </p>
-          <p>
-            Courses often use this concept to show how law can manufacture precarity and then treat that very precarity as evidence of undeservingness.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova, Mae Ngai</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Illegality is not a natural quality of a person. It is an effect of policy.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Criminalization, documentation, labor exploitation, deportability</div></div>
+          <p>Migration studies insists that people are not “illegal” in any essential sense. Law makes particular forms of presence unauthorized. The condition is produced. This redirects attention from allegedly deviant migrants to the systems that criminalize them.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">MN</span><img src="assets/ngai.jpg" alt="Mae Ngai" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Mae Ngai</div><div class="thinker-note">How immigration law manufactures exclusion and turns people into “impossible subjects.”</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Illegality is not a natural quality of a person. It is an effect of policy.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Criminalization, documentation, policy, social exclusion</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Threat structure</div>
+          <div class="tag">Threat Structure</div>
           <h3>Deportability</h3>
-          <p>
-            Deportability names the condition of living under the shadow of possible removal. A person does not need to be deported for deportation to shape behavior. The possibility is enough. It disciplines movement, employment choices, housing, public visibility, and even willingness to report violence or abuse.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Nicholas De Genova</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The threat does political work even when the event never happens.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Fear, compliance, silence, labor control</div></div>
+          <p>Deportability names the condition of living under the shadow of possible removal. A person does not need to be deported for deportation to shape behavior. The threat does political work even when the event never occurs.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Fear can govern a life before force is ever formally used.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">ND</span><img src="assets/degenova.jpg" alt="Nicholas De Genova" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Nicholas De Genova</div><div class="thinker-note">Deportability as a permanent condition of pressure, fear, and governability.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Fear, compliance, silence, labor control</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Protection and suspicion</div>
+          <div class="tag">Protection and Suspicion</div>
           <h3>Asylum Systems</h3>
-          <p>
-            Asylum is often publicly framed as humanitarian rescue. University courses complicate this image by showing how asylum systems force people to narrate suffering in institutionally acceptable ways. Applicants must often perform credibility, trauma, coherence, and vulnerability under hostile conditions.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Judith Butler</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Protection is granted through a process that often begins with disbelief.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Refugee regimes, testimony, proof, deserving victimhood</div></div>
+          <p>Asylum is publicly framed as humanitarian rescue, yet critical analysis shows how applicants must narrate suffering in institutionally acceptable ways. Protection often begins with disbelief, proof, and moral evaluation.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Protection is granted through a process that often begins with suspicion.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">DF</span><img src="assets/fassin.jpg" alt="Didier Fassin" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Fassin</div><div class="thinker-note">Humanitarian reason, moral selection, and the politics of credible suffering.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Refugee regimes, testimony, credibility, deservingness</div></div>
         </article>
 
         <article class="card span-3">
           <div class="tag">Monitoring</div>
           <h3>Surveillance</h3>
-          <p>
-            Migrants are disproportionately exposed to tracking through paperwork, institutional reporting, biometric identification, employer checks, school databases, welfare systems, and digital records. Surveillance is not only a technical matter. It is a moral one. It signals that some populations must constantly prove legitimacy.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Didier Bigo, Michel Foucault</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>To be watched is to be told that your presence is not self-evident.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Biometrics, files, databases, suspicion, control</div></div>
+          <p>Migrants are disproportionately exposed to tracking through paperwork, biometric systems, employer checks, school databases, welfare systems, and digital records. Surveillance signals that some populations must constantly prove legitimacy.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>To be watched is to be told that your presence is not self-evident.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">DB</span><img src="assets/bigo.jpg" alt="Didier Bigo" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Didier Bigo</div><div class="thinker-note">Security, databases, policing, and how bureaucratic watching becomes normal.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Biometrics, files, suspicion, bureaucratic control</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Population management</div>
+          <div class="tag">Population Management</div>
           <h3>Biopolitics</h3>
-          <p>
-            Michel Foucault’s concept of biopolitics helps explain how modern states manage populations through health, demography, reproduction, mobility, and risk. In migration contexts, biopolitical thinking appears when states classify whose lives must be fostered, whose movement must be optimized, and whose presence is coded as a burden or danger.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Michel Foucault</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Power does not only prohibit. It organizes life.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Population, risk, public order, reproductive governance</div></div>
+          <p>Biopolitics helps explain how states manage populations through health, demography, risk, and mobility. In migration contexts it appears when authorities classify whose lives must be fostered, regulated, slowed, or contained.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Power does not only prohibit. It organizes life.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">MF</span><img src="assets/foucault.jpg" alt="Michel Foucault" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Michel Foucault</div><div class="thinker-note">Biopolitics, discipline, and the state’s management of populations.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Population, risk, public order, demographic control</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Exposable life</div>
+          <div class="tag">Exposable Life</div>
           <h3>Necropolitics</h3>
-          <p>
-            Achille Mbembe’s necropolitics pushes the analysis further. If biopolitics asks how power manages life, necropolitics asks whose death, abandonment, or disposability becomes acceptable. In migration studies, this concept is used to analyze deadly sea crossings, camps, militarized borders, slow death in detention, and political systems that knowingly expose certain populations to fatal harm.
-          </p>
-          <p>
-            Necropolitics is especially powerful because it disrupts liberal narratives of neutral administration. It shows that some border arrangements do not merely fail to protect. They produce conditions under which certain lives become expendable.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Achille Mbembe</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Migration policy is never only about entry. It can also be about managed exposure to death.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Detention, abandonment, camps, securitization, lethal border zones</div></div>
+          <p>Necropolitics pushes the analysis further by asking whose death, abandonment, or disposability becomes acceptable. In migration studies this concept illuminates detention, militarized borders, sea crossings, camps, and political systems that knowingly expose certain populations to fatal harm.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">AM</span><img src="assets/mbembe.jpg" alt="Achille Mbembe" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Achille Mbembe</div><div class="thinker-note">Necropolitics and the chilling question of whose life becomes expendable.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Migration policy is never only about entry. It can also be about managed exposure to death.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Detention, abandonment, camps, lethal border zones</div></div>
         </article>
       </div>
     </section>
 
-    <section class="layer layer-power" id="power">
+    <section class="layer" id="power">
       <div class="layer-header">
         <div>
           <div class="layer-label">Layer 2 · Economic / Power</div>
           <h2>Migration as labor, extraction, and conditional value</h2>
-          <p class="layer-desc">
-            This layer explores how migration is tied to work, profit, scarcity, and usefulness. Universities often emphasize that migration is not simply a humanitarian issue or an identity issue. It is also profoundly economic. States and markets routinely depend on migrant labor while simultaneously degrading migrant rights. The result is a contradiction at the heart of modern immigration systems: migrants are needed, but often only in subordinated forms.
-          </p>
+          <p class="layer-desc">This layer explores how migration is tied to work, profit, scarcity, and usefulness. Immigration systems often depend on migrant labor while degrading migrant rights. The contradiction is central: migrants are needed, but often only in subordinated forms.</p>
         </div>
-        <p class="layer-side">
-          Here the central question becomes: what kind of migrant is considered acceptable? Frequently the answer is not ethical but functional. Productive, flexible, temporary, silent, grateful, highly skilled when needed, disposable when convenient. This is where the language of merit quietly merges with the logic of extraction.
-        </p>
+        <p class="layer-side">Here the decisive question becomes: what kind of migrant is considered acceptable? Frequently the answer is not ethical but functional. Productive, flexible, temporary, grateful, highly skilled when needed, disposable when convenient. This is where merit language quietly fuses with extraction.</p>
       </div>
 
       <div class="cards">
         <article class="card span-4">
-          <div class="tag">Work and movement</div>
+          <div class="tag">Work and Movement</div>
           <h3>Labor Migration</h3>
-          <p>
-            Labor migration refers to movement shaped by the demand for workers. But critical approaches insist that this is not just about jobs. It is about how economies create demand for mobile labor while limiting the power of the people who provide it. Migrants are often welcomed into sectors marked by exhaustion, risk, low wages, high turnover, and little institutional protection.
-          </p>
-          <p>
-            In class, this concept often opens a broader insight: migration systems are not separate from capitalism. They are one of the ways labor markets are stratified.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Saskia Sassen, Bridget Anderson, Nandita Sharma</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Migration is often managed not around human flourishing, but around labor demand.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Temporary workers, segmentation, flexibility, precarity</div></div>
+          <p>Labor migration refers to movement shaped by the demand for workers. Critical approaches emphasize that this is not simply about jobs. It is about economies that create demand for mobile labor while limiting the power of the people who provide it.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SS</span><img src="assets/sassen.jpg" alt="Saskia Sassen" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Saskia Sassen</div><div class="thinker-note">Global cities, labor demand, expulsion, and migration under contemporary capitalism.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Migration is often managed not around human flourishing, but around labor demand.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Temporary workers, segmentation, flexibility, labor need</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Unequal exchange</div>
+          <div class="tag">Unequal Exchange</div>
           <h3>Exploitation</h3>
-          <p>
-            Exploitation appears when workers generate value under conditions that deny them fair compensation, protection, mobility, or voice. Migrants are especially vulnerable to this because visa dependency, documentation status, language barriers, fear of deportation, and social isolation can all be used to suppress resistance.
-          </p>
-          <p>
-            Academic discussion here often rejects the myth that abuse is accidental. Instead, exploitation is analyzed as structurally enabled by immigration law and labor policy together.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Karl Marx, Bridget Anderson, Rhacel Salazar Parreñas</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Vulnerability is not a side effect. It is often built into the labor arrangement itself.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Domestic labor, agricultural labor, wage theft, employer control</div></div>
+          <p>Exploitation appears when workers generate value under conditions that deny them fair compensation, protection, or voice. Immigration law and labor arrangements can together produce ideal conditions for dependence and abuse.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">BA</span><img src="assets/anderson.jpg" alt="Bridget Anderson" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Bridget Anderson</div><div class="thinker-note">Work, borders, and the politics of the “good” and exploitable migrant worker.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Vulnerability is often built into the labor arrangement itself.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Domestic labor, wage theft, employer control, dependency</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Global structure</div>
+          <div class="tag">Global Structure</div>
           <h3>Global Inequality</h3>
-          <p>
-            People do not migrate out of a vacuum. Movement is shaped by unequal development, debt, war, extraction, climate crisis, and the long afterlife of colonialism. A university course on immigration usually insists that we place migration within the world system rather than treating it as an isolated national “problem.”
-          </p>
-          <p>
-            This concept interrupts simplistic moralism. It asks what histories make some passports powerful and others burdensome, some labor markets stable and others collapsed.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Immanuel Wallerstein, Saskia Sassen, Walter Mignolo</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Migration often follows the fault lines carved by unequal histories.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Empire, development, debt, displacement, uneven mobility</div></div>
+          <p>People do not migrate out of a vacuum. Movement is shaped by unequal development, debt, war, climate crisis, and the long afterlife of colonialism. Migration follows fault lines carved by history, not just personal choice.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">WM</span><img src="assets/mignolo.jpg" alt="Walter Mignolo" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Walter Mignolo</div><div class="thinker-note">Colonial difference, world systems, and the geopolitics of unequal movement.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Migration often travels along the routes that inequality leaves open.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Empire, development, extraction, debt, climate displacement</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Skilled movement</div>
+          <div class="tag">Skilled Movement</div>
           <h3>Brain Drain</h3>
-          <p>
-            Brain drain refers to the outflow of educated or highly trained people from regions that often need them most. Universities discuss it not as a moral accusation against migrants, but as a sign of structural imbalance between states.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Saskia Sassen, migration policy scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Talent moves along the paths that inequality opens.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Development, opportunity, mobility privilege</div></div>
+          <p>Brain drain refers to the outflow of educated or highly trained people from regions that often need them most. It is usually discussed as a sign of structural imbalance rather than an individual moral failure.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Talent moves along the paths that inequality opens.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SS</span><img src="assets/sassen.jpg" alt="Saskia Sassen" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Saskia Sassen</div><div class="thinker-note">Global opportunity structures that pull labor across unequal regions.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Opportunity, development, inequality, workforce loss</div></div>
         </article>
 
         <article class="card span-3">
           <div class="tag">Devaluation</div>
           <h3>Brain Waste</h3>
-          <p>
-            Brain waste describes what happens when highly educated migrants are forced into work far below their qualifications because credentials are not recognized, language expectations are punitive, or local networks are inaccessible. It is one of the cruelest contradictions in migration systems.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Migration and labor studies literature</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The issue is not lack of skill. It is blocked recognition.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Credentialism, exclusion, deskilling, wasted expertise</div></div>
+          <p>Brain waste describes what happens when highly educated migrants are forced into work below their qualifications because credentials are not recognized, language expectations are punitive, or access is blocked.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>The issue is not lack of skill. It is blocked recognition.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">BA</span><img src="assets/anderson.jpg" alt="Bridget Anderson" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Bridget Anderson</div><div class="thinker-note">How legal and institutional filters devalue migrant capacity.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Credentialism, deskilling, blocked mobility, exclusion</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Moral sorting</div>
+          <div class="tag">Moral Sorting</div>
           <h3>Deservingness</h3>
-          <p>
-            Deservingness is the moral script that divides migrants into worthy and unworthy categories: hardworking versus lazy, grateful versus demanding, assimilated versus resistant, innocent versus suspicious. This is a deeply ideological concept, because it disguises structural inequality as personal character judgment.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Didier Fassin, Bridget Anderson, Sara Ahmed</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Belonging is often conditional on performing the right kind of goodness.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Respectability, gratitude, innocence, good migrant narrative</div></div>
+          <p>Deservingness divides migrants into worthy and unworthy categories: hardworking versus lazy, grateful versus demanding, assimilated versus resistant. Structural inequality gets disguised as character judgment.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Belonging is often conditional on performing the right kind of goodness.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SA</span><img src="assets/ahmed.jpg" alt="Sara Ahmed" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Sara Ahmed</div><div class="thinker-note">How comfort, familiarity, and moral fit shape reception and exclusion.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Respectability, gratitude, innocence, “good migrant” narratives</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Uneven freedom</div>
+          <div class="tag">Uneven Freedom</div>
           <h3>Mobility Privilege</h3>
-          <p>
-            Mobility privilege names the unequal ability to move safely, legally, quickly, and with dignity. For some people, movement is framed as cosmopolitan freedom. For others, the same movement is treated as threat, desperation, or deviance.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Mimi Sheller, John Urry</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Freedom of movement is never distributed evenly.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Passport hierarchy, travel inequality, global north advantage</div></div>
+          <p>Mobility privilege names the unequal ability to move safely, legally, quickly, and with dignity. For some movement appears as cosmopolitan freedom. For others, the same movement is read as threat or burden.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Freedom of movement is never distributed evenly.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">MS</span><img src="assets/sheller.jpg" alt="Mimi Sheller" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Mimi Sheller</div><div class="thinker-note">Mobility as hierarchy, infrastructure, and unequally distributed freedom.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Passport hierarchy, travel inequality, global north advantage</div></div>
         </article>
       </div>
     </section>
 
-    <section class="layer layer-identity" id="identity">
+    <section class="layer" id="identity">
       <div class="layer-header">
         <div>
           <div class="layer-label">Layer 3 · Identity / Cultural</div>
           <h2>Belonging, language, and being read as foreign</h2>
-          <p class="layer-desc">
-            This layer moves from institutions into perception, recognition, and everyday social life. Immigration does not only change where people live. It changes how they are named, heard, interpreted, and placed inside systems of familiarity and discomfort. In university settings this is where migration studies meets cultural studies, sociolinguistics, and identity theory.
-          </p>
+          <p class="layer-desc">Immigration changes how people are named, heard, interpreted, and placed inside systems of familiarity and discomfort. This is where migration studies meets cultural studies, identity theory, and sociolinguistics.</p>
         </div>
-        <p class="layer-side">
-          Here the focus is not only on official status but on social readability: accent, race, dress, name, body language, neighborhood, and perceived history. A person may hold documents and still remain culturally othered. Conversely, a person may be socially welcomed while legally precarious. Belonging is layered, unstable, and relational.
-        </p>
+        <p class="layer-side">The focus here is not only official status but social readability: accent, race, dress, name, neighborhood, body language, and perceived history. A person may hold documents and still remain culturally othered. Belonging is layered, unstable, and relational.</p>
       </div>
 
       <div class="cards">
         <article class="card span-4">
-          <div class="tag">Between worlds</div>
+          <div class="tag">Between Worlds</div>
           <h3>Diaspora</h3>
-          <p>
-            Diaspora describes communities formed through movement, displacement, memory, and connection across multiple places. It is not simply exile, and not simply assimilation. It points to identities lived across locations, histories, and attachments. In classroom discussion, diaspora helps students think beyond nationalist fantasies of one origin, one home, one language, one loyalty.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Avtar Brah, James Clifford</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Identity in diaspora is not purity preserved. It is history lived in motion.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Memory, home, multiplicity, cultural continuity</div></div>
+          <p>Diaspora describes communities formed through movement, displacement, memory, and connection across places. It points to identities lived across locations and histories rather than sealed inside a single origin.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">Diaspora, identity in motion, and the refusal of pure cultural origins.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Identity in diaspora is not purity preserved. It is history lived in motion.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Memory, home, multiplicity, cultural continuity</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Mixed formation</div>
+          <div class="tag">Mixed Formation</div>
           <h3>Hybridity</h3>
-          <p>
-            Hybridity challenges the fantasy that cultures remain sealed and untouched. It names the mixed, improvised, and emergent forms of identity that arise through contact, pressure, translation, and survival. This concept can be liberating, but universities also discuss how celebration of hybridity sometimes hides unequal power relations.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Homi K. Bhabha, Stuart Hall</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Migration does not produce a split self so much as a layered one.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Translation, cultural mixing, adaptation, ambivalence</div></div>
+          <p>Hybridity challenges the fantasy that cultures remain sealed and untouched. It names mixed, improvised, and emergent forms of identity that arise through contact, translation, pressure, and survival.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">HB</span><img src="assets/bhabha.jpg" alt="Homi K. Bhabha" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Homi K. Bhabha</div><div class="thinker-note">Hybridity, ambivalence, and the unstable spaces where culture gets remade.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Migration does not split culture cleanly. It makes it unstable, layered, and alive.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Translation, contact zones, improvisation, ambivalence</div></div>
         </article>
 
         <article class="card span-4">
           <div class="tag">Recognition</div>
           <h3>Belonging and Non-Belonging</h3>
-          <p>
-            Belonging is often treated as emotional, but it is also political. It concerns who is imagined as part of “us,” who is merely present, and who is tolerated only under conditions. Non-belonging does not always look dramatic. It can be quiet: hesitation, misrecognition, curious distance, permanent explanation, endless proving.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Sara Ahmed, Nira Yuval-Davis</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>To belong is to be received without having to justify your presence over and over again.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Recognition, comfort, social space, conditional inclusion</div></div>
+          <p>Belonging concerns who is imagined as part of “us,” who is merely present, and who is tolerated only under conditions. Non-belonging can look quiet: hesitation, misrecognition, permanent explanation, endless proving.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SA</span><img src="assets/ahmed.jpg" alt="Sara Ahmed" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Sara Ahmed</div><div class="thinker-note">Belonging as orientation: who feels at home, who must keep adjusting to the room.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>To belong is to be received without having to justify your presence over and over again.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Recognition, comfort, institutional fit, conditional inclusion</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Social production</div>
+          <div class="tag">Social Production</div>
           <h3>Othering</h3>
-          <p>
-            Othering is the process through which people are made legible as different, inferior, suspect, or not fully part of the social “we.” In migration contexts, othering often fuses race, religion, language, and nationality into a simplified image of foreignness.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Edward Said, Stuart Hall, bell hooks</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The other is not found. The other is produced.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Representation, fear, stereotype, exclusion</div></div>
+          <p>Othering is the process by which people are made legible as different, inferior, suspect, or not fully part of the social “we.” In migration contexts, othering often fuses race, religion, language, and nationality.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>The outsider is not simply found. The outsider is produced.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">ES</span><img src="assets/said.jpg" alt="Edward Said" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Edward Said</div><div class="thinker-note">Othering, representation, and the cultural manufacture of the outsider.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Representation, stereotype, fear, exclusion</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Permanent foreignness</div>
+          <div class="tag">Permanent Foreignness</div>
           <h3>Migrantization</h3>
-          <p>
-            Migrantization describes the process by which people are socially read as migrants regardless of formal status, time lived in a country, or even place of birth. The label sticks. It becomes a way of marking some subjects as always arriving, never fully settled, never entirely native to the space they inhabit.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Paul Mecheril and critical migration scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Some people are allowed to move on. Others are made to remain migrant forever.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Conditional belonging, racialization, perpetual outsiderhood</div></div>
+          <p>Migrantization describes the process by which people are socially read as migrants regardless of formal status, time lived in a country, or even place of birth. The label sticks and becomes permanent outsiderhood.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Some people are allowed to move on. Others are made to remain migrant forever.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">PM</span><img src="assets/mecheril.jpg" alt="Paul Mecheril" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Paul Mecheril</div><div class="thinker-note">Migrantization and the sticky social label of never being fully from here.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Conditional belonging, racialization, perpetual outsiderhood</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Linguistic hierarchy</div>
+          <div class="tag">Linguistic Hierarchy</div>
           <h3>Accent Discrimination</h3>
-          <p>
-            Accent is often treated as a minor issue, but academic work shows that it functions as a marker of competence, trustworthiness, intelligence, and belonging. Accent discrimination reveals how deeply the nation can hide in the ear. Some voices are heard as normal, others as less credible before they even finish the first sentence.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Rosina Lippi-Green</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>An accent can become a passport that fails at the level of sound.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Standard language ideology, linguistic capital, bias</div></div>
+          <p>Accent functions as a marker of competence, trustworthiness, intelligence, and belonging. Some voices are heard as normal, others as less credible before they even finish the first sentence.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>An accent can become a passport that fails at the level of sound.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">PB</span><img src="assets/bourdieu.jpg" alt="Pierre Bourdieu" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Pierre Bourdieu</div><div class="thinker-note">Linguistic capital, symbolic violence, and how “proper” speech turns into power.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Standard language ideology, bias, hierarchy, symbolic power</div></div>
         </article>
 
         <article class="card span-3">
-          <div class="tag">Speech and survival</div>
+          <div class="tag">Speech and Survival</div>
           <h3>Code-Switching</h3>
-          <p>
-            Code-switching refers to shifting language, register, tone, or style depending on context. In migration-related settings it is not simply playful versatility. It can be a discipline of self-management, a protection strategy, or an attempt to reduce friction in institutions that reward only certain forms of speech.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Pierre Bourdieu, Erving Goffman, sociolinguistics scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Changing your voice can be a way of staying safe inside unequal spaces.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Masking, impression management, adaptation, strain</div></div>
+          <p>Code-switching is not simply playful versatility. It can be a discipline of self-management, a protection strategy, or an attempt to reduce friction in institutions that reward only certain forms of speech.</p>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Changing your voice can be a way of staying safe inside unequal spaces.</div></div>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">EG</span><img src="assets/goffman.jpg" alt="Erving Goffman" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Erving Goffman</div><div class="thinker-note">Impression management, social performance, and the labor of adjusting one’s presentation.</div></div>
+          </div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Masking, adaptation, performance, institutional fit</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Cultural demand</div>
+          <div class="tag">Cultural Demand</div>
           <h3>Assimilation vs Integration</h3>
-          <p>
-            University courses often distinguish assimilation from integration in order to expose a buried political assumption. Integration suggests participation in shared institutions without total erasure of difference. Assimilation, by contrast, usually implies that migrants must become socially acceptable by shedding visible traces of otherness. In practice, public discourse often says “integration” while demanding assimilation.
-          </p>
-          <p>
-            This concept is especially useful because it links institutions, language, identity, and respectability. It helps explain why migrants are so often expected to prove flexibility while the dominant culture treats itself as neutral.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Sara Ahmed, assimilation theory critics</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Integration invites participation. Assimilation asks for disappearance.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>National culture, respectability, adaptation, conformity</div></div>
+          <p>Integration suggests participation without total erasure of difference. Assimilation usually implies that migrants must become acceptable by shedding visible traces of otherness. Public discourse often says “integration” while demanding assimilation.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">Identity as process, never-finished belonging, and the cultural costs of forced fit.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Integration invites participation. Assimilation asks for disappearance.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>National culture, adaptation, conformity, respectability</div></div>
         </article>
       </div>
     </section>
 
-    <section class="layer layer-psychology" id="psychology">
+    <section class="layer" id="psychology">
       <div class="layer-header">
         <div>
           <div class="layer-label">Layer 4 · Psychological</div>
           <h2>The interior weather of migration</h2>
-          <p class="layer-desc">
-            This layer gathers concepts that capture what migration does inside the person. University courses do not always spend enough time here, but the strongest ones do. They show that immigration is not only managed by law and labor. It is also lived as rupture, vigilance, waiting, grief, improvisation, and ongoing self-reconstruction.
-          </p>
+          <p class="layer-desc">This layer gathers concepts that capture what migration does inside the person. Immigration is not only managed by law and labor. It is also lived as rupture, vigilance, waiting, grief, improvisation, and ongoing self-reconstruction.</p>
         </div>
-        <p class="layer-side">
-          Psychological concepts matter because they prevent the cold abstraction of policy talk. They remind us that institutional uncertainty has mental consequences. They also help explain why migration can feel exhausting even when it is formally “successful.” Safety without ease, residence without rest, survival without settlement: these are common migrant conditions.
-        </p>
+        <p class="layer-side">Psychological concepts matter because they keep policy language from becoming cold abstraction. They show that uncertainty, delay, and exclusion have mental textures. Migration can feel exhausting even when it is formally “successful.”</p>
       </div>
 
       <div class="cards">
         <article class="card span-4">
           <div class="tag">Rupture</div>
           <h3>Displacement</h3>
-          <p>
-            Displacement refers not only to the loss of physical place but also to the loss of orientation, familiarity, and social anchoring. A person may know where they are geographically and still feel unplaced. Migration can disrupt sensory habits, humor, speed of speech, professional confidence, family roles, and the invisible routines that once made reality readable.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Edward Said, Avtar Brah, displacement studies scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>To be displaced is not merely to leave home. It is to lose the coordinates that made the world legible.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Loss, reorientation, grief, unfamiliarity</div></div>
+          <p>Displacement refers not only to loss of physical place but also to loss of orientation, familiarity, and social anchoring. Migration can disrupt professional confidence, humor, language ease, family roles, and the invisible routines that once made reality legible.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">ES</span><img src="assets/said.jpg" alt="Edward Said" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Edward Said</div><div class="thinker-note">Exile, estrangement, and the unsettling distance between memory and present location.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>To be displaced is not merely to leave home. It is to lose the coordinates that made the world legible.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Loss, reorientation, grief, unfamiliarity</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Fragmented continuity</div>
+          <div class="tag">Fragmented Continuity</div>
           <h3>Identity Fragmentation</h3>
-          <p>
-            Migration often splits a person across contexts. You may be competent in one language and reduced in another. Respected in one setting, infantilized in the next. Legible in one bureaucracy, invisible in another. Identity fragmentation names the strain of carrying multiple social selves that do not fit neatly together.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Stuart Hall, Erik Erikson, diaspora and identity scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The self does not disappear in migration. It multiplies under pressure.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Role conflict, instability, translation of self, fractured continuity</div></div>
+          <p>Migration often splits a person across contexts. Competent in one language, reduced in another. Respected in one setting, infantilized in the next. Identity fragmentation names the strain of carrying multiple social selves that do not fit neatly together.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SH</span><img src="assets/hall.jpg" alt="Stuart Hall" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Stuart Hall</div><div class="thinker-note">The self as historical, relational, and repeatedly reorganized across contexts.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>The self does not disappear in migration. It multiplies under pressure.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Role conflict, instability, translation of self, fractured continuity</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Absorbed injury</div>
+          <div class="tag">Absorbed Injury</div>
           <h3>Internalized Stigma</h3>
-          <p>
-            When hostile narratives about migrants circulate constantly, they do not remain outside the person. They can be absorbed. Internalized stigma appears as shame about accent, status, paperwork, origin, dependency, cultural difference, or not moving “fast enough.” It is one of the most intimate forms of structural violence because it recruits the self against itself.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Erving Goffman, Frantz Fanon, minority stress scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Stigma becomes powerful when it begins to sound like your own inner voice.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Shame, silence, self-surveillance, diminished confidence</div></div>
+          <p>When hostile narratives about migrants circulate constantly, they do not remain outside the person. They can be absorbed as shame about accent, paperwork, origin, cultural difference, dependency, or not adapting “fast enough.”</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">FF</span><img src="assets/fanon.jpg" alt="Frantz Fanon" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Frantz Fanon</div><div class="thinker-note">How stigma, racialization, and colonial injury are absorbed into the intimate self.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Stigma becomes most powerful when it begins to sound like your own inner voice.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Shame, silence, self-surveillance, diminished confidence</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Life in instability</div>
+          <div class="tag">Life in Instability</div>
           <h3>Precarity</h3>
-          <p>
-            Precarity is often discussed economically, but it is also profoundly psychological. It describes life lived without reliable ground: insecure housing, uncertain paperwork, unstable income, fragile access to care, or a future that cannot be planned because too much depends on external decision-makers. In migration studies, precarity is not simply hardship. It is a patterned exposure to uncertainty.
-          </p>
-          <p>
-            The emotional texture of precarity includes hypervigilance, fatigue, compressed time horizons, difficulty resting, and a constant sense that one administrative shift could rearrange everything.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Judith Butler, Isabell Lorey, Lauren Berlant</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Precarity is what happens when the future cannot be trusted to hold still.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Instability, vulnerability, suspended planning, chronic stress</div></div>
+          <p>Precarity is not only economic. It is also psychological. It describes life lived without reliable ground: insecure housing, unstable paperwork, fragile access to care, interrupted work, and a future that cannot be confidently planned.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">JB</span><img src="assets/butler.jpg" alt="Judith Butler" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Judith Butler</div><div class="thinker-note">Precarity, vulnerability, and the unequal distribution of livable conditions.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Precarity is what happens when the future cannot be trusted to hold still.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Instability, suspended planning, chronic stress, vulnerability</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Suspended time</div>
+          <div class="tag">Suspended Time</div>
           <h3>Waiting and Temporal Limbo</h3>
-          <p>
-            One of the most underrated themes in immigration scholarship is time. Migrants often live inside elongated waiting: waiting for interviews, hearings, permits, renewals, work authorization, reunification, credential recognition, decisions that never fully arrive. This is not empty time. It is active social control. Waiting reorganizes aspiration, dependency, and emotional energy.
-          </p>
-          <p>
-            Courses that include temporality show that migration is not only spatial movement. It is also governance through delay. The person moves countries, but life can still be forced into pause.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Ghassan Hage, migration temporality scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Waiting is often the hidden border after the border.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Delay, uncertainty, bureaucracy, suspended adulthood, stalled future</div></div>
+          <p>Migrants often live inside elongated waiting: waiting for permits, hearings, renewals, work authorization, reunification, recognition. Waiting is not empty time. It is governance through delay. The person moves countries, but life can still be forced into pause.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">GH</span><img src="assets/hage.jpg" alt="Ghassan Hage" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Ghassan Hage</div><div class="thinker-note">The politics of waiting, stuckness, and exhausted futurity.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Waiting is often the hidden border after the border.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Delay, uncertainty, bureaucracy, suspended adulthood, stalled future</div></div>
         </article>
       </div>
     </section>
 
-    <section class="layer layer-critical" id="critical">
+    <section class="layer" id="critical">
       <div class="layer-header">
         <div>
           <div class="layer-label">Layer 5 · Critical / Global</div>
           <h2>Migration in the long shadow of empire</h2>
-          <p class="layer-desc">
-            This final layer widens the lens. Instead of treating immigration as a matter internal to one nation-state, it asks how colonial history, global capitalism, uneven citizenship, and transnational ties shape movement in the first place. This is where migration studies becomes unmistakably political. The question is no longer just who crosses a border, but what histories made that border so unequal.
-          </p>
+          <p class="layer-desc">This final layer widens the lens. Instead of treating immigration as a national issue alone, it asks how colonial history, global capitalism, uneven citizenship, and transnational ties shape movement in the first place.</p>
         </div>
-        <p class="layer-side">
-          Critical theories of migration help reveal why some passports function like golden keys while others operate like permanent suspicion. They also show that borders are haunted by older arrangements of conquest, extraction, racial hierarchy, and geographic entitlement. Movement today is organized by histories that are very much alive.
-        </p>
+        <p class="layer-side">Critical theories of migration reveal why some passports function like golden keys while others operate like permanent suspicion. They also show that borders are haunted by older arrangements of conquest, extraction, racial hierarchy, and geographic entitlement.</p>
       </div>
 
       <div class="cards">
         <article class="card span-4">
-          <div class="tag">After empire</div>
+          <div class="tag">After Empire</div>
           <h3>Coloniality of Migration</h3>
-          <p>
-            Coloniality of migration links present-day border regimes to the unfinished logics of empire. It asks why the citizens of former imperial centers often enjoy high mobility, while people from colonized or destabilized regions face restriction, suspicion, and violent filtering. This concept is especially important for dismantling the illusion that migration policy is merely administrative.
-          </p>
-          <p>
-            It insists that borders are historical artifacts shaped by conquest, extraction, racial ordering, and the geopolitical distribution of whose movement is treated as normal.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>María Lugones, Walter Mignolo, Franck Düvell, decolonial migration scholars</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Modern borders often inherit the worldview of empire while speaking the language of legality.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Coloniality, race, geopolitics, passport hierarchy, global north</div></div>
+          <p>This concept links present-day border regimes to the unfinished logics of empire. It asks why citizens of former imperial centers often enjoy high mobility, while people from colonized or destabilized regions face restriction, suspicion, and violent filtering.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">ML</span><img src="assets/lugones.jpg" alt="María Lugones" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">María Lugones</div><div class="thinker-note">Coloniality, power, classification, and the long afterlife of imperial world-making.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Modern borders often inherit the worldview of empire while speaking the language of legality.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Coloniality, race, geopolitics, passport hierarchy, global north</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Living the threshold</div>
+          <div class="tag">Living the Threshold</div>
           <h3>Borderlands</h3>
-          <p>
-            Gloria Anzaldúa’s borderlands is not only a geographic concept. It is also a psychic and cultural one. Borderlands are spaces of mixing, contradiction, ambiguity, and creative survival. They refuse the neat binary between here and there, self and other, nation and outside. For many migration-related pages, this concept brings poetry without losing theory.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Gloria Anzaldúa</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>The borderland is where categories rub against each other until something new is forced into being.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>In-betweenness, hybridity, contradiction, creativity, pain</div></div>
+          <p>Borderlands is not only a geographic concept. It is also psychic and cultural. It names spaces of mixing, contradiction, ambiguity, and creative survival where the nation binary rubs against lived reality.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">GA</span><img src="assets/anzaldua.jpg" alt="Gloria Anzaldúa" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Gloria Anzaldúa</div><div class="thinker-note">Borderlands as wound, threshold, and generative space of mixed becoming.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>The borderland is where categories rub against each other until something new is forced into being.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>In-betweenness, hybridity, contradiction, creativity, pain</div></div>
         </article>
 
         <article class="card span-4">
-          <div class="tag">Across nations</div>
+          <div class="tag">Across Nations</div>
           <h3>Transnationalism</h3>
-          <p>
-            Transnationalism describes the way migrants often live across states at once through remittances, family ties, politics, media, language, care work, and emotional attachment. This concept disrupts the assumption that migration ends with settlement. Many people remain active participants in multiple national and social worlds simultaneously.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Nina Glick Schiller, Linda Basch, Steven Vertovec</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Migration does not always relocate life from one country to another. It can stretch life across several.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Remittances, distant care, diasporic politics, multiple attachments</div></div>
+          <p>Transnationalism describes the ways migrants often live across states at once through remittances, family ties, politics, media, language, care work, and emotional attachment. Settlement does not necessarily end cross-border life.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">NG</span><img src="assets/glickschiller.jpg" alt="Nina Glick Schiller" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Nina Glick Schiller</div><div class="thinker-note">Transnational life, multiple attachments, and social worlds stretched across states.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Migration does not always relocate life from one country to another. It can stretch life across several.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Remittances, distant care, diasporic politics, multiple attachments</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Movement and inequality</div>
+          <div class="tag">Movement and Inequality</div>
           <h3>Mobility as a Political Hierarchy</h3>
-          <p>
-            Many courses eventually arrive at a broader realization: mobility itself is stratified. To move freely is often coded as modern, professional, global, adventurous. Yet this celebratory language applies selectively. When movement is associated with wealth, tourism, education, or business, it is framed as aspiration. When movement is associated with poverty, survival, asylum, statelessness, or labor need, it is framed as burden or threat.
-          </p>
-          <p>
-            This larger concept ties together passport inequality, racialized suspicion, development discourse, and the moral geography of the modern world.
-          </p>
-          <div class="author"><strong>Key thinkers</strong><div>Mimi Sheller, John Urry, critical mobility studies</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Not all movement is read as freedom. Some movement is made to look like a problem by design.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Tourism versus migration, global privilege, securitization, freedom asymmetry</div></div>
+          <p>Many courses eventually arrive at a broader realization: mobility itself is stratified. To move freely is often coded as modern, professional, global, adventurous. Yet that celebratory language applies selectively. Some movement is framed as aspiration. Some movement is framed as burden or threat.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">MS</span><img src="assets/sheller.jpg" alt="Mimi Sheller" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Mimi Sheller</div><div class="thinker-note">Mobility studies and the unequal political meaning of movement.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Not all movement is read as freedom. Some movement is made to look like a problem by design.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Tourism versus migration, securitization, global privilege, asymmetry</div></div>
         </article>
 
         <article class="card span-6">
-          <div class="tag">Reading the whole page</div>
+          <div class="tag">Reading the Whole Page</div>
           <h3>Why this framework matters</h3>
-          <p>
-            Together, these five layers resist a sentimental or simplistic view of immigration. They show that migration is at once structural, economic, cultural, psychological, and historical. That matters pedagogically. A narrow immigration page risks becoming either bureaucratic or purely emotional. A layered page allows readers to see how systems enter everyday life, how language becomes regulation, how paperwork becomes temporality, how labor demand becomes moral judgment, and how the border survives inside institutions and memory.
-          </p>
-          <p>
-            It also fits beautifully within queerology. Queer theory has long asked who counts as normal, intelligible, respectable, and protectable. Immigration studies asks parallel questions through movement, citizenship, and belonging. Put together, they reveal how normativity travels with the state, with language, and with the fantasy of who is supposed to feel at home.
-          </p>
-          <div class="author"><strong>Core bridges</strong><div>Queer theory, critical race theory, migration studies, decolonial thought, sociolinguistics</div></div>
-          <div class="quote"><strong>Conceptual pulse</strong><div>Immigration is not a side topic. It is one of the places where modern power becomes visible in motion.</div></div>
-          <div class="resources"><strong>Linked ideas</strong><div>Normativity, recognition, state violence, survival, public pedagogy</div></div>
+          <p>These five layers resist a sentimental or simplistic view of immigration. Migration is at once structural, economic, cultural, psychological, and historical. This layered design helps the reader see how systems enter everyday life, how language becomes regulation, how paperwork becomes temporality, how labor demand becomes moral judgment, and how the border survives inside institutions and memory.</p>
+          <div class="thinker">
+            <div class="thinker-portrait"><span class="thinker-fallback">SA</span><img src="assets/ahmed.jpg" alt="Sara Ahmed" onerror="this.style.display='none'"></div>
+            <div><div class="thinker-label">Thinker</div><div class="thinker-name">Sara Ahmed</div><div class="thinker-note">Orientation, belonging, and the politics of who gets to feel at home.</div></div>
+          </div>
+          <div class="quote"><strong>Conceptual Pulse</strong><div>Immigration is not a side topic. It is one of the places where modern power becomes visible in motion.</div></div>
+          <div class="resources"><strong>Reading Shelf</strong><div>Queer theory, critical race theory, migration studies, decolonial thought</div></div>
         </article>
       </div>
     </section>
 
-    <section class="footer-note">
-      <strong>Design note:</strong> This page is intentionally layered rather than linear. Immigration is rarely experienced as one thing at a time. The state, the labor market, culture, memory, and inner life all press on the subject simultaneously. That is why the page is structured as clustered zones rather than a tidy sequence. The layout itself carries the theory: migration is not one road. It is a field of pressures.
+    <section class="bridge-note">
+      <h3>Design note</h3>
+      <p>
+        This page is intentionally layered rather than linear. Immigration is rarely experienced as one thing at a time. The state, the labor market, culture, memory, and inner life all press on the subject simultaneously. That is why the page is structured as clustered zones rather than a tidy sequence. The layout itself carries the theory: migration is not one road. It is a field of pressures.
+      </p>
     </section>
   </main>
 </body>
