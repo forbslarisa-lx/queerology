@@ -16,37 +16,7 @@
       margin-top:34px;
     }
 
-    .page-logic-panel,
-    .imm-layer{
-      position:relative;
-      padding:28px;
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:
-        0 16px 42px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.04);
-      backdrop-filter:blur(5px);
-      -webkit-backdrop-filter:blur(5px);
-      overflow:hidden;
-    }
-
-    .page-logic-panel::before,
-    .imm-layer::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
-        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 40%);
-      opacity:.75;
-    }
-
-    .page-logic-panel > *,
-    .imm-layer > *{
-      position:relative;
-      z-index:1;
-    }
+ 
 
     /* ===== TONES ===== */
 
@@ -418,27 +388,6 @@
 </header>
 
     <section class="immigration-page">
-
-      <!-- ===== PAGE LOGIC ===== -->
-      <section class="page-logic-panel">
-        <div class="logic-label">Page logic</div>
-        <h2 class="logic-title">A layered map of migration</h2>
-        <p class="logic-text">
-          University courses on immigration rarely treat migration as a simple story
-          of travel, adaptation, or personal courage. They ask a sharper question:
-          who gets to move with dignity, who is forced to move through danger, and
-          who is stopped, sorted, delayed, extracted, or made permanently conditional.
-          Immigration is therefore not only a fact of geography. It is a legal
-          condition, an economic arrangement, a cultural reading, and an internal
-          psychological experience.
-        </p>
-        <ul class="logic-points">
-          <li>Immigration is governed through categories: citizen, resident, undocumented person, asylum seeker, deportable body.</li>
-          <li>Migration is shaped by labor demand, extraction, and unequal access to safety, paperwork, and recognition.</li>
-          <li>Belonging is never only legal. It is read through accent, race, usefulness, familiarity, and social comfort.</li>
-          <li>The border does not stay at the border. It enters schools, workplaces, databases, healthcare systems, and inner life.</li>
-        </ul>
-      </section>
 
       <!-- ===== LAYER 1 ===== -->
       <section class="imm-layer layer-structural">
