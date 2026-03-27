@@ -1855,3 +1855,11 @@ body::after{
     margin-top:12px;
   }
 }
+.topic-aside{
+  position:sticky;
+  top:120px;
+}
+
+.topic-header-with-aside{
+  align-items:start;
+}
