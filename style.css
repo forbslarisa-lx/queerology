@@ -2381,3 +2381,122 @@ body::after{
   .spine.mid{ min-height:164px; }
   .spine.small{ min-height:140px; }
 }
+
+.stack-card::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:24%;
+  z-index:-1;
+  background:linear-gradient(to top, rgba(0,0,0,.10), transparent);
+  opacity:.45;
+}
+
+.book-card::after{
+  display:none;
+}
+
+.book-spread::before{
+  content:"";
+  position:absolute;
+  top:14px;
+  bottom:14px;
+  left:50%;
+  width:2px;
+  transform:translateX(-50%);
+  background:linear-gradient(
+    to bottom,
+    rgba(255,255,255,.08),
+    rgba(0,0,0,.28),
+    rgba(255,255,255,.06)
+  );
+  opacity:.75;
+  border-radius:999px;
+}
+
+.book-spread::after{
+  content:"";
+  position:absolute;
+  top:8px;
+  bottom:8px;
+  left:50%;
+  width:72px;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,.20) 0%,
+      rgba(0,0,0,.10) 28%,
+      transparent 72%
+    );
+  opacity:.55;
+  pointer-events:none;
+}
+
+.book-card{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,248,236,.08) 0%,
+      rgba(255,248,236,.06) 46%,
+      rgba(250,245,236,.045) 54%,
+      rgba(255,248,236,.07) 100%
+    );
+}
+
+.spine{
+  position:relative;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  padding:14px 9px 12px;
+  border-radius:8px 8px 4px 4px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 8px 20px rgba(0,0,0,.16);
+  color:rgba(255,255,255,.78);
+
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size:.82rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  line-height:1.05;
+  white-space:nowrap;
+
+  transition:transform var(--transition), background var(--transition), color var(--transition);
+}
+
+.spine.main{
+  font-size:1.18rem;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  color:#f7f7f7;
+  padding:18px 11px 14px;
+}
+
+.spine.main{
+  text-shadow:0 1px 0 rgba(0,0,0,.18);
+}
+
+
+.spine{
+  border-radius:6px 6px 3px 3px;
+}
+
+.spine.small,
+.spine.mid,
+.spine.tall{
+  color:rgba(255,255,255,.68);
+}
+
+.spine.small,
+.spine.mid,
+.spine.tall{
+  padding-left:8px;
+  padding-right:8px;
+}
