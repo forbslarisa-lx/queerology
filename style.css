@@ -1863,3 +1863,191 @@ body::after{
 .topic-header-with-aside{
   align-items:start;
 }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:28px 26px;
+  align-items:stretch;
+}
+
+.card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:220px;
+  padding:26px 24px 22px 28px;
+  text-decoration:none;
+  color:var(--text);
+
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.04);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+
+  overflow:hidden;
+  isolation:isolate;
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+    radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 40%);
+  opacity:.85;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:30%;
+  z-index:-1;
+  background:linear-gradient(to top, rgba(0,0,0,.12), transparent);
+  opacity:.6;
+}
+
+.card .accent{
+  position:absolute;
+  left:0;
+  top:18px;
+  bottom:18px;
+  width:4px;
+  border-radius:999px;
+  opacity:.8;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.12);
+  background:rgba(255,255,255,.052);
+  box-shadow:
+    0 22px 48px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.card h2{
+  margin:0 0 12px;
+  font-size:clamp(1.45rem, 2.2vw, 1.95rem);
+  line-height:1.06;
+  letter-spacing:-0.03em;
+  max-width:18ch;
+  color:#f6f6f6;
+}
+
+.card .desc{
+  font-size:.95rem;
+  color:rgba(255,255,255,.68);
+  line-height:1.6;
+  max-width:34ch;
+  transition:color var(--transition);
+}
+
+.card:hover .desc{
+  color:rgba(255,255,255,.82);
+}
+
+.card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  margin-top:24px;
+}
+
+.open{
+  display:none;
+}
+
+.arrow{
+  flex:0 0 auto;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:.92rem;
+  color:rgba(255,255,255,.72);
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.card:hover .arrow{
+  transform:translateX(2px);
+  background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.12);
+  color:#fff;
+}
+
+.long{
+  grid-column:1 / -1;
+  min-height:208px;
+}
+
+.card.long{
+  padding:28px 28px 24px 32px;
+}
+
+.card.long h2{
+  max-width:24ch;
+  font-size:clamp(1.65rem, 2.5vw, 2.15rem);
+}
+
+.card.long .desc{
+  max-width:42ch;
+  font-size:1rem;
+}
+
+.knowledge{ transform:translateY(4px); }
+.identity{ transform:translateY(-2px); }
+.gender{ transform:translateY(6px); }
+.women{ transform:translateY(1px); }
+.colonialism{ transform:translateY(4px); }
+.immigration{ transform:translateY(-3px); }
+.language{ transform:translateY(5px); }
+.nature{ transform:translateY(0); }
+.misc{ transform:translateY(3px); }
+.glossary{ transform:translateY(-2px); }
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.normativity{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.1);
+  filter:grayscale(35%);
+}
+
+.card.normativity.long{
+  background:rgba(255,255,255,.05);
+}
+
+.card.normativity.long:hover{
+  background:rgba(255,255,255,.06);
+}
+
+.normativity .accent{
+  background:#b7b7b7;
+}
+
+
