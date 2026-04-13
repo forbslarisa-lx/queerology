@@ -2753,7 +2753,7 @@ body::after{
 /* decorative continuation of the shelf */
 .shelf-fill{
   position: absolute;
-  left: 158px; /* starts after the main labeled spines */
+  left: 208px; /* starts after the main labeled spines */
   right: 18px;
   bottom: 14px;
   height: 78%;
