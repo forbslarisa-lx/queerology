@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agency · Queerology</title>
+  <link rel="stylesheet" href="../style.css"/>
+
+  <style>
+    /* ===== PAGE-SPECIFIC LAYOUT: AGENCY ===== */
+
+    .agency-layer{
+      position:relative;
+      margin-top:34px;
+      padding:28px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 16px 42px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter:blur(5px);
+      -webkit-backdrop-filter:blur(5px);
+      overflow:hidden;
+    }
+
+    .agency-layer::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)),
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 40%);
+      opacity:.8;
+    }
+
+    .agency-layer > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .layer-classical{
+      background:rgba(255,255,255,.045);
+    }
+
+    .layer-contemporary{
+      margin-top:24px;
+      background:rgba(255,255,255,.038);
+    }
+
+    .agency-layer-intro{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:22px;
+    }
+
+    .agency-layer-label{
+      font-size:.7rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.58);
+    }
+
+    .agency-layer-title{
+      margin:0;
+      font-size:1.35rem;
+      line-height:1.15;
+    }
+
+    .agency-layer-note{
+      margin:0;
+      max-width:74ch;
+      color:rgba(255,255,255,.8);
+      line-height:1.66;
+      font-size:.97rem;
+    }
+
+    .agency-grid{
+      display:grid;
+      gap:26px;
+      align-items:start;
+    }
+
+    /* ===== CLASSICAL LAYER ===== */
+
+    .agency-grid-classical{
+      grid-template-columns:1.08fr .95fr 1fr;
+      grid-template-areas:
+        "core habitus constraints"
+        "core performance governmentality"
+        "resistance resistance falseconsciousness";
+    }
+
+    .ag-core{ grid-area:core; min-height:400px; }
+    .ag-habitus{ grid-area:habitus; min-height:260px; }
+    .ag-constraints{ grid-area:constraints; min-height:260px; }
+    .ag-performance{ grid-area:performance; min-height:255px; }
+    .ag-governmentality{ grid-area:governmentality; min-height:270px; }
+    .ag-resistance{ grid-area:resistance; min-height:285px; }
+    .ag-false{ grid-area:falseconsciousness; min-height:285px; }
+
+    /* ===== BRIDGE ===== */
+
+    .agency-bridge{
+      margin:30px auto 8px;
+      max-width:860px;
+      text-align:center;
+      padding:12px 18px 0;
+    }
+
+    .agency-bridge p{
+      margin:0;
+      color:rgba(255,255,255,.72);
+      line-height:1.72;
+      font-size:.98rem;
+    }
+
+    /* ===== CONTEMPORARY LAYER ===== */
+
+    .agency-grid-contemporary{
+      grid-template-columns:1fr 1.08fr 1fr;
+      grid-template-areas:
+        "mahmood affect berlant"
+        "discursive affect neoliberal"
+        "tactics precarious algorithmic"
+        "embodied temporal temporal";
+    }
+
+    .ag-mahmood{
+      grid-area:mahmood;
+      min-height:305px;
+      transform:translateY(10px);
+    }
+
+    .ag-affect{
+      grid-area:affect;
+      min-height:360px;
+      transform:translateY(-8px);
+      box-shadow:
+        0 26px 66px rgba(0,0,0,.36),
+        0 8px 22px rgba(0,0,0,.18);
+    }
+
+    .ag-berlant{
+      grid-area:berlant;
+      min-height:305px;
+      transform:translate(6px, 12px);
+    }
+
+    .ag-discursive{
+      grid-area:discursive;
+      min-height:255px;
+      transform:translate(-10px, 6px);
+    }
+
+    .ag-neoliberal{
+      grid-area:neoliberal;
+      min-height:280px;
+      transform:translate(8px, -2px);
+    }
+
+    .ag-tactics{
+      grid-area:tactics;
+      min-height:260px;
+      transform:translate(-12px, 12px);
+    }
+
+    .ag-precarious{
+      grid-area:precarious;
+      min-height:280px;
+      transform:translateY(20px);
+    }
+
+    .ag-algorithmic{
+      grid-area:algorithmic;
+      min-height:260px;
+      transform:translate(10px, 18px);
+    }
+
+    .ag-embodied{
+      grid-area:embodied;
+      min-height:245px;
+      transform:translate(-8px, 12px);
+    }
+
+    .ag-temporal{
+      grid-area:temporal;
+      min-height:245px;
+      transform:translate(8px, 10px);
+    }
+
+    /* ===== TYPOGRAPHY HELPERS ===== */
+
+    .agency-grid .concept-title{
+      max-width:22ch;
+    }
+
+    .agency-grid .concept-text{
+      max-width:54ch;
+      line-height:1.68;
+      text-wrap:pretty;
+    }
+
+    .ag-core .concept-text,
+    .ag-resistance .concept-text,
+    .ag-temporal .concept-text{
+      max-width:82ch;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width:1180px){
+      .agency-grid-classical{
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+          "core core"
+          "habitus constraints"
+          "performance governmentality"
+          "resistance resistance"
+          "falseconsciousness falseconsciousness";
+      }
+
+      .agency-grid-contemporary{
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+          "affect affect"
+          "mahmood berlant"
+          "discursive neoliberal"
+          "tactics precarious"
+          "algorithmic embodied"
+          "temporal temporal";
+      }
+
+      .ag-mahmood,
+      .ag-affect,
+      .ag-berlant,
+      .ag-discursive,
+      .ag-neoliberal,
+      .ag-tactics,
+      .ag-precarious,
+      .ag-algorithmic,
+      .ag-embodied,
+      .ag-temporal{
+        transform:none;
+      }
+    }
+
+    @media (max-width:780px){
+      .agency-layer{
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .agency-grid-classical,
+      .agency-grid-contemporary{
+        grid-template-columns:1fr;
+      }
+
+      .agency-grid-classical{
+        grid-template-areas:
+          "core"
+          "habitus"
+          "constraints"
+          "performance"
+          "governmentality"
+          "resistance"
+          "falseconsciousness";
+      }
+
+      .agency-grid-contemporary{
+        grid-template-areas:
+          "affect"
+          "mahmood"
+          "berlant"
+          "discursive"
+          "neoliberal"
+          "tactics"
+          "precarious"
+          "algorithmic"
+          "embodied"
+          "temporal";
+      }
+    }
+  </style>
+</head>
+<body class="theme-agency">
+
+  <div class="library-bg" aria-hidden="true"></div>
+
+  <main class="topic-page">
+
+    <nav class="topic-nav">
+      <a href="../index.html" class="back-link">← Back to map</a>
+    </nav>
+
+    <header class="topic-header">
+      <div class="topic-eyebrow">
+        <span class="eyebrow-main">Queerology ·</span>
+        <span class="eyebrow-topic">Agency</span>
+      </div>
+      <h1>Agency</h1>
+      <p class="topic-intro">
+        Agency is not the fantasy of total freedom. It is the question of how
+        action becomes possible inside norms, structures, pressure, desire,
+        and unequal conditions of life.
+      </p>
+    </header>
+
+    <!-- ===== LAYER 1: CLASSICAL ===== -->
+    <section class="agency-layer layer-classical">
+      <div class="agency-layer-intro">
+        <div class="agency-layer-label">Classical framework</div>
+        <h2 class="agency-layer-title">Action inside structure</h2>
+        <p class="agency-layer-note">
+          Classical theories of agency ask whether people truly act, or whether
+          action is shaped in advance by institutions, norms, class position,
+          socialization, and power. This framework does not deny action, but it
+          resists the myth of the fully autonomous self. Agency appears here as
+          constrained, patterned, strategic, and unevenly distributed.
+        </p>
+      </div>
+
+      <div class="agency-grid agency-grid-classical">
+
+        <article class="concept-block ag-core paper-note">
+          <div class="concept-label">Core problem</div>
+          <h2 class="concept-title">Structure vs Agency</h2>
+
+          <p class="concept-text">
+            Agency names the capacity to act, choose, improvise, and influence the
+            world. But critical theory immediately complicates this idea: action
+            never takes place in neutral conditions. We act through institutions,
+            categories, classed and gendered expectations, embodied histories,
+            and unequal access to power.
+          </p>
+
+          <p class="concept-text">
+            The classical problem of social theory is therefore not whether people
+            act, but how action is possible inside structures that precede them.
+            Agency is real, but never unlimited. It operates through a field of
+            constraints, incentives, habits, risks, and recognitions that shape
+            what even feels thinkable.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/giddens.jpg" alt="Anthony Giddens" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Anthony Giddens</div>
+              <div class="author-role">Structuration theory, action, and social reproduction</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            We act, but not in conditions we choose.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Structuration and social action</a></li>
+              <li><a href="#">Agency and social theory</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-habitus paper-warm">
+          <div class="concept-label">Disposition</div>
+          <h2 class="concept-title">Habitus</h2>
+
+          <p class="concept-text">
+            Habitus describes the embodied habits, tastes, instincts, and dispositions
+            that shape how people move through the world. What feels like personal
+            choice often emerges from deeply trained social patterns.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/bourdieu.jpg" alt="Pierre Bourdieu" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Pierre Bourdieu</div>
+              <div class="author-role">Habitus, field, reproduction, and embodied class</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            What feels like choice is often trained instinct.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Habitus and embodied social life</a></li>
+              <li><a href="#">Distinction</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-constraints paper-cool">
+          <div class="concept-label">Constraint</div>
+          <h2 class="concept-title">Structural Constraints</h2>
+
+          <p class="concept-text">
+            Not everyone has the same range of possible action. Class, race, gender,
+            citizenship, disability, and legal status shape what risks can be taken,
+            what futures are imaginable, and what choices remain available.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/crenshaw.jpg" alt="Kimberlé Crenshaw" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Kimberlé Crenshaw</div>
+              <div class="author-role">Intersectionality and uneven conditions of action</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Agency is never distributed evenly.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Constraint, inequality, and intersectionality</a></li>
+              <li><a href="#">Structural power</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-performance paper-plain">
+          <div class="concept-label">Performance</div>
+          <h2 class="concept-title">Performativity</h2>
+
+          <p class="concept-text">
+            Identity is not simply possessed. It is enacted through repeated gestures,
+            norms, and social performance. Agency appears here not as pure freedom,
+            but as action through repetition, variation, and slippage within the script.
+          </p>
+
+          <div class="concept-meta split-meta">
+            <div class="author-info">
+              <div class="author-name">Judith Butler</div>
+              <div class="author-role">Performativity, repetition, and becoming</div>
+            </div>
+
+            <div class="author-photo-wrap">
+              <img src="../assets/butler.jpg" alt="Judith Butler" class="author-photo">
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Agency can appear inside repetition, not only outside it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Gender Trouble</a></li>
+              <li><a href="#">Performativity and constrained action</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-governmentality paper-note">
+          <div class="concept-label">Self-regulation</div>
+          <h2 class="concept-title">Governmentality</h2>
+
+          <p class="concept-text">
+            Governmentality names forms of power that work by teaching people to
+            regulate themselves. The most effective control is often internalized:
+            subjects begin to monitor, discipline, and optimize themselves in line
+            with social expectations.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/foucault.jpg" alt="Michel Foucault" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Michel Foucault</div>
+              <div class="author-role">Power, discipline, subject formation, and self-governance</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            The most effective control is the one you perform on yourself.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Governmentality and self-management</a></li>
+              <li><a href="#">Discipline and modern subjectivity</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-resistance paper-warm">
+          <div class="concept-label">Counter-force</div>
+          <h2 class="concept-title">Resistance and Everyday Tactics</h2>
+
+          <p class="concept-text">
+            Classical discussions of agency often turn toward resistance: refusal,
+            opposition, improvisation, sabotage, or quiet non-compliance. Agency does
+            not always appear as dramatic transformation. It may emerge in everyday
+            tactics, in how people survive within systems they cannot fully escape.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/james-scott.jpg" alt="James C. Scott" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">James C. Scott</div>
+              <div class="author-role">Everyday resistance, hidden transcripts, and small acts of refusal</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Not all resistance is loud. Some of it survives by staying small.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Everyday resistance</a></li>
+              <li><a href="#">Hidden transcripts and survival tactics</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-false paper-cool">
+          <div class="concept-label">Illusion</div>
+          <h2 class="concept-title">False Consciousness</h2>
+
+          <p class="concept-text">
+            People may act energetically and still remain trapped within ideas that
+            obscure their own conditions. Agency without critical awareness can become
+            participation in systems that damage the very people who sustain them.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/marx.jpg" alt="Karl Marx" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Karl Marx</div>
+              <div class="author-role">Ideology, mystification, and action against one's own interests</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            You can act and still not be free.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Ideology and consciousness</a></li>
+              <li><a href="#">Action, belief, and domination</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== BRIDGE ===== -->
+    <div class="agency-bridge">
+      <p>
+        Contemporary theory complicates agency even further. It asks whether action
+        must always look like resistance, how desire and affect shape choice, and how
+        neoliberal, digital, and precarious conditions reorganize what agency even means.
+      </p>
+    </div>
+
+    <!-- ===== LAYER 2: CONTEMPORARY ===== -->
+    <section class="agency-layer layer-contemporary">
+      <div class="agency-layer-intro">
+        <div class="agency-layer-label">Contemporary rethinking</div>
+        <h2 class="agency-layer-title">Agency after autonomy</h2>
+        <p class="agency-layer-note">
+          Contemporary theory challenges the liberal fantasy that agency means independent,
+          rational self-direction. It asks what happens when subjects are formed through
+          subordination, when optimism attaches us to impossible futures, when feeling moves
+          us as much as reason, and when algorithms, precarity, and time itself begin to
+          govern action from within.
+        </p>
+      </div>
+
+      <div class="agency-grid agency-grid-contemporary">
+
+        <article class="concept-block ag-mahmood paper-plain">
+          <div class="concept-label">Subordination</div>
+          <h2 class="concept-title">Agency within Norms</h2>
+
+          <p class="concept-text">
+            Agency does not always appear as resistance. People may inhabit norms,
+            discipline, or religious practice in ways that are active, meaningful,
+            and intentional, even when those actions do not fit liberal ideas of emancipation.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/mahmood.jpg" alt="Saba Mahmood" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Saba Mahmood</div>
+              <div class="author-role">Agency, ethics, piety, and life inside normative forms</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Not all agency resists power. Some inhabits it.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Politics of Piety</a></li>
+              <li><a href="#">Agency beyond resistance</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-affect paper-note">
+          <div class="concept-label">Affective force</div>
+          <h2 class="concept-title">Affect and Orientation</h2>
+
+          <p class="concept-text">
+            Action is not driven by reason alone. Fear, comfort, shame, desire,
+            attachment, and aversion orient bodies toward some possibilities and away
+            from others. Agency can therefore be affective before it is deliberate.
+          </p>
+
+          <p class="concept-text">
+            What feels close, familiar, safe, or imaginable matters politically.
+            People do not simply choose from a neutral menu of options. They are
+            pulled, repelled, exhausted, encouraged, and shaped through affective
+            worlds that organize movement in advance.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/ahmed.jpg" alt="Sara Ahmed" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Sara Ahmed</div>
+              <div class="author-role">Affect, orientation, and how worlds make some actions easier than others</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            We move not only through choice, but through feeling.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Queer Phenomenology</a></li>
+              <li><a href="#">Affect, comfort, and orientation</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-berlant paper-warm">
+          <div class="concept-label">Attachment</div>
+          <h2 class="concept-title">Cruel Optimism</h2>
+
+          <p class="concept-text">
+            People can remain attached to fantasies of success, upward mobility,
+            romance, or security that actively block their flourishing. Agency here
+            becomes tragic: one keeps moving toward what harms.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/berlant.jpg" alt="Lauren Berlant" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Lauren Berlant</div>
+              <div class="author-role">Attachment, fantasy, precarity, and damaged aspiration</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            You can act toward something that actively blocks your flourishing.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Cruel Optimism</a></li>
+              <li><a href="#">Hope and blocked flourishing</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-discursive paper-cool">
+          <div class="concept-label">Language</div>
+          <h2 class="concept-title">Discursive Agency</h2>
+
+          <p class="concept-text">
+            People act through language, but not in a language they fully control.
+            Available terms, norms of legibility, and existing narratives shape what
+            can be said and what kinds of selves can be recognized.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/butler.jpg" alt="Judith Butler" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Judith Butler</div>
+              <div class="author-role">Speech, recognition, and agency through discourse</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            You speak, but not in a language you fully own.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Recognition and discursive agency</a></li>
+              <li><a href="#">Speech and norms</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-neoliberal paper-plain">
+          <div class="concept-label">Neoliberal self</div>
+          <h2 class="concept-title">Responsibilized Agency</h2>
+
+          <p class="concept-text">
+            Neoliberal culture tells people they are free, entrepreneurial, and fully
+            responsible for their own outcomes. Structural problems are translated into
+            individual failure, making agency feel compulsory and exhausting.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/wendy-brown.jpg" alt="Wendy Brown" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Wendy Brown</div>
+              <div class="author-role">Neoliberal reason and the entrepreneurial subject</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            You are told you are free, so failure becomes your fault.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Undoing the Demos</a></li>
+              <li><a href="#">Neoliberal subjectivity</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-tactics paper-warm">
+          <div class="concept-label">Navigation</div>
+          <h2 class="concept-title">Tactics</h2>
+
+          <p class="concept-text">
+            Strategies belong to institutions that control space. Tactics belong to
+            those who move within structures they do not own. Agency may therefore
+            appear as improvisation, timing, rerouting, and clever use of cracks.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/de-certeau.jpg" alt="Michel de Certeau" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Michel de Certeau</div>
+              <div class="author-role">Everyday tactics and navigation inside dominant systems</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Power builds structures. People learn to move inside them.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">The Practice of Everyday Life</a></li>
+              <li><a href="#">Strategies and tactics</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-precarious paper-note">
+          <div class="concept-label">Fragility</div>
+          <h2 class="concept-title">Precarious Agency</h2>
+
+          <p class="concept-text">
+            When survival is unstable, agency contracts. Under precarity, people do
+            not stop acting, but action becomes reactive, strategic, and often tied to
+            immediate endurance rather than expansive self-determination.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/butler.jpg" alt="Judith Butler" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Judith Butler</div>
+              <div class="author-role">Precarity, vulnerability, and livable conditions</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Agency does not disappear under pressure. It narrows and adapts.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Precarity and agency</a></li>
+              <li><a href="#">Survival under unstable conditions</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-algorithmic paper-cool">
+          <div class="concept-label">Digital condition</div>
+          <h2 class="concept-title">Algorithmic Agency</h2>
+
+          <p class="concept-text">
+            In digital environments, choices are filtered, predicted, and curated before
+            they are consciously made. Agency is reshaped by recommendation systems,
+            visibility rankings, data extraction, and invisible infrastructures of nudging.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/safiya-noble.jpg" alt="Safiya Umoja Noble" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Safiya Umoja Noble</div>
+              <div class="author-role">Algorithms, ranking systems, and unequal digital visibility</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Your choices may be curated before you experience them as choice.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Algorithms of Oppression</a></li>
+              <li><a href="#">Digital governance and choice architecture</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-embodied paper-plain">
+          <div class="concept-label">Embodiment</div>
+          <h2 class="concept-title">Embodied Agency</h2>
+
+          <p class="concept-text">
+            Agency is lived through bodies. Energy, pain, vulnerability, disability,
+            gendered exposure, and physical risk all shape what action becomes possible,
+            desirable, or costly.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap small-photo">
+              <img src="../assets/haraway.jpg" alt="Donna Haraway" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Donna Haraway</div>
+              <div class="author-role">Embodiment, situatedness, and partial agency</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            Agency is never abstract. It is lived through the body.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Embodiment and situated action</a></li>
+              <li><a href="#">Bodies, risk, and possibility</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="concept-block ag-temporal paper-warm">
+          <div class="concept-label">Time</div>
+          <h2 class="concept-title">Temporal Agency</h2>
+
+          <p class="concept-text">
+            Agency depends on time. Delay, waiting, exhaustion, deadlines, and suspended
+            futures reorganize what action can be. A person may know what they want and
+            still be unable to move because life has been paused by institutions, trauma,
+            paperwork, or uncertainty.
+          </p>
+
+          <div class="concept-meta">
+            <div class="author-photo-wrap">
+              <img src="../assets/hage.jpg" alt="Ghassan Hage" class="author-photo">
+            </div>
+
+            <div class="author-info">
+              <div class="author-name">Ghassan Hage</div>
+              <div class="author-role">Waiting, stuckness, and exhausted futurity</div>
+            </div>
+          </div>
+
+          <blockquote class="concept-quote">
+            You cannot always act when your life has been forced into pause.
+          </blockquote>
+
+          <div class="resources">
+            <div class="resources-label">Reading shelf</div>
+            <ul class="resources-list">
+              <li><a href="#">Waiting, time, and stalled action</a></li>
+              <li><a href="#">Temporal constraint and social life</a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
