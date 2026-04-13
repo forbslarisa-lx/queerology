@@ -2737,3 +2737,114 @@ body::after{
     display:none;
   }
 }
+
+/* ===== STACK CARDS AS MINI-SHELVES ===== */
+
+.stack-card{
+  position: relative;
+  overflow: hidden;
+}
+
+.stack-card .stack{
+  position: relative;
+  z-index: 3;
+}
+
+/* decorative continuation of the shelf */
+.shelf-fill{
+  position: absolute;
+  left: 132px; /* starts after the main labeled spines */
+  right: 18px;
+  bottom: 14px;
+  height: 78%;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.42;
+}
+
+/* decorative books */
+.fill-book{
+  display: block;
+  width: 16px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    inset 1px 0 0 rgba(255,255,255,.06),
+    inset -1px 0 0 rgba(0,0,0,.18),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+/* different heights */
+.fill-book.h1{ height: 82%; }
+.fill-book.h2{ height: 68%; }
+.fill-book.h3{ height: 52%; }
+.fill-book.h4{ height: 74%; }
+.fill-book.h5{ height: 58%; }
+.fill-book.h6{ height: 88%; }
+
+/* slight chaos */
+.fill-book.tilt-left{
+  transform: rotate(-5deg) translateY(1px);
+  transform-origin: bottom center;
+}
+
+.fill-book.tilt-right{
+  transform: rotate(4deg) translateY(1px);
+  transform-origin: bottom center;
+}
+
+/* horizontal stacked book */
+.fill-book.horizontal{
+  width: 38px;
+  height: 10px;
+  border-radius: 2px;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+
+/* fade further into the card */
+.shelf-fill .fill-book:nth-child(n+4){
+  opacity: 0.78;
+}
+
+.shelf-fill .fill-book:nth-child(n+5){
+  opacity: 0.62;
+}
+
+.stack-card.knowledge .fill-book{
+  box-shadow:
+    inset 2px 0 0 rgba(158,132,255,.35),
+    inset -1px 0 0 rgba(0,0,0,.2),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+.stack-card.identity .fill-book{
+  box-shadow:
+    inset 2px 0 0 rgba(255,110,190,.28),
+    inset -1px 0 0 rgba(0,0,0,.2),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+.stack-card.gender .fill-book{
+  box-shadow:
+    inset 2px 0 0 rgba(255,105,120,.28),
+    inset -1px 0 0 rgba(0,0,0,.2),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+.stack-card.women .fill-book{
+  box-shadow:
+    inset 2px 0 0 rgba(255,170,90,.28),
+    inset -1px 0 0 rgba(0,0,0,.2),
+    0 4px 10px rgba(0,0,0,.18);
+}
+
+
