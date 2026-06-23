@@ -2847,4 +2847,217 @@ body::after{
     0 4px 10px rgba(0,0,0,.18);
 }
 
+/* =========================
+   UNDER CONSTRUCTION PAGE
+   ========================= */
+
+.construction-page{
+  min-height:calc(100vh - 160px);
+  display:flex;
+  flex-direction:column;
+}
+
+.construction-wrap{
+  flex:1;
+  display:grid;
+  place-items:center;
+  padding:48px 0 72px;
+}
+
+.construction-card{
+  position:relative;
+  width:min(760px, 100%);
+  padding:54px 58px 50px;
+
+  text-align:center;
+
+  border-radius:34px;
+  border:1px solid rgba(255,255,255,.1);
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035)),
+    radial-gradient(circle at top center, rgba(255,255,255,.07), transparent 42%);
+
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+
+  overflow:hidden;
+}
+
+.construction-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.035), transparent 25%, transparent 75%, rgba(255,255,255,.025)),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 46%);
+
+  opacity:.8;
+}
+
+.construction-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.construction-icon{
+  width:54px;
+  height:54px;
+  margin:0 auto 22px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.035);
+}
+
+.construction-icon span{
+  width:24px;
+  height:30px;
+  display:block;
+  position:relative;
+
+  border:2px solid rgba(255,255,255,.45);
+  border-radius:4px 7px 7px 4px;
+}
+
+.construction-icon span::before{
+  content:"";
+  position:absolute;
+  right:-7px;
+  top:4px;
+  width:6px;
+  height:22px;
+
+  border:2px solid rgba(255,255,255,.28);
+  border-left:none;
+  border-radius:0 5px 5px 0;
+}
+
+.construction-label{
+  margin-bottom:14px;
+
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+
+  color:rgba(255,255,255,.48);
+}
+
+.construction-card h1{
+  margin:0;
+
+  font-family:"Georgia", "Iowan Old Style", serif;
+  font-weight:400;
+  font-size:clamp(2.4rem, 5vw, 4.4rem);
+  line-height:1.05;
+
+  color:rgba(248,244,236,.96);
+  text-shadow:0 8px 34px rgba(0,0,0,.35);
+}
+
+.construction-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+
+  margin:28px auto 30px;
+
+  color:var(--accent-color);
+}
+
+.construction-divider::before,
+.construction-divider::after{
+  content:"";
+  width:90px;
+  height:1px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.18),
+    transparent
+  );
+}
+
+.construction-divider span{
+  width:10px;
+  height:10px;
+  transform:rotate(45deg);
+
+  border:1px solid var(--accent-color);
+  opacity:.55;
+}
+
+.construction-text{
+  max-width:520px;
+  margin:0 auto 14px;
+
+  font-size:1.08rem;
+  line-height:1.7;
+
+  color:rgba(255,255,255,.72);
+}
+
+.construction-accent{
+  margin:0 auto 28px;
+
+  font-size:1.08rem;
+  line-height:1.6;
+
+  color:var(--accent-color);
+}
+
+.construction-note{
+  margin:0 auto;
+
+  font-size:.94rem;
+  line-height:1.6;
+  color:rgba(255,255,255,.52);
+}
+
+/* small library-plaque variation by theme */
+.theme-knowledge .construction-card{ --accent-color:#9c5cff; }
+.theme-identity .construction-card{ --accent-color:#ff5aa8; }
+.theme-gender .construction-card{ --accent-color:#ff6b6b; }
+.theme-women .construction-card{ --accent-color:#ff9558; }
+.theme-race .construction-card{ --accent-color:#ffc64d; }
+.theme-colonialism .construction-card{ --accent-color:#c9a65a; }
+.theme-immigration .construction-card{ --accent-color:#7dd36f; }
+.theme-power .construction-card{ --accent-color:#57ddb1; }
+.theme-language .construction-card{ --accent-color:#46beff; }
+.theme-nature .construction-card{ --accent-color:#4ed8c8; }
+.theme-agency .construction-card{ --accent-color:#8d70ff; }
+.theme-misc .construction-card{ --accent-color:#ff7ec4; }
+.theme-glossary .construction-card{ --accent-color:#d8d8d8; }
+
+@media (max-width:700px){
+  .construction-wrap{
+    padding:32px 0 54px;
+  }
+
+  .construction-card{
+    padding:38px 24px 36px;
+    border-radius:26px;
+  }
+
+  .construction-divider::before,
+  .construction-divider::after{
+    width:58px;
+  }
+
+  .construction-text,
+  .construction-accent{
+    font-size:1rem;
+  }
+}
 
