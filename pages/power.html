@@ -664,6 +664,273 @@
     grid-template-columns:1fr;
   }
 }
+
+    /* ==================================================
+   FINAL LABOR MOSAIC
+   Varied card sizes, no transforms, no overlaps
+   ================================================== */
+
+.labor-power-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr)) !important;
+
+  grid-template-areas:
+    "resource resource resource resource gatekeeping gatekeeping gatekeeping gatekeeping gatekeeping gatekeeping gatekeeping gatekeeping"
+    "discipline discipline discipline discipline discipline discipline discipline emotional emotional emotional emotional emotional"
+    "affective affective affective affective participation participation participation participation participation participation participation participation"
+    "managed managed managed managed managed authenticity authenticity authenticity authenticity authenticity authenticity authenticity" !important;
+
+  column-gap:30px;
+  row-gap:38px;
+
+  align-items:start;
+}
+
+
+/* Grid positions */
+
+.labor-card-resource{
+  grid-area:resource;
+}
+
+.labor-card-gatekeeping{
+  grid-area:gatekeeping;
+}
+
+.labor-card-discipline{
+  grid-area:discipline;
+}
+
+.labor-card-emotional{
+  grid-area:emotional;
+}
+
+.labor-card-affective{
+  grid-area:affective;
+}
+
+.labor-card-participation{
+  grid-area:participation;
+}
+
+.labor-card-managed{
+  grid-area:managed;
+}
+
+.labor-card-authenticity{
+  grid-area:authenticity;
+}
+
+
+/* Remove old transforms permanently */
+
+.labor-card-resource,
+.labor-card-gatekeeping,
+.labor-card-discipline,
+.labor-card-emotional,
+.labor-card-affective,
+.labor-card-participation,
+.labor-card-managed,
+.labor-card-authenticity{
+  transform:none !important;
+  margin:0 !important;
+
+  width:auto;
+  min-width:0;
+  min-height:unset;
+
+  align-self:start;
+  box-sizing:border-box;
+}
+
+
+/* Basic card proportions */
+
+.labor-card{
+  padding:27px 25px 25px;
+  overflow:hidden;
+}
+
+.labor-card .concept-text{
+  max-width:none;
+}
+
+.labor-card .concept-quote{
+  max-width:48ch;
+}
+
+
+/* Narrow cards stay vertical */
+
+.labor-card-resource .resources-list,
+.labor-card-emotional .resources-list,
+.labor-card-affective .resources-list,
+.labor-card-managed .resources-list{
+  display:block;
+}
+
+
+/* Wide cards use a wider, lower reading shelf */
+
+.labor-card-gatekeeping .resources-list,
+.labor-card-discipline .resources-list,
+.labor-card-participation .resources-list,
+.labor-card-authenticity .resources-list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  column-gap:26px;
+}
+
+
+/* Different typographic silhouettes */
+
+.labor-card-resource .concept-title,
+.labor-card-affective .concept-title,
+.labor-card-emotional .concept-title{
+  max-width:11ch;
+}
+
+.labor-card-gatekeeping .concept-title,
+.labor-card-discipline .concept-title,
+.labor-card-participation .concept-title{
+  max-width:18ch;
+}
+
+.labor-card-managed .concept-title{
+  max-width:12ch;
+}
+
+.labor-card-authenticity .concept-title{
+  max-width:20ch;
+}
+
+
+/* Slightly different shapes without breaking the house style */
+
+.labor-card-resource{
+  border-radius:16px 21px 17px 19px;
+}
+
+.labor-card-gatekeeping{
+  border-radius:22px 17px 20px 15px;
+}
+
+.labor-card-discipline{
+  border-radius:17px 22px 16px 20px;
+}
+
+.labor-card-emotional{
+  border-radius:20px 15px 22px 17px;
+}
+
+.labor-card-affective{
+  border-radius:15px 20px 17px 22px;
+}
+
+.labor-card-participation{
+  border-radius:22px 18px 20px 16px;
+}
+
+.labor-card-managed{
+  border-radius:18px 22px 15px 20px;
+}
+
+.labor-card-authenticity{
+  border-radius:21px 16px 22px 18px;
+}
+
+
+/* Safe asymmetry.
+   Margins participate in grid layout, unlike transform. */
+
+@media (min-width:1181px){
+  .labor-card-resource{
+    margin-top:20px !important;
+  }
+
+  .labor-card-emotional{
+    margin-top:30px !important;
+  }
+
+  .labor-card-affective{
+    margin-top:18px !important;
+  }
+
+  .labor-card-authenticity{
+    margin-top:26px !important;
+  }
+}
+
+
+/* Medium screens: still a wall, but simpler */
+
+@media (max-width:1180px){
+  .labor-power-grid{
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    grid-template-areas:
+      "resource gatekeeping"
+      "discipline emotional"
+      "affective participation"
+      "managed authenticity" !important;
+
+    column-gap:26px;
+    row-gap:32px;
+  }
+
+  .labor-card-resource,
+  .labor-card-gatekeeping,
+  .labor-card-discipline,
+  .labor-card-emotional,
+  .labor-card-affective,
+  .labor-card-participation,
+  .labor-card-managed,
+  .labor-card-authenticity{
+    margin:0 !important;
+  }
+
+  .labor-card-gatekeeping .resources-list,
+  .labor-card-discipline .resources-list,
+  .labor-card-participation .resources-list,
+  .labor-card-authenticity .resources-list{
+    display:block;
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width:780px){
+  .labor-power-grid{
+    grid-template-columns:1fr !important;
+
+    grid-template-areas:
+      "resource"
+      "gatekeeping"
+      "discipline"
+      "emotional"
+      "affective"
+      "participation"
+      "managed"
+      "authenticity" !important;
+
+    row-gap:24px;
+  }
+
+  .labor-card{
+    padding:23px 20px 21px;
+    border-radius:18px;
+  }
+
+  .labor-card .concept-title,
+  .labor-card .concept-text,
+  .labor-card .concept-quote{
+    max-width:none;
+  }
+}
   </style>
 </head>
 <body class="theme-power">
@@ -1575,8 +1842,8 @@
 
     <article
       class="concept-block labor-card labor-card-wide
-             labor-card-authenticity paper-note"
-    >
+             labor-card-authenticity paper-note">
+      
       <div class="concept-label">From privacy to performed identity</div>
       <h3 class="concept-title">
         Coerced Authenticity &amp; Compulsory Belonging
@@ -1664,9 +1931,8 @@
   Supporting a person’s freedom to be authentic is not the same as
   requiring disclosure, vulnerability, visibility, or emotional access.
 </p>
- </div>
     </article>
-
+ </div>
   
 
 
