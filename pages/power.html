@@ -630,6 +630,40 @@
     border-bottom:0;
   }
 }
+    /* ===== LABOR CARDS: KEY THINKER + QUOTE + SHELF ===== */
+
+.labor-card .labor-key-thinker{
+  margin-top:22px;
+  margin-bottom:16px;
+}
+
+.labor-card .concept-quote{
+  max-width:none;
+  margin:18px 0 18px;
+  font-size:.94rem;
+  line-height:1.65;
+}
+
+.labor-card .resources{
+  margin-top:16px;
+}
+
+.labor-card .resources-list a{
+  font-size:.84rem;
+  line-height:1.45;
+}
+
+.labor-card-wide .resources-list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  column-gap:24px;
+}
+
+@media (max-width:780px){
+  .labor-card-wide .resources-list{
+    grid-template-columns:1fr;
+  }
+}
   </style>
 </head>
 <body class="theme-power">
@@ -986,27 +1020,66 @@
         reason for using it remains unstated.
       </p>
 
-      <div class="labor-scholars-wrap">
-        <div class="labor-scholars-label">Key thinkers</div>
 
-        <ul class="labor-scholars">
-          <li>
-            <strong>Richard M. Emerson</strong>
-            <span>Power-dependence relations</span>
-          </li>
-          <li>
-            <strong>Karl Marx</strong>
-            <span>Labor-power and wage dependence</span>
-          </li>
-          <li>
-            <strong>Pierre Bourdieu</strong>
-            <span>Economic, social, and cultural capital</span>
-          </li>
-          <li>
-            <strong>Kathi Weeks</strong>
-            <span>Feminist critique of work and the work ethic</span>
-          </li>
-        </ul>
+
+<div class="concept-meta labor-key-thinker">
+  <div class="author-photo-wrap">
+    <img
+      src="../assets/emerson.jpg"
+      alt="Portrait of Richard M. Emerson"
+      class="author-photo"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="author-info">
+    <div class="author-name">Richard M. Emerson</div>
+    <div class="author-role">
+      Sociologist of power, exchange, and dependence
+    </div>
+  </div>
+</div>
+
+<blockquote class="concept-quote">
+  The lever can be direct even when the threat remains unspoken.
+</blockquote>
+
+<div class="resources">
+  <div class="resources-label">Reading shelf</div>
+
+  <ul class="resources-list">
+    <li>
+      <a
+        href="https://doi.org/10.2307/2089716"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Richard M. Emerson — “Power-Dependence Relations”
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="https://www.marxists.org/archive/marx/works/1867-c1/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Karl Marx — Capital, Volume I
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="https://www.dukeupress.edu/the-problem-with-work"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kathi Weeks — The Problem with Work
+      </a>
+    </li>
+  </ul>
+</div>
+        
       </div>
     </article>
 
