@@ -165,6 +165,471 @@
         max-width:unset;
       }
     }
+  /* ==================================================
+   LABOR & ECONOMIC POWER
+   Nested translucent layer
+   ================================================== */
+
+.power-layer{
+  position:relative;
+  margin-top:88px;
+  padding:clamp(24px, 4vw, 42px);
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.052),
+      rgba(255,255,255,.026)
+    );
+
+  border:1px solid rgba(255,255,255,.09);
+
+  box-shadow:
+    0 22px 58px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.045);
+
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+
+  overflow:hidden;
+  isolation:isolate;
+}
+
+/* soft light and Power-theme mint tint */
+.power-layer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(87,221,177,.10),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 92% 28%,
+      rgba(255,255,255,.055),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.025),
+      transparent 34%
+    );
+}
+
+/* faint lower shadow inside the layer */
+.power-layer::after{
+  content:"";
+  position:absolute;
+  inset:auto 5% 0;
+  height:34%;
+  z-index:0;
+  pointer-events:none;
+
+  background:radial-gradient(
+    ellipse at bottom,
+    rgba(0,0,0,.24),
+    transparent 68%
+  );
+}
+
+.power-layer > *{
+  position:relative;
+  z-index:1;
+}
+
+
+/* ---------- Layer introduction ---------- */
+
+.power-layer-intro{
+  display:grid;
+  grid-template-columns:minmax(150px, .55fr) minmax(0, 2fr);
+  gap:24px 34px;
+  align-items:start;
+  margin-bottom:28px;
+}
+
+.power-layer-heading{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.power-layer-label{
+  font-size:.7rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(87,221,177,.72);
+}
+
+.power-layer-title{
+  margin:0;
+  max-width:14ch;
+
+  font-size:clamp(1.65rem, 3vw, 2.35rem);
+  line-height:1.04;
+  letter-spacing:-.035em;
+  color:#f6f6f6;
+}
+
+.power-layer-note{
+  margin:2px 0 0;
+  max-width:78ch;
+
+  font-size:1rem;
+  line-height:1.72;
+  color:rgba(255,255,255,.78);
+}
+
+
+/* ---------- Conceptual pathway ---------- */
+
+.labor-power-path{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:10px;
+
+  margin:0 0 32px;
+  padding:12px;
+
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  background:rgba(0,0,0,.13);
+}
+
+.labor-power-path li{
+  position:relative;
+  min-height:78px;
+  padding:13px 30px 12px 14px;
+
+  border-radius:13px;
+  background:rgba(255,255,255,.025);
+}
+
+.labor-power-path li:not(:last-child)::after{
+  content:"→";
+  position:absolute;
+  right:-9px;
+  top:50%;
+  z-index:2;
+
+  transform:translateY(-50%);
+
+  color:rgba(87,221,177,.52);
+  font-size:1.05rem;
+}
+
+.labor-path-number{
+  display:block;
+  margin-bottom:5px;
+
+  font-size:.66rem;
+  letter-spacing:.12em;
+  color:rgba(87,221,177,.62);
+}
+
+.labor-power-path strong{
+  display:block;
+  margin-bottom:4px;
+
+  font-size:.88rem;
+  font-weight:600;
+  color:rgba(255,255,255,.9);
+}
+
+.labor-power-path small{
+  display:block;
+
+  font-size:.76rem;
+  line-height:1.4;
+  color:rgba(255,255,255,.48);
+}
+
+
+/* ---------- Internal card grid ---------- */
+
+.labor-power-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+
+  grid-template-areas:
+    "resource      gatekeeping  gatekeeping"
+    "discipline    emotional    affective"
+    "participation participation managed"
+    "authenticity  authenticity authenticity";
+
+  gap:26px;
+  align-items:start;
+}
+
+.labor-card{
+  min-height:0;
+}
+
+.labor-card .concept-text{
+  max-width:none;
+  line-height:1.7;
+}
+
+.labor-card-resource{
+  grid-area:resource;
+  transform:translateY(10px);
+}
+
+.labor-card-gatekeeping{
+  grid-area:gatekeeping;
+  transform:translateY(-5px);
+}
+
+.labor-card-discipline{
+  grid-area:discipline;
+  transform:translate(-6px, 7px);
+}
+
+.labor-card-emotional{
+  grid-area:emotional;
+  transform:translateY(19px);
+
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.38),
+    0 8px 22px rgba(0,0,0,.18);
+}
+
+.labor-card-affective{
+  grid-area:affective;
+  transform:translate(6px, -4px);
+}
+
+.labor-card-participation{
+  grid-area:participation;
+  transform:translateY(12px);
+}
+
+.labor-card-managed{
+  grid-area:managed;
+  transform:translate(8px, 27px);
+}
+
+.labor-card-authenticity{
+  grid-area:authenticity;
+  transform:translateY(12px);
+  margin-top:6px;
+}
+
+.labor-card-wide .concept-text{
+  max-width:78ch;
+}
+
+
+/* ---------- Scholar / research notes ---------- */
+
+.labor-scholars-wrap{
+  margin-top:20px;
+}
+
+.labor-scholars-label{
+  margin-bottom:9px;
+
+  font-size:.68rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.42);
+}
+
+.labor-scholars{
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+
+  margin:0;
+  padding:0;
+}
+
+.labor-card-wide .labor-scholars{
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.labor-scholars li{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+
+  padding:9px 11px;
+
+  border-left:2px solid rgba(87,221,177,.4);
+  border-radius:0 9px 9px 0;
+  background:rgba(0,0,0,.12);
+}
+
+.labor-scholars strong{
+  font-size:.8rem;
+  font-weight:600;
+  line-height:1.35;
+  color:rgba(255,255,255,.86);
+}
+
+.labor-scholars span{
+  font-size:.74rem;
+  line-height:1.4;
+  color:rgba(255,255,255,.5);
+}
+
+.labor-caution{
+  margin:18px 0 0;
+  padding:11px 14px;
+
+  border:1px solid rgba(87,221,177,.14);
+  border-radius:12px;
+  background:rgba(87,221,177,.045);
+
+  color:rgba(255,255,255,.7);
+  font-size:.86rem;
+  line-height:1.55;
+}
+
+
+/* ---------- Closing thesis ---------- */
+
+.labor-power-thesis{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:1px;
+
+  margin:44px 0 0;
+  padding:0;
+
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;
+  overflow:hidden;
+
+  background:rgba(0,0,0,.16);
+}
+
+.labor-power-thesis span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:70px;
+  padding:16px;
+
+  text-align:center;
+  font-family:Georgia, serif;
+  font-style:italic;
+  font-size:.94rem;
+  line-height:1.5;
+  color:rgba(245,241,233,.8);
+
+  border-right:1px solid rgba(255,255,255,.06);
+}
+
+.labor-power-thesis span:last-child{
+  border-right:0;
+}
+
+.labor-power-thesis strong{
+  color:rgba(87,221,177,.9);
+  font-weight:400;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:1180px){
+  .power-layer-intro{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .power-layer-title{
+    max-width:none;
+  }
+
+  .labor-power-path{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .labor-power-path li:not(:last-child)::after{
+    display:none;
+  }
+
+  .labor-power-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+
+    grid-template-areas:
+      "resource     gatekeeping"
+      "discipline   emotional"
+      "affective    participation"
+      "managed      authenticity";
+  }
+
+  .labor-card-resource,
+  .labor-card-gatekeeping,
+  .labor-card-discipline,
+  .labor-card-emotional,
+  .labor-card-affective,
+  .labor-card-participation,
+  .labor-card-managed,
+  .labor-card-authenticity{
+    transform:none;
+    margin-top:0;
+  }
+
+  .labor-card-wide .labor-scholars{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:780px){
+  .power-layer{
+    margin-top:58px;
+    padding:20px;
+    border-radius:22px;
+  }
+
+  .labor-power-path{
+    grid-template-columns:1fr;
+  }
+
+  .labor-power-path li{
+    min-height:auto;
+  }
+
+  .labor-power-grid{
+    grid-template-columns:1fr;
+
+    grid-template-areas:
+      "resource"
+      "gatekeeping"
+      "discipline"
+      "emotional"
+      "affective"
+      "participation"
+      "managed"
+      "authenticity";
+  }
+
+  .labor-power-thesis{
+    grid-template-columns:1fr;
+  }
+
+  .labor-power-thesis span{
+    min-height:auto;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+
+  .labor-power-thesis span:last-child{
+    border-bottom:0;
+  }
+}
   </style>
 </head>
 <body class="theme-power">
@@ -443,6 +908,408 @@
       </article>
 
     </section>
+    <!-- ==================================================
+     LABOR & ECONOMIC POWER
+     ================================================== -->
+
+<section
+  class="power-layer labor-economic-layer"
+  aria-labelledby="labor-economic-title"
+>
+  <div class="power-layer-intro">
+
+    <div class="power-layer-heading">
+      <div class="power-layer-label">Workplace power</div>
+      <h2 class="power-layer-title" id="labor-economic-title">
+        Labor &amp; Economic Power
+      </h2>
+    </div>
+
+    <p class="power-layer-note">
+      Workplace authority is material before it becomes cultural. Employers and
+      managers distribute pay, hours, assignments, information, visibility,
+      references, contracts, and promotion. This direct control can be extended
+      into indirect demands about attitude, sociability, belonging, and emotional
+      display—making access to resources conditional on the performance of the
+      “right” kind of worker.
+    </p>
+
+  </div>
+
+
+  <!-- CONCEPTUAL PATH -->
+
+  <ol
+    class="labor-power-path"
+    aria-label="How workplace power moves from material dependence to identity"
+  >
+    <li>
+      <span class="labor-path-number">01</span>
+      <strong>Material dependence</strong>
+      <small>Income, time, access, security</small>
+    </li>
+
+    <li>
+      <span class="labor-path-number">02</span>
+      <strong>Behavioral discipline</strong>
+      <small>Rules, metrics, evaluation, visibility</small>
+    </li>
+
+    <li>
+      <span class="labor-path-number">03</span>
+      <strong>Emotional regulation</strong>
+      <small>Attitude, positivity, gratitude, calm</small>
+    </li>
+
+    <li>
+      <span class="labor-path-number">04</span>
+      <strong>The managed self</strong>
+      <small>Identity, belonging, authenticity</small>
+    </li>
+  </ol>
+
+
+  <div class="labor-power-grid">
+
+
+    <!-- RESOURCE POWER -->
+
+    <article class="concept-block labor-card labor-card-resource paper-note">
+      <div class="concept-label">Source of leverage</div>
+      <h3 class="concept-title">Resource Power</h3>
+
+      <p class="concept-text">
+        Employers do not need to issue explicit threats when they control
+        resources workers need. Pay, hours, insurance, contracts, schedules,
+        references, information, and future opportunities can be allocated,
+        delayed, restricted, or withheld. The lever is direct even when the
+        reason for using it remains unstated.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Key thinkers</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Richard M. Emerson</strong>
+            <span>Power-dependence relations</span>
+          </li>
+          <li>
+            <strong>Karl Marx</strong>
+            <span>Labor-power and wage dependence</span>
+          </li>
+          <li>
+            <strong>Pierre Bourdieu</strong>
+            <span>Economic, social, and cultural capital</span>
+          </li>
+          <li>
+            <strong>Kathi Weeks</strong>
+            <span>Feminist critique of work and the work ethic</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- ORGANIZATIONAL GATEKEEPING -->
+
+    <article
+      class="concept-block labor-card labor-card-wide
+             labor-card-gatekeeping paper-cool"
+    >
+      <div class="concept-label">Allocation and access</div>
+      <h3 class="concept-title">Organizational Gatekeeping</h3>
+
+      <p class="concept-text">
+        Workplace power operates through decisions about access: who is invited
+        into meetings, given information, trained, mentored, assigned visible
+        work, evaluated as promotable, or treated as a cultural fit. Formally
+        neutral procedures can convert familiarity, similarity, and comfort into
+        unequal careers.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Theory and research</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Joan Acker</strong>
+            <span>Gendered organizations and the “ideal worker”</span>
+          </li>
+          <li>
+            <strong>Lauren Rivera</strong>
+            <span>Hiring as cultural matching</span>
+          </li>
+          <li>
+            <strong>Emilio Castilla &amp; Stephen Benard</strong>
+            <span>The paradox of meritocracy</span>
+          </li>
+          <li>
+            <strong>Kristen Schilt</strong>
+            <span>Trans workers and gendered workplace inequality</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- LABOR DISCIPLINE -->
+
+    <article class="concept-block labor-card labor-card-discipline paper-warm">
+      <div class="concept-label">Control of conduct</div>
+      <h3 class="concept-title">Labor Discipline</h3>
+
+      <p class="concept-text">
+        Industrial discipline organized bodies through clocks, supervision, and
+        repetitive routines. Contemporary organizations add targets, dashboards,
+        visibility, team norms, and self-surveillance. Control may be imposed by
+        management, embedded in systems, or enforced horizontally by coworkers.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Key thinkers</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>E. P. Thompson</strong>
+            <span>Time and work-discipline</span>
+          </li>
+          <li>
+            <strong>Michael Burawoy</strong>
+            <span>Manufacturing consent</span>
+          </li>
+          <li>
+            <strong>James R. Barker</strong>
+            <span>Concertive and peer-enforced control</span>
+          </li>
+          <li>
+            <strong>Michel Foucault</strong>
+            <span>Discipline, observation, and normalization</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- EMOTIONAL LABOR -->
+
+    <article class="concept-block labor-card labor-card-emotional paper-note">
+      <div class="concept-label">Compulsory feeling</div>
+      <h3 class="concept-title">Emotional Labor</h3>
+
+      <p class="concept-text">
+        Work may require more than performing a task. Workers can also be expected
+        to display, cultivate, or suppress particular feelings: warmth, calm,
+        optimism, patience, gratitude, or enthusiasm. Emotional labor becomes
+        coercive when refusing the required performance threatens evaluation,
+        resources, safety, or belonging.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Theory and research</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Arlie Russell Hochschild</strong>
+            <span>Feeling rules and the managed heart</span>
+          </li>
+          <li>
+            <strong>Alicia A. Grandey</strong>
+            <span>Surface acting, deep acting, and strain</span>
+          </li>
+          <li>
+            <strong>Adia Harvey Wingfield</strong>
+            <span>Racialized feeling rules</span>
+          </li>
+          <li>
+            <strong>Amy J. Tweedy</strong>
+            <span>Queering emotional labor</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- AFFECTIVE POWER -->
+
+    <article class="concept-block labor-card labor-card-affective paper-plain">
+      <div class="concept-label">Emotional hierarchy</div>
+      <h3 class="concept-title">Affective Power</h3>
+
+      <p class="concept-text">
+        Affective power determines whose emotions are treated as legitimate.
+        Some workers may express authority, anger, exhaustion, or dissatisfaction;
+        others must reassure, absorb tension, and remain pleasant. Complaint can
+        be recoded as negativity, while compulsory optimism is presented as
+        professionalism.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Key thinkers</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Sara Ahmed</strong>
+            <span>Happiness duties and institutional complaint</span>
+          </li>
+          <li>
+            <strong>Lauren Berlant</strong>
+            <span>Cruel optimism and affective attachment</span>
+          </li>
+          <li>
+            <strong>Melissa Gregg</strong>
+            <span>Work, intimacy, and emotional availability</span>
+          </li>
+          <li>
+            <strong>Diefendorff et al.</strong>
+            <span>Power and workplace display rules</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- COMPULSORY PARTICIPATION -->
+
+    <article
+      class="concept-block labor-card labor-card-wide
+             labor-card-participation paper-cool"
+    >
+      <div class="concept-label">Optional, but not really</div>
+      <h3 class="concept-title">Compulsory Participation</h3>
+
+      <p class="concept-text">
+        Extra-role work, team bonding, workplace fun, book clubs, personal
+        reflections, social events, and displays of enthusiasm may be described
+        as voluntary. Yet nonparticipation can be interpreted as poor attitude,
+        weak commitment, or failure to be a team player. The activity is
+        formally optional while the social and professional consequences are not.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Theory and research</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Eran Vigoda-Gadot</strong>
+            <span>Compulsory citizenship behavior</span>
+          </li>
+          <li>
+            <strong>Mark Bolino et al.</strong>
+            <span>Citizenship behavior under pressure</span>
+          </li>
+          <li>
+            <strong>Peter Fleming</strong>
+            <span>Managed fun and organizational cynicism</span>
+          </li>
+          <li>
+            <strong>Ethan Mollick &amp; Nancy Rothbard</strong>
+            <span>Mandatory fun, consent, and agency</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- THE MANAGED SELF -->
+
+    <article class="concept-block labor-card labor-card-managed paper-warm">
+      <div class="concept-label">Control of subjectivity</div>
+      <h3 class="concept-title">The Managed Self</h3>
+
+      <p class="concept-text">
+        Organizational culture can seek control not only over conduct but over
+        commitment, personality, values, and self-understanding. Workers are
+        encouraged to monitor and reshape their inner selves until organizational
+        demands appear as personal goals, choices, and attitudes.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Key thinkers</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Gideon Kunda</strong>
+            <span>Corporate culture and normative control</span>
+          </li>
+          <li>
+            <strong>Hugh Willmott</strong>
+            <span>Culture as regulation of subjectivity</span>
+          </li>
+          <li>
+            <strong>Nikolas Rose</strong>
+            <span>Governing through the psychological self</span>
+          </li>
+          <li>
+            <strong>Catherine Casey</strong>
+            <span>Workplace community and identity integration</span>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+    <!-- COERCED AUTHENTICITY -->
+
+    <article
+      class="concept-block labor-card labor-card-wide
+             labor-card-authenticity paper-note"
+    >
+      <div class="concept-label">From privacy to performed identity</div>
+      <h3 class="concept-title">
+        Coerced Authenticity &amp; Compulsory Belonging
+      </h3>
+
+      <p class="concept-text">
+        The older workplace command was to leave personal life at home. The newer
+        organization may invite workers to “bring your whole self”—while deciding
+        which parts of that self are relatable, useful, safe, or promotable.
+        Inclusion can become another form of control when disclosure,
+        vulnerability, sociability, or visible belonging is treated as a
+        professional obligation.
+      </p>
+
+      <div class="labor-scholars-wrap">
+        <div class="labor-scholars-label">Theory and queer workplace research</div>
+
+        <ul class="labor-scholars">
+          <li>
+            <strong>Peter Fleming &amp; Andrew Sturdy</strong>
+            <span>“Just be yourself” and neo-normative control</span>
+          </li>
+          <li>
+            <strong>Kenji Yoshino</strong>
+            <span>Covering and demands to minimize difference</span>
+          </li>
+          <li>
+            <strong>Belle Rose Ragins</strong>
+            <span>Disclosure, fear, and workplace climate</span>
+          </li>
+          <li>
+            <strong>Martinez, Webster, Mohr et al.</strong>
+            <span>Queer and trans authenticity in supportive contexts</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="labor-caution">
+        Supporting a person’s freedom to be authentic is not the same as
+        requiring disclosure, vulnerability, visibility, or emotional access.
+      </p>
+    </article>
+
+  </div>
+
+
+  <!-- CLOSING THESIS -->
+
+  <blockquote class="labor-power-thesis">
+    <span>The power is <strong>&nbsp;material.</strong></span>
+    <span>The requirement is <strong>&nbsp;emotional.</strong></span>
+    <span>The justification is <strong>&nbsp;cultural.</strong></span>
+  </blockquote>
+
+</section>
   </main>
 </body>
 </html>
